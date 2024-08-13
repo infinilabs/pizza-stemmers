@@ -90,45 +90,6 @@ impl TokenFilter for StemmerFilter {
     }
 }
 
-// fn tokenize_text<'a>(text: &'a str) -> Vec<Token<'a>> {
-//     let mut tokens = Vec::new();
-//     let mut start_offset = 0;
-//     let mut position = 0;
-//
-//     let mut chars = text.char_indices().peekable();
-//
-//     while let Some((i, ch)) = chars.next() {
-//         if ch.is_whitespace() {
-//             start_offset += ch.len_utf8() as u32;
-//             continue;
-//         }
-//
-//         let token_start = i;
-//         let mut token_end = token_start;
-//
-//         while let Some(&(j, next_ch)) = chars.peek() {
-//             if next_ch.is_whitespace() {
-//                 break;
-//             }
-//             token_end = j;
-//             chars.next();
-//         }
-//
-//         let term = &text[token_start..=token_end];
-//
-//         tokens.push(Token {
-//             term: Cow::Borrowed(term),
-//             start_offset: token_start as u32,
-//             end_offset: (token_end + ch.len_utf8() as usize) as u32,
-//             position,
-//         });
-//
-//         start_offset = ((token_end + ch.len_utf8() as usize) + 1) as u32; // Adjust for the space after the token
-//         position += 1;
-//     }
-//
-//     tokens
-// }
 
 fn tokenize_text<'a>(text: &'a str) -> Vec<Token<'a>> {
     let mut tokens = Vec::new();
