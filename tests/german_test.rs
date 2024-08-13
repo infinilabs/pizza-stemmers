@@ -2,37 +2,19 @@
 #[cfg(test)]
 mod tests {
     use std::{fs::File, io::{BufRead, BufReader}};
-    use tantivy::tokenizer::{LowerCaser, SimpleTokenizer, TextAnalyzer};
-    use tantivy_tokenizer_api::TokenFilter;
+    use engine::analysis::Tokenizer;
+    use pizza_stemmers::{algorithms, StemmerTokenizer};
 
-    use tantivy_stemmers;
     use test_utils;
+    use test_utils::analysis_and_check;
 
     #[test]
     fn it_stems_using_german() {
-        let stemmer = tantivy_stemmers::StemmerTokenizer::new(
-            tantivy_stemmers::algorithms::german,
-        );
 
-        let chain = stemmer.transform(LowerCaser.transform(SimpleTokenizer::default()));
-        let mut tokenizer = TextAnalyzer::builder(chain).build();
-
+        let my_tokenizer: Box<dyn Tokenizer> = Box::new(StemmerTokenizer::new(algorithms::german));
         let input_file = File::open("./tests/assets/de/german.input.txt").unwrap();
         let output_file = File::open("./tests/assets/de/german.output.txt").unwrap();
+        analysis_and_check(my_tokenizer, input_file, output_file);
 
-        let input_reader = BufReader::new(input_file);
-        let output_reader = BufReader::new(output_file);
-
-        let lines = input_reader.lines().zip(output_reader.lines());
-
-        for (input, output) in lines {
-            let input_str = input.unwrap();
-            let mut token_stream = tokenizer.token_stream(input_str.as_str());
-
-            assert_eq!(
-                test_utils::reduce_token_stream_to_string(&mut token_stream),
-                output.unwrap(),
-            );
-        }
     }
 }

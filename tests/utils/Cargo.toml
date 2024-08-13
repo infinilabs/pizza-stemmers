@@ -4,4 +4,6 @@ version = "0.3.0"
 edition = "2021"
 
 [dependencies]
-tantivy-tokenizer-api = "0.3.0"
+common = { path = "../../../pizza/lib/common" }
+engine = { path = "../../../pizza/lib/engine" }
+pizza-stemmers={ path = "../../../pizza-stemmers" }

@@ -1,6 +1,6 @@
 use std::borrow::Cow;
 use std::mem;
-use tantivy_tokenizer_api::{Token, TokenFilter, TokenStream, Tokenizer};
+use engine::analysis::{Token, TokenFilter, TokenFilterClone, Tokenizer};
 
 mod snowball;
 
@@ -30,66 +30,339 @@ impl Default for StemmerTokenizer {
     }
 }
 
-impl TokenFilter for StemmerTokenizer {
-    type Tokenizer<T: Tokenizer> = StemmerFilter<T>;
+/// Implement the Tokenizer trait for StemmerTokenizer
+impl Tokenizer for StemmerTokenizer {
+    fn tokenize<'a>(&self, text: &'a str) -> Vec<Token<'a>> {
+        // Tokenize the input text
+        let tokens = tokenize_text(text);
 
-    fn transform<T: Tokenizer>(self, tokenizer: T) -> StemmerFilter<T> {
-        StemmerFilter {
-            algorithm: self.algorithm,
-            inner: tokenizer,
-        }
+        // Transform tokens by applying stemming algorithm
+        tokens.into_iter()
+            .map(|token| {
+                // Apply stemming to the token text
+                let stemmed_text = match (self.algorithm)(&token.term) {
+                    Cow::Owned(stemmed_str) => Cow::Owned(stemmed_str),
+                    Cow::Borrowed(stemmed_str) => Cow::Owned(stemmed_str.to_string()), // Convert to owned
+                };
+
+                // println!("{}=>{}",token.term,stemmed_text);
+
+                // Create a new Token with the stemmed text
+                Token {
+                    term: stemmed_text,
+                    start_offset: token.start_offset,
+                    end_offset: token.end_offset,
+                    position: token.position,
+                }
+            })
+            .collect()
     }
 }
+
 
 #[derive(Clone)]
-pub struct StemmerFilter<T> {
+pub struct StemmerFilter {
     algorithm: algorithms::Algorithm,
-    inner: T,
 }
 
-impl<T: Tokenizer> Tokenizer for StemmerFilter<T> {
-    type TokenStream<'a> = StemmerTokenStream<T::TokenStream<'a>>;
+impl StemmerFilter {
+    /// Creates a new `StemmerFilter` with the specified stemming algorithm.
+    pub fn new(algorithm: algorithms::Algorithm) -> StemmerFilter {
+        StemmerFilter { algorithm }
+    }
+}
 
-    fn token_stream<'a>(&'a mut self, text: &'a str) -> Self::TokenStream<'a> {
-        StemmerTokenStream {
-            tail: self.inner.token_stream(text),
-            buffer: String::new(),
-            algorithm: self.algorithm,
+impl TokenFilter for StemmerFilter {
+    fn filter<'a>(&self, token: Token<'a>) -> Token<'a> {
+        // Apply stemming to the token text
+        let stemmed_text = match (self.algorithm)(&token.term) {
+            Cow::Owned(stemmed_str) => Cow::Owned(stemmed_str),
+            Cow::Borrowed(stemmed_str) => Cow::Owned(stemmed_str.to_string()), // Convert to owned
+        };
+
+        // Create a new Token with the stemmed text
+        Token {
+            term: stemmed_text,
+            start_offset: token.start_offset,
+            end_offset: token.end_offset,
+            position: token.position,
         }
     }
 }
 
-pub struct StemmerTokenStream<T> {
-    tail: T,
-    buffer: String,
-    algorithm: algorithms::Algorithm,
-}
+// fn tokenize_text<'a>(text: &'a str) -> Vec<Token<'a>> {
+//     let mut tokens = Vec::new();
+//     let mut start_offset = 0;
+//     let mut position = 0;
+//
+//     let mut chars = text.char_indices().peekable();
+//
+//     while let Some((i, ch)) = chars.next() {
+//         if ch.is_whitespace() {
+//             start_offset += ch.len_utf8() as u32;
+//             continue;
+//         }
+//
+//         let token_start = i;
+//         let mut token_end = token_start;
+//
+//         while let Some(&(j, next_ch)) = chars.peek() {
+//             if next_ch.is_whitespace() {
+//                 break;
+//             }
+//             token_end = j;
+//             chars.next();
+//         }
+//
+//         let term = &text[token_start..=token_end];
+//
+//         tokens.push(Token {
+//             term: Cow::Borrowed(term),
+//             start_offset: token_start as u32,
+//             end_offset: (token_end + ch.len_utf8() as usize) as u32,
+//             position,
+//         });
+//
+//         start_offset = ((token_end + ch.len_utf8() as usize) + 1) as u32; // Adjust for the space after the token
+//         position += 1;
+//     }
+//
+//     tokens
+// }
 
-impl<T: TokenStream> TokenStream for StemmerTokenStream<T> {
-    fn advance(&mut self) -> bool {
-        if !self.tail.advance() {
-            return false;
+fn tokenize_text<'a>(text: &'a str) -> Vec<Token<'a>> {
+    let mut tokens = Vec::new();
+    let mut position = 0;
+
+    let mut char_indices = text.char_indices().peekable();
+
+    while let Some((start, ch)) = char_indices.next() {
+        if ch.is_whitespace() {
+            // Skip whitespace characters
+            continue;
         }
 
-        let token = self.tail.token_mut();
+        let token_start = start;
+        let mut token_end = token_start;
 
-        match (self.algorithm)(&token.text) {
-            Cow::Owned(stemmed_str) => token.text = stemmed_str,
-            Cow::Borrowed(stemmed_str) => {
-                self.buffer.clear();
-                self.buffer.push_str(stemmed_str);
-                mem::swap(&mut token.text, &mut self.buffer);
+        // Determine the end of the token
+        while let Some(&(next_start, next_ch)) = char_indices.peek() {
+            if next_ch.is_whitespace() {
+                break;
             }
+            token_end = next_start;
+            char_indices.next();
         }
 
-        true
+        // Handle the end of the last token
+        if let Some((last_end, last_ch)) = char_indices.peek() {
+            if last_ch.is_whitespace() {
+                token_end = *last_end;
+            }
+        } else {
+            token_end = text.len();
+        }
+
+        let term = &text[token_start..token_end];
+
+        tokens.push(Token {
+            term: Cow::Borrowed(term),
+            start_offset: token_start as u32,
+            end_offset: token_end as u32,
+            position,
+        });
+
+        position += 1;
     }
 
-    fn token(&self) -> &Token {
-        self.tail.token()
+    tokens
+}
+
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_single_word() {
+        let text = "word";
+        let tokens = tokenize_text(text);
+
+        println!("{:?}",tokens);
+
+        assert_eq!(tokens.len(), 1);
+        assert_eq!(tokens[0].term, Cow::Borrowed("word"));
+        assert_eq!(tokens[0].start_offset, 0);
+        assert_eq!(tokens[0].end_offset, 4);
+        assert_eq!(tokens[0].position, 0);
     }
 
-    fn token_mut(&mut self) -> &mut Token {
-        self.tail.token_mut()
+    #[test]
+    fn test_multiple_words() {
+        let text = "this is a test";
+        let tokens = tokenize_text(text);
+        println!("{:?}",tokens);
+
+        assert_eq!(tokens.len(), 4);
+
+        assert_eq!(tokens[0].term, Cow::Borrowed("this"));
+        assert_eq!(tokens[0].start_offset, 0);
+        assert_eq!(tokens[0].end_offset, 4);
+        assert_eq!(tokens[0].position, 0);
+
+        assert_eq!(tokens[1].term, Cow::Borrowed("is"));
+        assert_eq!(tokens[1].start_offset, 5);
+        assert_eq!(tokens[1].end_offset, 7);
+        assert_eq!(tokens[1].position, 1);
+
+        assert_eq!(tokens[2].term, Cow::Borrowed("a"));
+        assert_eq!(tokens[2].start_offset, 8);
+        assert_eq!(tokens[2].end_offset, 9);
+        assert_eq!(tokens[2].position, 2);
+
+        assert_eq!(tokens[3].term, Cow::Borrowed("test"));
+        assert_eq!(tokens[3].start_offset, 10);
+        assert_eq!(tokens[3].end_offset, 14);
+        assert_eq!(tokens[3].position, 3);
     }
+
+    #[test]
+    fn test_leading_trailing_spaces() {
+        let text = "  leading and trailing  ";
+        let tokens = tokenize_text(text);
+        println!("{:?}",tokens);
+
+        assert_eq!(tokens.len(), 3);
+
+        assert_eq!(tokens[0].term, Cow::Borrowed("leading"));
+        assert_eq!(tokens[0].start_offset, 2);
+        assert_eq!(tokens[0].end_offset, 9);
+        assert_eq!(tokens[0].position, 0);
+
+        assert_eq!(tokens[1].term, Cow::Borrowed("and"));
+        assert_eq!(tokens[1].start_offset, 10);
+        assert_eq!(tokens[1].end_offset, 13);
+        assert_eq!(tokens[1].position, 1);
+
+        assert_eq!(tokens[2].term, Cow::Borrowed("trailing"));
+        assert_eq!(tokens[2].start_offset, 14);
+        assert_eq!(tokens[2].end_offset, 22);
+        assert_eq!(tokens[2].position, 2);
+    }
+
+    #[test]
+    fn test_basic_tokenization_and_stemming() {
+        // Create a StemmerTokenizer with a specific algorithm
+        let tokenizer = StemmerTokenizer::new(algorithms::english_porter_2);
+
+        let text = "running runners";
+        let tokens = tokenizer.tokenize(text);
+
+        assert_eq!(tokens.len(), 2);
+
+        // Check the first token
+        assert_eq!(tokens[0].term, Cow::Borrowed("run")); // Assuming stemming reduces "running" to "run"
+        assert_eq!(tokens[0].start_offset, 0);
+        assert_eq!(tokens[0].end_offset, 7);
+        assert_eq!(tokens[0].position, 0);
+
+        // Check the second token
+        assert_eq!(tokens[1].term, Cow::Borrowed("runner")); // Assuming stemming reduces "runners" to "runner"
+        assert_eq!(tokens[1].start_offset, 8);
+        assert_eq!(tokens[1].end_offset, 15);
+        assert_eq!(tokens[1].position, 1);
+    }
+
+    #[test]
+    fn test_tokenization_with_whitespace() {
+        let tokenizer = StemmerTokenizer::new(algorithms::english_porter_2);
+
+        let text = "  running   quickly  ";
+        let tokens = tokenizer.tokenize(text);
+
+        assert_eq!(tokens.len(), 2);
+
+        // Check the first token
+        assert_eq!(tokens[0].term, Cow::Borrowed("run")); // Assuming stemming reduces "running" to "run"
+        assert_eq!(tokens[0].start_offset, 2);
+        assert_eq!(tokens[0].end_offset, 9);
+        assert_eq!(tokens[0].position, 0);
+
+        // Check the second token
+        assert_eq!(tokens[1].term, Cow::Borrowed("quick")); // Assuming stemming reduces "quickly" to "quick"
+        assert_eq!(tokens[1].start_offset, 12);
+        assert_eq!(tokens[1].end_offset, 19);
+        assert_eq!(tokens[1].position, 1);
+    }
+
+    #[test]
+    fn test_french_stemming() {
+        let tokenizer = StemmerTokenizer::new(algorithms::french);
+
+        let text = "manges mangeons";
+        let tokens = tokenizer.tokenize(text);
+
+        assert_eq!(tokens.len(), 2);
+
+        // Check the first token
+        assert_eq!(tokens[0].term, Cow::Borrowed("mang")); // Assuming stemming reduces "manges" to "mang"
+        assert_eq!(tokens[0].start_offset, 0);
+        assert_eq!(tokens[0].end_offset, 6);
+        assert_eq!(tokens[0].position, 0);
+
+        // Check the second token
+        assert_eq!(tokens[1].term, Cow::Borrowed("mangeon")); // Assuming stemming reduces "mangeons" to "mangeon"
+        assert_eq!(tokens[1].start_offset, 7);
+        assert_eq!(tokens[1].end_offset, 15);
+        assert_eq!(tokens[1].position, 1);
+    }
+
+
+    #[test]
+    fn test_english_stemming_filter() {
+        // Create a StemmerTokenizer with a specific algorithm
+        let tokenizer = engine::analysis::WhitespaceTokenizer::new();
+
+        // Tokenize some input text
+        let text = "running runner ran";
+        let tokens = tokenizer.tokenize(text);
+
+        println!("{:?}",tokens);
+
+        // Create a StemmerFilter using the same algorithm
+        let filter = StemmerFilter::new(algorithms::english_porter_2);
+
+        // Apply the filter to each token
+        let filtered_tokens: Vec<Token> = tokens.into_iter()
+            .map(|token| filter.filter(token))
+            .collect();
+
+        // Print the filtered tokens for verification
+        for token in &filtered_tokens {
+            println!("{:?}", token);
+        }
+
+        // Expected results (adjust based on your stemming algorithm's output)
+        assert_eq!(filtered_tokens.len(), 3);
+
+        // Check the first token
+        assert_eq!(filtered_tokens[0].term, Cow::Borrowed("run")); // Example expected result
+        assert_eq!(filtered_tokens[0].start_offset, 0);
+        assert_eq!(filtered_tokens[0].end_offset, 7);
+        assert_eq!(filtered_tokens[0].position, 0);
+
+        // Check the second token
+        assert_eq!(filtered_tokens[1].term, Cow::Borrowed("runner")); // Example expected result
+        assert_eq!(filtered_tokens[1].start_offset, 8);
+        assert_eq!(filtered_tokens[1].end_offset, 14);
+        assert_eq!(filtered_tokens[1].position, 1);
+
+        // Check the third token
+        assert_eq!(filtered_tokens[2].term, Cow::Borrowed("ran")); // Example expected result
+        assert_eq!(filtered_tokens[2].start_offset, 15);
+        assert_eq!(filtered_tokens[2].end_offset, 18);
+        assert_eq!(filtered_tokens[2].position, 2);
+    }
+
 }
