@@ -1,14 +1,14 @@
 [package]
-name = "tantivy-stemmers"
-version = "0.4.0"
+name = "pizza-stemmers"
+version = "0.1.0"
 edition = "2021"
-keywords = ["tantivy", "tokenizer", "stemmer"]
+keywords = ["pizza", "tokenizer", "stemmer"]
 categories = ["text-processing"]
 license = "BSD-3-Clause"
 license-file = "LICENSE"
 authors = ["Testuj.to s.r.o. <technology@testuj.to>", "Patrik Šimunič"]
 description = "A collection of Tantivy stemmer tokenizers"
-repository = "https://github.com/testuj-to/tantivy-stemmers"
+repository = "https://github.com/infinilabs/pizza-stemmers"
 
 [features]
 default = ["english_porter_2"]

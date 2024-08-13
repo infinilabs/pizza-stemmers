@@ -7,7 +7,7 @@ mod snowball;
 pub mod algorithms;
 
 /// Stemmer tokenizer. Several algorithms are supported, see [`algorithms`] or
-/// https://crates.io/crates/tantivy-stemmers for a list of all available algorithms.
+/// https://github.com/infinilabs/pizza-stemmers for a list of all available algorithms.
 ///
 /// ❗️❗️ Tokens are expected to be lowercased beforehand.
 #[derive(Clone)]

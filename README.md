@@ -1,15 +1,16 @@
 
-# Tantivy stemmers (tokenizer)
+# Pizza stemmers (tokenizer)
 
-This library bundles several OSS to provide a collection of stemming algorithms for various languages as a Tantivy tokenizer. [Tantivy](https://github.com/quickwit-oss/tantivy) is a full-text search engine library written in Rust. As its default `Stemmer` tokenizer depends on a less then alive library `rust-stemmers`, there are only a very few languages available by default. Nevertheless, Tantivy provides an easy way to build our own custom tokenizers (see the [tantivy-tokenizer-api](https://crates.io/crates/tantivy-tokenizer-api) for details).
+This library bundles several OSS to provide a collection of stemming algorithms for various languages as a Pizza tokenizer. 
+[Pizza](https://github.com/infinilabs/pizza) is a distributed Real-Time Search & AI-Native innovation engine that written in Rust. 
+This library originally forked from [tantivy-stemmers](https://github.com/testuj-to/tantivy-stemmers) by testuj-to.
 
 This library compiles several OSS projects into 1 library:
 - [`snowballstem/snowball`](https://github.com/snowballstem/snowball)
 
-  All the raw algorithms in this library are written in the [Snowball](https://snowballstem.org) language, then complied into a Rust code using the Snowball compiler - all these generated algorithms are located at `src/snowball/algorithms/*`. A Snowball *environment* is then needed to execute the generated algorithm. This environment is comprised of files `src/snowball/among.rs` and `src/snowball/env.rs` - both files have been provided (ie. copied) from the official Snowball repository: [`rust/src/snowball`](https://github.com/snowballstem/snowball/tree/master/rust).
-- [`Tantivy`](https://github.com/quickwit-oss/tantivy)
+  All the raw algorithms in this library are written in the [Snowball](https://snowballstem.org) language, then complied into a Rust code using the Snowball compiler - all these generated algorithms are located at `src/snowball/algorithms/*`. 
+- A Snowball *environment* is then needed to execute the generated algorithm. This environment is comprised of files `src/snowball/among.rs` and `src/snowball/env.rs` - both files have been provided (ie. copied) from the official Snowball repository: [`rust/src/snowball`](https://github.com/snowballstem/snowball/tree/master/rust).
 
-  Implementation of the `Stemmer` in this library is more or less a copy of the original implementation of the [`Stemmer` tokenizer](https://github.com/quickwit-oss/tantivy/blob/main/src/tokenizer/stemmer.rs) in the Tantivy library. Only this lib does not depend on the `rust-stemmers` package and instead includes various algorithms in it self. And instead of importing from the `tantivy` lib, this library imports from `tantivy-tokenizer-api`.
 - **Algorithms**
 
   Most, if not all, stemming algorithms are obtained from the official [Snowball website](https://snowballstem.org) and compiled using the Snowball compiler into Rust. More information about individual algorithm licenses are noted below - most are published under the BSD license.
@@ -21,7 +22,7 @@ As this library bundles many algorithms and contains lots of generated code, it 
 ```toml
 # ...
 [dependencies]
-tantivy-stemmers = { version = "0.3.0", features = ["default", "czech_dolamic_aggressive"] }
+pizza-stemmers = { version = "0.3.0", features = ["default", "czech_dolamic_aggressive"] }
 # ...
 ```
 
