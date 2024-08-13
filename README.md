@@ -34,43 +34,46 @@ pizza-stemmers = { version = "0.1.0", features = ["default"] }
 
 ### List of available Cargo features
 
-|Feature|Default|Language|Notes|
-|-|-|-|-|
-|`arabic`|-|Arabic||
-|`armenian_mkrtchyan`|-|Armenian||
-|`basque`|-|Basque||
-|`catalan`|-|Catalan||
-|`czech_dolamic_aggressive`|-|Czech||
-|`czech_dolamic_light`|-|Czech||
-|`danish`|-|Danish||
-|`dutch`|-|Dutch||
-|`english_lovins`|-|English||
-|`english_porter`|-|English|*Porter* has been deprecated in favour of *Porter 2*|
-|`english_porter_2`|__*👈&nbsp;this*__|English||
-|`estonian_freienthal`|-|Estonian||
-|`finnish`|-|Finnish||
-|`french`|-|French||
-|`german`|-|German||
-|`greek`|-|Greek||
-|`hindi_lightweight`|-|Hindi||
-|`hungarian`|-|Hungarian||
-|`indonesian_tala`|-|Indonesian||
-|`irish_gaelic`|-|Irish||
-|`italian`|-|Italian||
-|`lithuanian_jocas`|-|Lithuanian||
-|`nepali`|-|Nepali||
-|`norwegian_bokmal`|-|Norwegian||
-|`polish_yarovoy`|-|Polish|Non-Snowball alg.|
-|`polish_yarovoy_unaccented`|-|Polish|Non-Snowball alg.; besides stemming, this alg. also removes accents|
-|`portuguese`|-|Portuguese||
-|`romanian_heidelberg`|-|Romanian||
-|`romanian_tirdea`|-|Romanian||
-|`romanian`|-|Romanian||
-|`russian`|-|Russian||
-|`spanish`|-|Spanish||
-|`swedish`|-|Swedish||
-|`turkish_cilden`|-|Turkish||
-|`yiddish_urieli`|-|Yiddish||
+Certainly! Here's the updated table without the "Default" column:
+
+| Feature                        | Language     | Notes                                                             |
+|--------------------------------|--------------|-------------------------------------------------------------------|
+| `arabic`                       | Arabic        |                                                                   |
+| `armenian_mkrtchyan`           | Armenian      |                                                                   |
+| `basque`                       | Basque        |                                                                   |
+| `catalan`                      | Catalan       |                                                                   |
+| `czech_dolamic_aggressive`     | Czech         |                                                                   |
+| `czech_dolamic_light`          | Czech         |                                                                   |
+| `danish`                       | Danish        |                                                                   |
+| `dutch`                        | Dutch         |                                                                   |
+| `english_lovins`               | English       |                                                                   |
+| `english_porter`               | English       | *Porter* has been deprecated in favour of *Porter 2*             |
+| `english_porter_2`             | English       |                                                                   |
+| `estonian_freienthal`          | Estonian      |                                                                   |
+| `finnish`                      | Finnish       |                                                                   |
+| `french`                       | French        |                                                                   |
+| `german`                       | German        |                                                                   |
+| `greek`                        | Greek         |                                                                   |
+| `hindi_lightweight`            | Hindi         |                                                                   |
+| `hungarian`                    | Hungarian     |                                                                   |
+| `indonesian_tala`              | Indonesian    |                                                                   |
+| `irish_gaelic`                 | Irish         |                                                                   |
+| `italian`                      | Italian       |                                                                   |
+| `lithuanian_jocas`             | Lithuanian    |                                                                   |
+| `nepali`                       | Nepali        |                                                                   |
+| `norwegian_bokmal`             | Norwegian     |                                                                   |
+| `polish_yarovoy`               | Polish        | Non-Snowball algorithm                                            |
+| `polish_yarovoy_unaccented`    | Polish        | Non-Snowball algorithm; removes accents                           |
+| `portuguese`                   | Portuguese    |                                                                   |
+| `romanian_heidelberg`          | Romanian      |                                                                   |
+| `romanian_tirdea`              | Romanian      |                                                                   |
+| `romanian`                     | Romanian      |                                                                   |
+| `russian`                      | Russian       |                                                                   |
+| `spanish`                      | Spanish       |                                                                   |
+| `swedish`                      | Swedish       |                                                                   |
+| `turkish_cilden`               | Turkish       |                                                                   |
+| `yiddish_urieli`               | Yiddish       |                                                                   |
+
 
 ### Notes on individual algorithms and their sources
 
