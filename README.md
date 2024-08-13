@@ -17,66 +17,18 @@ This library compiles several OSS projects into 1 library:
 
 ## Cargo features
 
-As this library bundles many algorithms and contains lots of generated code, it would be nice not to have to include it all in our final build. For this reason, each algorithm is published as a Cargo feature. In order to use a specific algorithm, you have to install the appropriate feature first. If you want to use, say, the Dolamic algorithm for Czech in the aggressive variant, your `Cargo.toml` should look like this:
+As this library bundles many algorithms and contains lots of generated code, it would be nice not to have to include it all in our final build. 
+For this reason, each algorithm is published as a Cargo feature. In order to use a specific algorithm, you have to install the appropriate feature first. 
+By `default` enabled all algorithms, adjust your own feature on purpose:
 
 ```toml
 # ...
 [dependencies]
-pizza-stemmers = { version = "0.3.0", features = ["default", "czech_dolamic_aggressive"] }
+pizza-stemmers = { version = "0.1.0", features = ["default"] }
 # ...
 ```
 
 **See the features table under [Supported algorithms](#supported-algorithms) below.**
-
-## Usage
-
-```rust
-use tantivy::Index;
-use tantivy::schema::{Schema, TextFieldIndexing, TextOptions, IndexRecordOption};
-use tantivy::tokenizer::{LowerCaser, SimpleTokenizer, TextAnalyzer};
-use tantivy_tokenizer_api::TokenFilter;
-use tantivy_stemmers;
-
-fn main() {
-    let mut schema_builder = Schema::builder();
-
-    schema_builder.add_text_field(
-        "title",
-        TextOptions::default()
-            .set_indexing_options(
-                TextFieldIndexing::default()
-                    // Set name of the tokenizer, we will register it shortly
-                    .set_tokenizer("lang_cs")
-                    .set_index_option(IndexRecordOption::WithFreqsAndPositions),
-            )
-            .set_stored(),
-    );
-
-    let schema = schema_builder.build();
-    let index = Index::create_in_ram(schema.clone());
-
-    // Create an instance of the StemmerTokenizer
-
-    // With default algorithm (default algorithm is [`tantivy_stemmers::algorithms::english_porter_2`])
-    // let stemmer = tantivy_stemmers::StemmerTokenizer::default();
-
-    // With a specific algorithm
-    let stemmer = tantivy_stemmers::StemmerTokenizer::new(
-        tantivy_stemmers::algorithms::czech_dolamic_aggressive,
-    );
-
-    // Before we register it, we need to wrap it in an instance
-    // of the TextAnalyzer tokenizer.
-    // ❗️ We also have to transform the text to lowercase since
-    // the stemmer expects lowercase.
-    let tokenizer = TextAnalyzer::builder(
-        stemmer.transform(LowerCaser.transform(SimpleTokenizer::default())),
-    ).build();
-
-    // Register our tokenizer with Tantivy under a custom name
-    index.tokenizers().register("lang_cs", tokenizer);
-}
-```
 
 ## Supported algorithms
 
