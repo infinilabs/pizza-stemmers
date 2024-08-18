@@ -2,7 +2,7 @@
 name = "pizza-stemmers"
 version = "0.1.0"
 edition = "2021"
-keywords = ["pizza", "tokenizer", "stemmer"]
+keywords = ["pizza","search", "tokenizer", "stemmer", "snowball"]
 categories = ["text-processing"]
 license = "BSD-3-Clause"
 license-file = "LICENSE"

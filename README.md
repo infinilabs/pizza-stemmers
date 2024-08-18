@@ -1,5 +1,5 @@
 
-# Pizza stemmers (tokenizer)
+# Pizza stemmers (Snowball)
 
 This library bundles several OSS to provide a collection of stemming algorithms for various languages as a Pizza tokenizer. 
 [Pizza](https://github.com/infinilabs/pizza) is a distributed Real-Time Search & AI-Native innovation engine that written in Rust. 
