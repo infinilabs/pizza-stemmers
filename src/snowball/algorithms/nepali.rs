@@ -5,8 +5,8 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
 
 static A_0: &'static [Among<Context>; 17] = &[
     Among("\u{0915}\u{0940}", -1, 2, None),
@@ -19,11 +19,21 @@ static A_0: &'static [Among<Context>; 17] = &[
     Among("\u{0915}\u{094B}", -1, 2, None),
     Among("\u{0938}\u{0901}\u{0917}", -1, 1, None),
     Among("\u{0938}\u{0902}\u{0917}", -1, 1, None),
-    Among("\u{092E}\u{093E}\u{0930}\u{094D}\u{092B}\u{0924}", -1, 1, None),
+    Among(
+        "\u{092E}\u{093E}\u{0930}\u{094D}\u{092B}\u{0924}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{0930}\u{0924}", -1, 1, None),
     Among("\u{0915}\u{093E}", -1, 2, None),
     Among("\u{092E}\u{093E}", -1, 1, None),
-    Among("\u{0926}\u{094D}\u{0935}\u{093E}\u{0930}\u{093E}", -1, 1, None),
+    Among(
+        "\u{0926}\u{094D}\u{0935}\u{093E}\u{0930}\u{093E}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{0915}\u{093F}", -1, 2, None),
     Among("\u{092A}\u{091B}\u{093F}", -1, 1, None),
 ];
@@ -135,8 +145,7 @@ static A_3: &'static [Among<Context>; 91] = &[
 ];
 
 #[derive(Clone)]
-struct Context {
-}
+struct Context {}
 
 fn r_remove_category_1(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let mut among_var;
@@ -152,36 +161,34 @@ fn r_remove_category_1(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        2 => {
-            'lab0: loop {
-                let v_1 = env.limit - env.cursor;
-                'lab1: loop {
-                    'lab2: loop {
-                        let v_2 = env.limit - env.cursor;
-                        'lab3: loop {
-                            if !env.eq_s_b(&"\u{090F}") {
-                                break 'lab3;
-                            }
-                            break 'lab2;
-                        }
-                        env.cursor = env.limit - v_2;
-                        if !env.eq_s_b(&"\u{0947}") {
-                            break 'lab1;
+        2 => 'lab0: loop {
+            let v_1 = env.limit - env.cursor;
+            'lab1: loop {
+                'lab2: loop {
+                    let v_2 = env.limit - env.cursor;
+                    'lab3: loop {
+                        if !env.eq_s_b(&"\u{090F}") {
+                            break 'lab3;
                         }
                         break 'lab2;
                     }
-                    break 'lab0;
-                }
-                env.cursor = env.limit - v_1;
-                if !env.slice_del() {
-                    return false;
+                    env.cursor = env.limit - v_2;
+                    if !env.eq_s_b(&"\u{0947}") {
+                        break 'lab1;
+                    }
+                    break 'lab2;
                 }
                 break 'lab0;
             }
-        }
-        _ => ()
+            env.cursor = env.limit - v_1;
+            if !env.slice_del() {
+                return false;
+            }
+            break 'lab0;
+        },
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_check_category_2(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -190,7 +197,7 @@ fn r_check_category_2(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    return true
+    return true;
 }
 
 fn r_remove_category_2(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -243,9 +250,9 @@ fn r_remove_category_2(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_remove_category_3(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -257,12 +264,11 @@ fn r_remove_category_3(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
-    let mut context = &mut Context {
-    };
+    let mut context = &mut Context {};
     env.limit_backward = env.cursor;
     env.cursor = env.limit;
     let v_1 = env.limit - env.cursor;
@@ -270,7 +276,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     env.cursor = env.limit - v_1;
     let v_2 = env.limit - env.cursor;
     'lab0: loop {
-        'replab1: loop{
+        'replab1: loop {
             let v_3 = env.limit - env.cursor;
             'lab2: for _ in 0..1 {
                 let v_4 = env.limit - env.cursor;
@@ -298,5 +304,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     }
     env.cursor = env.limit - v_2;
     env.cursor = env.limit_backward;
-    return true
+    return true;
 }

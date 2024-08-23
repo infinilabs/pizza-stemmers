@@ -1,9 +1,0 @@
-[package]
-name = "test_utils"
-version = "0.3.0"
-edition = "2021"
-
-[dependencies]
-common = { path = "../../../pizza/lib/common" }
-engine = { path = "../../../pizza/lib/engine" }
-pizza-stemmers={ path = "../../../pizza-stemmers" }

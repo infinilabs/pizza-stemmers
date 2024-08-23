@@ -5,8 +5,9 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
+use alloc::string::String;
 
 static A_0: &'static [Among<Context>; 10] = &[
     Among("pa", -1, 1, None),
@@ -39,10 +40,8 @@ static A_2: &'static [Among<Context>; 6] = &[
     Among("st\u{00E4}", 3, -1, None),
 ];
 
-static A_3: &'static [Among<Context>; 2] = &[
-    Among("lle", -1, -1, None),
-    Among("ine", -1, -1, None),
-];
+static A_3: &'static [Among<Context>; 2] =
+    &[Among("lle", -1, -1, None), Among("ine", -1, -1, None)];
 
 static A_4: &'static [Among<Context>; 9] = &[
     Among("nsa", -1, 3, None),
@@ -116,15 +115,9 @@ static A_7: &'static [Among<Context>; 14] = &[
     Among("imp\u{00E4}", 12, -1, None),
 ];
 
-static A_8: &'static [Among<Context>; 2] = &[
-    Among("i", -1, -1, None),
-    Among("j", -1, -1, None),
-];
+static A_8: &'static [Among<Context>; 2] = &[Among("i", -1, -1, None), Among("j", -1, -1, None)];
 
-static A_9: &'static [Among<Context>; 2] = &[
-    Among("mma", -1, 1, None),
-    Among("imma", 0, -1, None),
-];
+static A_9: &'static [Among<Context>; 2] = &[Among("mma", -1, 1, None), Among("imma", 0, -1, None)];
 
 static G_AEI: &'static [u8; 17] = &[17, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8];
 
@@ -134,7 +127,8 @@ static G_V1: &'static [u8; 19] = &[17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 
 static G_V2: &'static [u8; 19] = &[17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 32];
 
-static G_particle_end: &'static [u8; 19] = &[17, 97, 24, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 32];
+static G_particle_end: &'static [u8; 19] =
+    &[17, 97, 24, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 32];
 
 #[derive(Clone)]
 struct Context {
@@ -203,11 +197,11 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
         env.next_char();
     }
     context.i_p2 = env.cursor;
-    return true
+    return true;
 }
 
 fn r_R2(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p2 <= env.cursor
+    return context.i_p2 <= env.cursor;
 }
 
 fn r_particle_etc(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -236,12 +230,12 @@ fn r_particle_etc(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_possessive(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -315,16 +309,16 @@ fn r_possessive(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_LONG(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if env.find_among_b(A_5, context) == 0 {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_VI(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -334,7 +328,7 @@ fn r_VI(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.in_grouping_b(G_V2, 97, 246) {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_case_ending(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -420,13 +414,13 @@ fn r_case_ending(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
     if !env.slice_del() {
         return false;
     }
     context.b_ending_removed = true;
-    return true
+    return true;
 }
 
 fn r_other_endings(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -455,12 +449,12 @@ fn r_other_endings(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
             env.cursor = env.limit - v_3;
         }
-        _ => ()
+        _ => (),
     }
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_i_plural(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -479,7 +473,7 @@ fn r_i_plural(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_t_plural(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -529,12 +523,12 @@ fn r_t_plural(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
             env.cursor = env.limit - v_6;
         }
-        _ => ()
+        _ => (),
     }
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_tidy(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -652,7 +646,7 @@ fn r_tidy(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
@@ -699,5 +693,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     r_tidy(env, context);
     env.cursor = env.limit - v_9;
     env.cursor = env.limit_backward;
-    return true
+    return true;
 }

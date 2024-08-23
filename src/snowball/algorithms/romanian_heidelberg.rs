@@ -5,8 +5,8 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
 
 static A_0: &'static [Among<Context>; 62] = &[
     Among("abator", -1, -1, None),
@@ -260,7 +260,9 @@ static A_6: &'static [Among<Context>; 11] = &[
     Among("u\u{0163}", -1, 2, None),
 ];
 
-static G_v: &'static [u8; 21] = &[17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 32, 0, 0, 4];
+static G_v: &'static [u8; 21] = &[
+    17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 32, 0, 0, 4,
+];
 
 #[derive(Clone)]
 struct Context {
@@ -337,7 +339,7 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
         break 'lab0;
     }
     env.cursor = v_1;
-    return true
+    return true;
 }
 
 fn r_exception1(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -357,17 +359,17 @@ fn r_exception1(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_R1(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p1 <= env.cursor
+    return context.i_p1 <= env.cursor;
 }
 
 fn r_R2(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p2 <= env.cursor
+    return context.i_p2 <= env.cursor;
 }
 
 fn r_morhological_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -384,39 +386,37 @@ fn r_morhological_suffixes(env: &mut SnowballEnv, context: &mut Context) -> bool
                 return false;
             }
         }
-        2 => {
-            'lab0: loop {
-                let v_1 = env.limit - env.cursor;
-                'lab1: loop {
-                    'lab2: loop {
-                        let v_2 = env.limit - env.cursor;
-                        'lab3: loop {
-                            if !env.eq_s_b(&"a") {
-                                break 'lab3;
-                            }
-                            break 'lab2;
-                        }
-                        env.cursor = env.limit - v_2;
-                        if !env.eq_s_b(&"o") {
-                            break 'lab1;
+        2 => 'lab0: loop {
+            let v_1 = env.limit - env.cursor;
+            'lab1: loop {
+                'lab2: loop {
+                    let v_2 = env.limit - env.cursor;
+                    'lab3: loop {
+                        if !env.eq_s_b(&"a") {
+                            break 'lab3;
                         }
                         break 'lab2;
                     }
-                    if !env.slice_from("l") {
-                        return false;
+                    env.cursor = env.limit - v_2;
+                    if !env.eq_s_b(&"o") {
+                        break 'lab1;
                     }
-                    break 'lab0;
+                    break 'lab2;
                 }
-                env.cursor = env.limit - v_1;
-                if !env.slice_del() {
+                if !env.slice_from("l") {
                     return false;
                 }
                 break 'lab0;
             }
-        }
-        _ => ()
+            env.cursor = env.limit - v_1;
+            if !env.slice_del() {
+                return false;
+            }
+            break 'lab0;
+        },
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_deriv_suffixes1(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -489,9 +489,9 @@ fn r_deriv_suffixes1(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_deriv_suffixes2(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -670,9 +670,9 @@ fn r_deriv_suffixes2(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_verb_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -721,9 +721,9 @@ fn r_verb_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_residual_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -772,16 +772,13 @@ fn r_residual_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
-    let mut context = &mut Context {
-        i_p2: 0,
-        i_p1: 0,
-    };
+    let mut context = &mut Context { i_p2: 0, i_p1: 0 };
     'lab0: loop {
         let v_1 = env.cursor;
         'lab1: loop {
@@ -837,5 +834,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
         env.cursor = env.limit_backward;
         break 'lab0;
     }
-    return true
+    return true;
 }

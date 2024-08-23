@@ -5,8 +5,8 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
 
 static A_0: &'static [Among<Context>; 29] = &[
     Among("a", -1, 1, None),
@@ -40,10 +40,7 @@ static A_0: &'static [Among<Context>; 29] = &[
     Among("ast", -1, 1, None),
 ];
 
-static A_1: &'static [Among<Context>; 2] = &[
-    Among("dt", -1, -1, None),
-    Among("vt", -1, -1, None),
-];
+static A_1: &'static [Among<Context>; 2] = &[Among("dt", -1, -1, None), Among("vt", -1, -1, None)];
 
 static A_2: &'static [Among<Context>; 11] = &[
     Among("leg", -1, 1, None),
@@ -59,7 +56,9 @@ static A_2: &'static [Among<Context>; 11] = &[
     Among("hetslov", 9, 1, None),
 ];
 
-static G_v: &'static [u8; 19] = &[17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 0, 128];
+static G_v: &'static [u8; 19] = &[
+    17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 0, 128,
+];
 
 static G_s_ending: &'static [u8; 4] = &[119, 125, 149, 1];
 
@@ -106,13 +105,13 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
     }
     context.i_p1 = env.cursor;
     'lab4: loop {
-        if context.i_p1 >= context.i_x{
+        if context.i_p1 >= context.i_x {
             break 'lab4;
         }
         context.i_p1 = context.i_x;
         break 'lab4;
     }
-    return true
+    return true;
 }
 
 fn r_main_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -163,9 +162,9 @@ fn r_main_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_consonant_pair(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -191,7 +190,7 @@ fn r_consonant_pair(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_other_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -210,14 +209,11 @@ fn r_other_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
-    let mut context = &mut Context {
-        i_x: 0,
-        i_p1: 0,
-    };
+    let mut context = &mut Context { i_x: 0, i_p1: 0 };
     let v_1 = env.cursor;
     r_mark_regions(env, context);
     env.cursor = v_1;
@@ -233,5 +229,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     r_other_suffix(env, context);
     env.cursor = env.limit - v_4;
     env.cursor = env.limit_backward;
-    return true
+    return true;
 }

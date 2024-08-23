@@ -5,8 +5,8 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
 
 static A_0: &'static [Among<Context>; 8] = &[
     Among("cs", -1, -1, None),
@@ -50,10 +50,7 @@ static A_2: &'static [Among<Context>; 23] = &[
     Among("zz", -1, -1, None),
 ];
 
-static A_3: &'static [Among<Context>; 2] = &[
-    Among("al", -1, 1, None),
-    Among("el", -1, 1, None),
-];
+static A_3: &'static [Among<Context>; 2] = &[Among("al", -1, 1, None), Among("el", -1, 1, None)];
 
 static A_4: &'static [Among<Context>; 44] = &[
     Among("ba", -1, -1, None),
@@ -226,7 +223,10 @@ static A_11: &'static [Among<Context>; 42] = &[
     Among("\u{00E9}im", 35, 3, None),
 ];
 
-static G_v: &'static [u8; 35] = &[17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 36, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1];
+static G_v: &'static [u8; 35] = &[
+    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 36, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    1, 0, 0, 0, 1,
+];
 
 #[derive(Clone)]
 struct Context {
@@ -293,11 +293,11 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
         context.i_p1 = env.cursor;
         break 'lab0;
     }
-    return true
+    return true;
 }
 
 fn r_R1(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p1 <= env.cursor
+    return context.i_p1 <= env.cursor;
 }
 
 fn r_v_ending(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -322,9 +322,9 @@ fn r_v_ending(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_double(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -333,7 +333,7 @@ fn r_double(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.cursor = env.limit - v_1;
-    return true
+    return true;
 }
 
 fn r_undouble(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -349,7 +349,7 @@ fn r_undouble(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_instrum(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -370,7 +370,7 @@ fn r_instrum(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !r_undouble(env, context) {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_case(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -388,7 +388,7 @@ fn r_case(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !r_v_ending(env, context) {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_case_special(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -413,9 +413,9 @@ fn r_case_special(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_case_other(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -445,9 +445,9 @@ fn r_case_other(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_factive(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -468,7 +468,7 @@ fn r_factive(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !r_undouble(env, context) {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_plural(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -498,9 +498,9 @@ fn r_plural(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_owned(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -530,9 +530,9 @@ fn r_owned(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_sing_owner(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -562,9 +562,9 @@ fn r_sing_owner(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_plur_owner(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -594,15 +594,13 @@ fn r_plur_owner(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
-    let mut context = &mut Context {
-        i_p1: 0,
-    };
+    let mut context = &mut Context { i_p1: 0 };
     let v_1 = env.cursor;
     r_mark_regions(env, context);
     env.cursor = v_1;
@@ -636,5 +634,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     r_plural(env, context);
     env.cursor = env.limit - v_10;
     env.cursor = env.limit_backward;
-    return true
+    return true;
 }

@@ -1,7 +1,14 @@
+use pizza_engine::analysis::Analyzer;
+use pizza_engine::analysis::Normalizer;
+use pizza_engine::analysis::SimpleTokenCollector;
+use pizza_engine::analysis::Token;
+use pizza_engine::analysis::TokenFilter;
+use pizza_engine::analysis::Tokenizer;
+use pizza_stemmers::algorithms;
+use pizza_stemmers::StemmerTokenizer;
 use std::fs::File;
-use std::io::{BufRead, BufReader};
-use engine::analysis::{Analyzer, Normalizer, SimpleTokenCollector, Token, TokenFilter, Tokenizer};
-use pizza_stemmers::{algorithms, StemmerTokenizer};
+use std::io::BufRead;
+use std::io::BufReader;
 
 pub fn reduce_token_stream_to_string(token_stream: &[Token]) -> String {
     // Estimate the total length to minimize reallocations
@@ -20,9 +27,8 @@ pub fn reduce_token_stream_to_string(token_stream: &[Token]) -> String {
     result
 }
 
-pub fn analysis_and_check(my_tokenizer: Box<dyn Tokenizer>, input_file: File, output_file: File){
+pub fn analysis_and_check(my_tokenizer: Box<dyn Tokenizer>, input_file: File, output_file: File) {
     let my_normalizers: Vec<Box<dyn Normalizer>> = vec![];
-    let tokenizer = StemmerTokenizer::new(algorithms::english_porter);
     let my_token_filters: Vec<Box<dyn TokenFilter>> = vec![];
     let my_analyzer = Analyzer::new(my_normalizers, my_tokenizer, my_token_filters);
 
@@ -35,15 +41,13 @@ pub fn analysis_and_check(my_tokenizer: Box<dyn Tokenizer>, input_file: File, ou
         let input_str = input.unwrap();
         let expected_output = output.unwrap();
 
-
         // Use a `String` to accumulate results
         let mut results = String::new();
 
         // Define the closure to update `results` correctly
         let mut collector = SimpleTokenCollector::new(|tokens1: Vec<Token>| {
-            let token_strings: Vec<String> = tokens1.into_iter()
-                .map(|token| token.term.into())
-                .collect();
+            let token_strings: Vec<String> =
+                tokens1.into_iter().map(|token| token.term.into()).collect();
 
             // Join the token strings with a space and append to `results`
             results.push_str(&token_strings.join(" "));
@@ -65,8 +69,8 @@ pub fn analysis_and_check(my_tokenizer: Box<dyn Tokenizer>, input_file: File, ou
 
 #[cfg(test)]
 mod tests {
-    use std::borrow::Cow;
     use super::*;
+    use std::borrow::Cow;
 
     #[test]
     fn test_reduce_token_stream_to_string() {
@@ -100,5 +104,48 @@ mod tests {
 
         // Assert that the result matches the expected output
         assert_eq!(result, expected);
+    }
+
+    #[test]
+    fn it_stems_using_czech_domalic_aggressive() {
+        let my_tokenizer: Box<dyn Tokenizer> =
+            Box::new(StemmerTokenizer::new(algorithms::czech_dolamic_aggressive));
+        let input_file = File::open("./tests/assets/cs/dolamic_aggressive.input.txt").unwrap();
+        let output_file = File::open("./tests/assets/cs/dolamic_aggressive.output.txt").unwrap();
+        analysis_and_check(my_tokenizer, input_file, output_file);
+    }
+
+    #[test]
+    fn it_stems_using_porter_2() {
+        let my_tokenizer: Box<dyn Tokenizer> =
+            Box::new(StemmerTokenizer::new(algorithms::english_porter_2));
+        let input_file = File::open("./tests/assets/en/porter_2.input.txt").unwrap();
+        let output_file = File::open("./tests/assets/en/porter_2.output.txt").unwrap();
+        analysis_and_check(my_tokenizer, input_file, output_file);
+    }
+
+    #[test]
+    fn it_stems_using_porter() {
+        let my_tokenizer: Box<dyn Tokenizer> =
+            Box::new(StemmerTokenizer::new(algorithms::english_porter));
+        let input_file = File::open("./tests/assets/en/porter.input.txt").unwrap();
+        let output_file = File::open("./tests/assets/en/porter.output.txt").unwrap();
+        analysis_and_check(my_tokenizer, input_file, output_file);
+    }
+
+    #[test]
+    fn it_stems_using_german() {
+        let my_tokenizer: Box<dyn Tokenizer> = Box::new(StemmerTokenizer::new(algorithms::german));
+        let input_file = File::open("./tests/assets/de/german.input.txt").unwrap();
+        let output_file = File::open("./tests/assets/de/german.output.txt").unwrap();
+        analysis_and_check(my_tokenizer, input_file, output_file);
+    }
+
+    #[test]
+    fn it_stems_using_spanish() {
+        let my_tokenizer: Box<dyn Tokenizer> = Box::new(StemmerTokenizer::new(algorithms::spanish));
+        let input_file = File::open("./tests/assets/es/spanish.input.txt").unwrap();
+        let output_file = File::open("./tests/assets/es/spanish.output.txt").unwrap();
+        analysis_and_check(my_tokenizer, input_file, output_file);
     }
 }

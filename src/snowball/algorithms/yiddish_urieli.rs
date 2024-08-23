@@ -5,8 +5,8 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
 
 static A_0: &'static [Among<Context>; 8] = &[
     Among("\u{05D5}\u{05D5}", -1, 1, None),
@@ -25,19 +25,44 @@ static A_1: &'static [Among<Context>; 40] = &[
     Among("\u{05D0}\u{05D4}\u{05E2}\u{05E8}", -1, 1, None),
     Among("\u{05D0}\u{05D4}\u{05F2}\u{05DE}", -1, 1, None),
     Among("\u{05D0}\u{05D5}\u{05DE}", -1, 1, None),
-    Among("\u{05D0}\u{05D5}\u{05E0}\u{05D8}\u{05E2}\u{05E8}", -1, 1, None),
+    Among(
+        "\u{05D0}\u{05D5}\u{05E0}\u{05D8}\u{05E2}\u{05E8}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{05D0}\u{05D9}\u{05D1}\u{05E2}\u{05E8}", -1, 1, None),
     Among("\u{05D0}\u{05E0}", -1, 1, None),
     Among("\u{05D0}\u{05E0}\u{05D8}", 7, 1, None),
-    Among("\u{05D0}\u{05E0}\u{05D8}\u{05E7}\u{05E2}\u{05D2}\u{05E0}", 8, 1, None),
-    Among("\u{05D0}\u{05E0}\u{05D9}\u{05D3}\u{05E2}\u{05E8}", 7, 1, None),
+    Among(
+        "\u{05D0}\u{05E0}\u{05D8}\u{05E7}\u{05E2}\u{05D2}\u{05E0}",
+        8,
+        1,
+        None,
+    ),
+    Among(
+        "\u{05D0}\u{05E0}\u{05D9}\u{05D3}\u{05E2}\u{05E8}",
+        7,
+        1,
+        None,
+    ),
     Among("\u{05D0}\u{05E4}", -1, 1, None),
     Among("\u{05D0}\u{05E4}\u{05D9}\u{05E8}", 11, 1, None),
     Among("\u{05D0}\u{05E7}\u{05E2}\u{05D2}\u{05E0}", -1, 1, None),
     Among("\u{05D0}\u{05E8}\u{05D0}\u{05E4}", -1, 1, None),
     Among("\u{05D0}\u{05E8}\u{05D5}\u{05DE}", -1, 1, None),
-    Among("\u{05D0}\u{05E8}\u{05D5}\u{05E0}\u{05D8}\u{05E2}\u{05E8}", -1, 1, None),
-    Among("\u{05D0}\u{05E8}\u{05D9}\u{05D1}\u{05E2}\u{05E8}", -1, 1, None),
+    Among(
+        "\u{05D0}\u{05E8}\u{05D5}\u{05E0}\u{05D8}\u{05E2}\u{05E8}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{05D0}\u{05E8}\u{05D9}\u{05D1}\u{05E2}\u{05E8}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{05D0}\u{05E8}\u{05F1}\u{05E1}", -1, 1, None),
     Among("\u{05D0}\u{05E8}\u{05F1}\u{05E4}", -1, 1, None),
     Among("\u{05D0}\u{05E8}\u{05F2}\u{05E0}", -1, 1, None),
@@ -54,9 +79,19 @@ static A_1: &'static [Among<Context>; 40] = &[
     Among("\u{05E4}\u{05D0}\u{05E8}", -1, 1, None),
     Among("\u{05E4}\u{05D0}\u{05E8}\u{05D1}\u{05F2}", 31, 1, None),
     Among("\u{05E4}\u{05D0}\u{05E8}\u{05F1}\u{05E1}", 31, 1, None),
-    Among("\u{05E4}\u{05D5}\u{05E0}\u{05D0}\u{05E0}\u{05D3}\u{05E2}\u{05E8}", -1, 1, None),
+    Among(
+        "\u{05E4}\u{05D5}\u{05E0}\u{05D0}\u{05E0}\u{05D3}\u{05E2}\u{05E8}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{05E6}\u{05D5}", -1, 1, None),
-    Among("\u{05E6}\u{05D5}\u{05D6}\u{05D0}\u{05DE}\u{05E2}\u{05E0}", 35, 1, None),
+    Among(
+        "\u{05E6}\u{05D5}\u{05D6}\u{05D0}\u{05DE}\u{05E2}\u{05E0}",
+        35,
+        1,
+        None,
+    ),
     Among("\u{05E6}\u{05D5}\u{05E0}\u{05F1}\u{05E4}", 35, 1, None),
     Among("\u{05E6}\u{05D5}\u{05E8}\u{05D9}\u{05E7}", 35, 1, None),
     Among("\u{05E6}\u{05E2}", -1, 1, None),
@@ -93,7 +128,12 @@ static A_3: &'static [Among<Context>; 26] = &[
     Among("\u{05E9}\u{05DE}\u{05D9}\u{05E1}", -1, 13, None),
     Among("\u{05E8}\u{05D9}\u{05E1}", -1, 11, None),
     Among("\u{05D8}\u{05E8}\u{05D5}\u{05E0}\u{05E7}", -1, 19, None),
-    Among("\u{05E4}\u{05D0}\u{05E8}\u{05DC}\u{05F1}\u{05E8}", -1, 24, None),
+    Among(
+        "\u{05E4}\u{05D0}\u{05E8}\u{05DC}\u{05F1}\u{05E8}",
+        -1,
+        24,
+        None,
+    ),
     Among("\u{05E9}\u{05F0}\u{05F1}\u{05E8}", -1, 26, None),
     Among("\u{05F0}\u{05D5}\u{05D8}\u{05E9}", -1, 17, None),
 ];
@@ -125,8 +165,18 @@ static A_4: &'static [Among<Context>; 79] = &[
     Among("\u{05D4}\u{05F1}\u{05D1}\u{05E0}", 18, 27, None),
     Among("\u{05E9}\u{05F0}\u{05D9}\u{05D2}\u{05E0}", 18, 17, None),
     Among("\u{05D6}\u{05D5}\u{05E0}\u{05D2}\u{05E0}", 18, 22, None),
-    Among("\u{05E9}\u{05DC}\u{05D5}\u{05E0}\u{05D2}\u{05E0}", 18, 25, None),
-    Among("\u{05E6}\u{05F0}\u{05D5}\u{05E0}\u{05D2}\u{05E0}", 18, 24, None),
+    Among(
+        "\u{05E9}\u{05DC}\u{05D5}\u{05E0}\u{05D2}\u{05E0}",
+        18,
+        25,
+        None,
+    ),
+    Among(
+        "\u{05E6}\u{05F0}\u{05D5}\u{05E0}\u{05D2}\u{05E0}",
+        18,
+        24,
+        None,
+    ),
     Among("\u{05D1}\u{05F1}\u{05D2}\u{05E0}", 18, 26, None),
     Among("\u{05D1}\u{05D5}\u{05E0}\u{05D3}\u{05E0}", 18, 20, None),
     Among("\u{05F0}\u{05D9}\u{05D6}\u{05E0}", 18, 11, None),
@@ -142,13 +192,33 @@ static A_4: &'static [Among<Context>; 79] = &[
     Among("\u{05E9}\u{05DE}\u{05D9}\u{05E1}\u{05E0}", 18, 18, None),
     Among("GE\u{05E8}\u{05D9}\u{05E1}\u{05E0}", 18, 16, None),
     Among("\u{05E2}\u{05E0}", 18, 1, None),
-    Among("\u{05D2}\u{05D0}\u{05E0}\u{05D2}\u{05E2}\u{05E0}", 42, 5, None),
+    Among(
+        "\u{05D2}\u{05D0}\u{05E0}\u{05D2}\u{05E2}\u{05E0}",
+        42,
+        5,
+        None,
+    ),
     Among("\u{05E2}\u{05DC}\u{05E2}\u{05E0}", 42, 1, None),
     Among("\u{05E0}\u{05D5}\u{05DE}\u{05E2}\u{05E0}", 42, 6, None),
     Among("\u{05D9}\u{05D6}\u{05DE}\u{05E2}\u{05E0}", 42, 1, None),
-    Among("\u{05E9}\u{05D8}\u{05D0}\u{05E0}\u{05E2}\u{05E0}", 42, 29, None),
-    Among("\u{05D8}\u{05E8}\u{05D5}\u{05E0}\u{05E7}\u{05E0}", 18, 23, None),
-    Among("\u{05E4}\u{05D0}\u{05E8}\u{05DC}\u{05F1}\u{05E8}\u{05E0}", 18, 28, None),
+    Among(
+        "\u{05E9}\u{05D8}\u{05D0}\u{05E0}\u{05E2}\u{05E0}",
+        42,
+        29,
+        None,
+    ),
+    Among(
+        "\u{05D8}\u{05E8}\u{05D5}\u{05E0}\u{05E7}\u{05E0}",
+        18,
+        23,
+        None,
+    ),
+    Among(
+        "\u{05E4}\u{05D0}\u{05E8}\u{05DC}\u{05F1}\u{05E8}\u{05E0}",
+        18,
+        28,
+        None,
+    ),
     Among("\u{05E9}\u{05F0}\u{05F1}\u{05E8}\u{05E0}", 18, 30, None),
     Among("\u{05F0}\u{05D5}\u{05D8}\u{05E9}\u{05E0}", 18, 21, None),
     Among("\u{05D2}\u{05F2}\u{05E0}", 18, 5, None),
@@ -217,7 +287,7 @@ fn r_prelude(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let mut among_var;
     let v_1 = env.cursor;
     'lab0: loop {
-        'replab1: loop{
+        'replab1: loop {
             let v_2 = env.cursor;
             'lab2: for _ in 0..1 {
                 'golab3: loop {
@@ -294,7 +364,7 @@ fn r_prelude(env: &mut SnowballEnv, context: &mut Context) -> bool {
                                     return false;
                                 }
                             }
-                            _ => ()
+                            _ => (),
                         }
                         env.cursor = v_3;
                         break 'golab3;
@@ -315,7 +385,7 @@ fn r_prelude(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.cursor = v_1;
     let v_7 = env.cursor;
     'lab8: loop {
-        'replab9: loop{
+        'replab9: loop {
             let v_8 = env.cursor;
             'lab10: for _ in 0..1 {
                 'golab11: loop {
@@ -346,7 +416,7 @@ fn r_prelude(env: &mut SnowballEnv, context: &mut Context) -> bool {
         break 'lab8;
     }
     env.cursor = v_7;
-    return true
+    return true;
 }
 
 fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -500,7 +570,7 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
         }
         env.next_char();
     }
-    'replab16: loop{
+    'replab16: loop {
         'lab17: for _ in 0..1 {
             if !env.in_grouping(G_vowel, 1488, 1522) {
                 break 'lab17;
@@ -511,21 +581,21 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
     }
     context.i_p1 = env.cursor;
     'lab18: loop {
-        if context.i_p1 >= context.i_x{
+        if context.i_p1 >= context.i_x {
             break 'lab18;
         }
         context.i_p1 = context.i_x;
         break 'lab18;
     }
-    return true
+    return true;
 }
 
 fn r_R1(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p1 <= env.cursor
+    return context.i_p1 <= env.cursor;
 }
 
 fn r_R1plus3(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p1 <= (env.cursor + 6)
+    return context.i_p1 <= (env.cursor + 6);
 }
 
 fn r_standard_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -699,7 +769,7 @@ fn r_standard_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
                             return false;
                         }
                     }
-                    _ => ()
+                    _ => (),
                 }
             }
             4 => {
@@ -880,48 +950,46 @@ fn r_standard_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
                     return false;
                 }
             }
-            33 => {
-                'lab4: loop {
-                    let v_4 = env.limit - env.cursor;
-                    'lab5: loop {
-                        'lab6: loop {
-                            let v_5 = env.limit - env.cursor;
-                            'lab7: loop {
-                                if !env.eq_s_b(&"\u{05D2}") {
-                                    break 'lab7;
-                                }
-                                break 'lab6;
-                            }
-                            env.cursor = env.limit - v_5;
-                            if !env.eq_s_b(&"\u{05E9}") {
-                                break 'lab5;
+            33 => 'lab4: loop {
+                let v_4 = env.limit - env.cursor;
+                'lab5: loop {
+                    'lab6: loop {
+                        let v_5 = env.limit - env.cursor;
+                        'lab7: loop {
+                            if !env.eq_s_b(&"\u{05D2}") {
+                                break 'lab7;
                             }
                             break 'lab6;
                         }
-                        let v_6 = env.limit - env.cursor;
-                        'lab8: loop {
-                            if !r_R1plus3(env, context) {
-                                env.cursor = env.limit - v_6;
-                                break 'lab8;
-                            }
-                            if !env.slice_from("\u{05D9}\u{05E1}") {
-                                return false;
-                            }
+                        env.cursor = env.limit - v_5;
+                        if !env.eq_s_b(&"\u{05E9}") {
+                            break 'lab5;
+                        }
+                        break 'lab6;
+                    }
+                    let v_6 = env.limit - env.cursor;
+                    'lab8: loop {
+                        if !r_R1plus3(env, context) {
+                            env.cursor = env.limit - v_6;
                             break 'lab8;
                         }
-                        break 'lab4;
-                    }
-                    env.cursor = env.limit - v_4;
-                    if !r_R1(env, context) {
-                        break 'lab0;
-                    }
-                    if !env.slice_del() {
-                        return false;
+                        if !env.slice_from("\u{05D9}\u{05E1}") {
+                            return false;
+                        }
+                        break 'lab8;
                     }
                     break 'lab4;
                 }
-            }
-            _ => ()
+                env.cursor = env.limit - v_4;
+                if !r_R1(env, context) {
+                    break 'lab0;
+                }
+                if !env.slice_del() {
+                    return false;
+                }
+                break 'lab4;
+            },
+            _ => (),
         }
         break 'lab0;
     }
@@ -954,7 +1022,7 @@ fn r_standard_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
                     return false;
                 }
             }
-            _ => ()
+            _ => (),
         }
         break 'lab9;
     }
@@ -976,14 +1044,14 @@ fn r_standard_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
                     return false;
                 }
             }
-            _ => ()
+            _ => (),
         }
         break 'lab10;
     }
     env.cursor = env.limit - v_8;
     let v_9 = env.limit - env.cursor;
     'lab11: loop {
-        'replab12: loop{
+        'replab12: loop {
             let v_10 = env.limit - env.cursor;
             'lab13: for _ in 0..1 {
                 'golab14: loop {
@@ -1025,14 +1093,11 @@ fn r_standard_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
         break 'lab11;
     }
     env.cursor = env.limit - v_9;
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
-    let mut context = &mut Context {
-        i_x: 0,
-        i_p1: 0,
-    };
+    let mut context = &mut Context { i_x: 0, i_p1: 0 };
     r_prelude(env, context);
     let v_2 = env.cursor;
     r_mark_regions(env, context);
@@ -1041,5 +1106,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     env.cursor = env.limit;
     r_standard_suffix(env, context);
     env.cursor = env.limit_backward;
-    return true
+    return true;
 }

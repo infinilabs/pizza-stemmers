@@ -1,8 +1,17 @@
-use std::borrow::Cow;
-use std::mem;
+#![no_std]
+#![allow(unused)]
+#[cfg(test)]
+extern crate std; // use the standard library for tests
+
+extern crate alloc;
+extern crate core;
+use crate::engine::analysis::Token;
+use crate::engine::analysis::TokenFilter;
+use crate::engine::analysis::Tokenizer;
+use alloc::borrow::Cow;
+use alloc::vec::Vec;
 pub use pizza_common as common;
 pub use pizza_engine as engine;
-use crate::engine::analysis::{Token, TokenFilter, TokenFilterClone, Tokenizer};
 
 mod snowball;
 
@@ -39,12 +48,13 @@ impl Tokenizer for StemmerTokenizer {
         let tokens = tokenize_text(text);
 
         // Transform tokens by applying stemming algorithm
-        tokens.into_iter()
+        tokens
+            .into_iter()
             .map(|token| {
                 // Apply stemming to the token text
                 let stemmed_text = match (self.algorithm)(&token.term) {
                     Cow::Owned(stemmed_str) => Cow::Owned(stemmed_str),
-                    Cow::Borrowed(stemmed_str) => Cow::Owned(stemmed_str.to_string()), // Convert to owned
+                    Cow::Borrowed(stemmed_str) => Cow::Owned(stemmed_str.into()), // Convert to owned
                 };
 
                 // println!("{}=>{}",token.term,stemmed_text);
@@ -60,7 +70,6 @@ impl Tokenizer for StemmerTokenizer {
             .collect()
     }
 }
-
 
 #[derive(Clone)]
 pub struct StemmerFilter {
@@ -79,7 +88,7 @@ impl TokenFilter for StemmerFilter {
         // Apply stemming to the token text
         let stemmed_text = match (self.algorithm)(&token.term) {
             Cow::Owned(stemmed_str) => Cow::Owned(stemmed_str),
-            Cow::Borrowed(stemmed_str) => Cow::Owned(stemmed_str.to_string()), // Convert to owned
+            Cow::Borrowed(stemmed_str) => Cow::Owned(stemmed_str.into()), // Convert to owned
         };
 
         // Create a new Token with the stemmed text
@@ -91,7 +100,6 @@ impl TokenFilter for StemmerFilter {
         }
     }
 }
-
 
 fn tokenize_text<'a>(text: &'a str) -> Vec<Token<'a>> {
     let mut tokens = Vec::new();
@@ -141,18 +149,17 @@ fn tokenize_text<'a>(text: &'a str) -> Vec<Token<'a>> {
     tokens
 }
 
-
-
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::println;
 
     #[test]
     fn test_single_word() {
         let text = "word";
         let tokens = tokenize_text(text);
 
-        println!("{:?}",tokens);
+        println!("{:?}", tokens);
 
         assert_eq!(tokens.len(), 1);
         assert_eq!(tokens[0].term, Cow::Borrowed("word"));
@@ -165,7 +172,7 @@ mod tests {
     fn test_multiple_words() {
         let text = "this is a test";
         let tokens = tokenize_text(text);
-        println!("{:?}",tokens);
+        println!("{:?}", tokens);
 
         assert_eq!(tokens.len(), 4);
 
@@ -194,7 +201,7 @@ mod tests {
     fn test_leading_trailing_spaces() {
         let text = "  leading and trailing  ";
         let tokens = tokenize_text(text);
-        println!("{:?}",tokens);
+        println!("{:?}", tokens);
 
         assert_eq!(tokens.len(), 3);
 
@@ -281,7 +288,6 @@ mod tests {
         assert_eq!(tokens[1].position, 1);
     }
 
-
     #[test]
     fn test_english_stemming_filter() {
         // Create a StemmerTokenizer with a specific algorithm
@@ -291,13 +297,14 @@ mod tests {
         let text = "running runner ran";
         let tokens = tokenizer.tokenize(text);
 
-        println!("{:?}",tokens);
+        println!("{:?}", tokens);
 
         // Create a StemmerFilter using the same algorithm
         let filter = StemmerFilter::new(algorithms::english_porter_2);
 
         // Apply the filter to each token
-        let filtered_tokens: Vec<Token> = tokens.into_iter()
+        let filtered_tokens: Vec<Token> = tokens
+            .into_iter()
             .map(|token| filter.filter(token))
             .collect();
 
@@ -327,5 +334,4 @@ mod tests {
         assert_eq!(filtered_tokens[2].end_offset, 18);
         assert_eq!(filtered_tokens[2].position, 2);
     }
-
 }

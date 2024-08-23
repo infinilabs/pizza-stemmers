@@ -5,8 +5,9 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
+use alloc::string::String;
 
 static A_0: &'static [Among<Context>; 32] = &[
     Among("hed", -1, 1, None),
@@ -60,7 +61,9 @@ static A_2: &'static [Among<Context>; 5] = &[
 
 static G_c: &'static [u8; 4] = &[119, 223, 119, 1];
 
-static G_v: &'static [u8; 19] = &[17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 0, 128];
+static G_v: &'static [u8; 19] = &[
+    17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 0, 128,
+];
 
 static G_s_ending: &'static [u8; 17] = &[239, 254, 42, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16];
 
@@ -108,13 +111,13 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
     }
     context.i_p1 = env.cursor;
     'lab4: loop {
-        if context.i_p1 >= context.i_x{
+        if context.i_p1 >= context.i_x {
             break 'lab4;
         }
         context.i_p1 = context.i_x;
         break 'lab4;
     }
-    return true
+    return true;
 }
 
 fn r_main_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -146,9 +149,9 @@ fn r_main_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_consonant_pair(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -174,7 +177,7 @@ fn r_consonant_pair(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_other_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -222,9 +225,9 @@ fn r_other_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_undouble(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -250,7 +253,7 @@ fn r_undouble(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
@@ -277,5 +280,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     r_undouble(env, context);
     env.cursor = env.limit - v_5;
     env.cursor = env.limit_backward;
-    return true
+    return true;
 }

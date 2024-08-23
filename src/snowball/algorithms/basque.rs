@@ -5,8 +5,8 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
 
 static A_0: &'static [Among<Context>; 109] = &[
     Among("idea", -1, 1, None),
@@ -596,19 +596,19 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
         break 'lab13;
     }
     env.cursor = v_8;
-    return true
+    return true;
 }
 
 fn r_RV(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_pV <= env.cursor
+    return context.i_pV <= env.cursor;
 }
 
 fn r_R2(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p2 <= env.cursor
+    return context.i_p2 <= env.cursor;
 }
 
 fn r_R1(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p1 <= env.cursor
+    return context.i_p1 <= env.cursor;
 }
 
 fn r_aditzak(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -651,9 +651,9 @@ fn r_aditzak(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_izenak(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -724,9 +724,9 @@ fn r_izenak(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_adjetiboak(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -751,9 +751,9 @@ fn r_adjetiboak(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
@@ -765,7 +765,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     r_mark_regions(env, context);
     env.limit_backward = env.cursor;
     env.cursor = env.limit;
-    'replab0: loop{
+    'replab0: loop {
         let v_2 = env.limit - env.cursor;
         'lab1: for _ in 0..1 {
             if !r_aditzak(env, context) {
@@ -776,7 +776,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
         env.cursor = env.limit - v_2;
         break 'replab0;
     }
-    'replab2: loop{
+    'replab2: loop {
         let v_3 = env.limit - env.cursor;
         'lab3: for _ in 0..1 {
             if !r_izenak(env, context) {
@@ -791,5 +791,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     r_adjetiboak(env, context);
     env.cursor = env.limit - v_4;
     env.cursor = env.limit_backward;
-    return true
+    return true;
 }

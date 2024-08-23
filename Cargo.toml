@@ -84,18 +84,16 @@ swedish = []
 turkish_cilden = []
 yiddish_urieli = []
 
-
 [workspace]
 
 [dependencies]
 pizza-common = { path = "../../lib/common" }
 pizza-engine = { path = "../../lib/engine" }
-aho-corasick = "1.1.3"
+
+
+daachorse = "1.0"
 precis-core = "0.1.9"
 precis-profiles = "0.1.10"
-serde = "1.0.199"
-serde_derive = "1.0.199"
-unicode-normalization = "0.1.23"
+serde = { version = "1.0", default-features = false, features = ["derive","alloc"] }
+unicode-normalization = { version="0.1.23",default-features = false }
 
-[dev-dependencies]
-test_utils = { path = "./tests/utils" }

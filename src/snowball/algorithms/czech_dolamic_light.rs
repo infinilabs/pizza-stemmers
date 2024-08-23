@@ -5,8 +5,8 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
 
 static A_0: &'static [Among<Context>; 14] = &[
     Among("ce", -1, 1, None),
@@ -219,7 +219,10 @@ static A_7: &'static [Among<Context>; 2] = &[
     Among("\u{011B}j\u{0161}", -1, 1, None),
 ];
 
-static G_v: &'static [u8; 34] = &[17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 4, 18, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64];
+static G_v: &'static [u8; 34] = &[
+    17, 65, 16, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 4, 18, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 64,
+];
 
 #[derive(Clone)]
 struct Context {
@@ -273,15 +276,15 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
         break 'lab0;
     }
     env.cursor = v_1;
-    return true
+    return true;
 }
 
 fn r_RV(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_pV <= env.cursor
+    return context.i_pV <= env.cursor;
 }
 
 fn r_R1(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p1 <= env.cursor
+    return context.i_p1 <= env.cursor;
 }
 
 fn r_palatalise(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -316,9 +319,9 @@ fn r_palatalise(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_do_possessive(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -351,9 +354,9 @@ fn r_do_possessive(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 break 'lab0;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_do_case(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -396,9 +399,9 @@ fn r_do_case(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 break 'lab1;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_do_derivational(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -458,9 +461,9 @@ fn r_do_derivational(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_do_deriv_single(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -472,7 +475,7 @@ fn r_do_deriv_single(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_do_augmentative(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -497,9 +500,9 @@ fn r_do_augmentative(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_do_diminutive(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -568,9 +571,9 @@ fn r_do_diminutive(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_do_comparative(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -598,9 +601,9 @@ fn r_do_comparative(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_do_aggressive(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -627,14 +630,11 @@ fn r_do_aggressive(env: &mut SnowballEnv, context: &mut Context) -> bool {
         }
         break 'lab0;
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
-    let mut context = &mut Context {
-        i_p1: 0,
-        i_pV: 0,
-    };
+    let mut context = &mut Context { i_p1: 0, i_pV: 0 };
     r_mark_regions(env, context);
     env.limit_backward = env.cursor;
     env.cursor = env.limit;
@@ -645,5 +645,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
         return false;
     }
     env.cursor = env.limit_backward;
-    return true
+    return true;
 }

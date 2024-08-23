@@ -1,6 +1,6 @@
-use std::borrow::Cow;
-
 use super::among::Among;
+use alloc::borrow::Cow;
+use alloc::string::String;
 
 #[derive(Debug, Clone)]
 pub struct SnowballEnv<'a> {
@@ -83,8 +83,11 @@ impl<'a> SnowballEnv<'a> {
         if (self.cursor - self.limit_backward) < s.len() as i32 {
             false
             // Check if cursor -s.len is a char boundary. if not well... return false obv
-        } else if !self.current.is_char_boundary(self.cursor as usize - s.len()) ||
-                  !self.current[self.cursor as usize - s.len()..].starts_with(s) {
+        } else if !self
+            .current
+            .is_char_boundary(self.cursor as usize - s.len())
+            || !self.current[self.cursor as usize - s.len()..].starts_with(s)
+        {
             false
         } else {
             self.cursor -= s.len() as i32;
@@ -248,9 +251,7 @@ impl<'a> SnowballEnv<'a> {
             }
         }
         return false;
-
     }
-
 
     /// Helper function that removes the string slice between `bra` and `ket`
     pub fn slice_del(&mut self) -> bool {
@@ -268,15 +269,15 @@ impl<'a> SnowballEnv<'a> {
     }
 
     pub fn assign_to(&mut self) -> String {
-        self.current[0..self.limit as usize].to_string()
+        self.current[0..self.limit as usize].into()
     }
 
     pub fn slice_to(&mut self) -> String {
-        self.current[self.bra as usize..self.ket as usize].to_string()
+        self.current[self.bra as usize..self.ket as usize].into()
     }
 
     pub fn find_among<T>(&mut self, amongs: &[Among<T>], context: &mut T) -> i32 {
-        use std::cmp::min;
+        use core::cmp::min;
         let mut i: i32 = 0;
         let mut j: i32 = amongs.len() as i32;
 
@@ -297,7 +298,8 @@ impl<'a> SnowballEnv<'a> {
                     diff = -1;
                     break;
                 }
-                diff = self.current.as_bytes()[(c + common) as usize] as i32 - w.0.as_bytes()[lvar as usize] as i32;
+                diff = self.current.as_bytes()[(c + common) as usize] as i32
+                    - w.0.as_bytes()[lvar as usize] as i32;
                 if diff != 0 {
                     break;
                 }
@@ -326,7 +328,7 @@ impl<'a> SnowballEnv<'a> {
 
         loop {
             let w = &amongs[i as usize];
-            if common_i >= w.0.len() as i32{
+            if common_i >= w.0.len() as i32 {
                 self.cursor = c + w.0.len() as i32;
                 if let Some(ref method) = w.3 {
                     let res = method(self, context);
@@ -371,7 +373,8 @@ impl<'a> SnowballEnv<'a> {
                     diff = -1;
                     break;
                 }
-                diff = self.current.as_bytes()[(c - common - 1) as usize] as i32 - w.0.as_bytes()[lvar] as i32;
+                diff = self.current.as_bytes()[(c - common - 1) as usize] as i32
+                    - w.0.as_bytes()[lvar] as i32;
                 if diff != 0 {
                     break;
                 }

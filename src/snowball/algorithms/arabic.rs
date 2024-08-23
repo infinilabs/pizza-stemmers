@@ -5,8 +5,8 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
 
 static A_0: &'static [Among<Context>; 161] = &[
     Among("!", -1, 1, None),
@@ -247,9 +247,7 @@ static A_10: &'static [Among<Context>; 10] = &[
     Among("\u{0647}\u{0627}", -1, 2, None),
 ];
 
-static A_11: &'static [Among<Context>; 1] = &[
-    Among("\u{0646}", -1, 1, None),
-];
+static A_11: &'static [Among<Context>; 1] = &[Among("\u{0646}", -1, 1, None)];
 
 static A_12: &'static [Among<Context>; 3] = &[
     Among("\u{0648}", -1, 1, None),
@@ -257,21 +255,13 @@ static A_12: &'static [Among<Context>; 3] = &[
     Among("\u{0627}", -1, 1, None),
 ];
 
-static A_13: &'static [Among<Context>; 1] = &[
-    Among("\u{0627}\u{062A}", -1, 1, None),
-];
+static A_13: &'static [Among<Context>; 1] = &[Among("\u{0627}\u{062A}", -1, 1, None)];
 
-static A_14: &'static [Among<Context>; 1] = &[
-    Among("\u{062A}", -1, 1, None),
-];
+static A_14: &'static [Among<Context>; 1] = &[Among("\u{062A}", -1, 1, None)];
 
-static A_15: &'static [Among<Context>; 1] = &[
-    Among("\u{0629}", -1, 1, None),
-];
+static A_15: &'static [Among<Context>; 1] = &[Among("\u{0629}", -1, 1, None)];
 
-static A_16: &'static [Among<Context>; 1] = &[
-    Among("\u{064A}", -1, 1, None),
-];
+static A_16: &'static [Among<Context>; 1] = &[Among("\u{064A}", -1, 1, None)];
 
 static A_17: &'static [Among<Context>; 12] = &[
     Among("\u{0643}", -1, 1, None),
@@ -312,9 +302,7 @@ static A_20: &'static [Among<Context>; 2] = &[
     Among("\u{062A}\u{0645}\u{0648}", 0, 2, None),
 ];
 
-static A_21: &'static [Among<Context>; 1] = &[
-    Among("\u{0649}", -1, 1, None),
-];
+static A_21: &'static [Among<Context>; 1] = &[Among("\u{0649}", -1, 1, None)];
 
 #[derive(Clone)]
 struct Context {
@@ -592,7 +580,7 @@ fn r_Normalize_pre(env: &mut SnowballEnv, context: &mut Context) -> bool {
                             return false;
                         }
                     }
-                    _ => ()
+                    _ => (),
                 }
                 break 'lab0;
             }
@@ -604,7 +592,7 @@ fn r_Normalize_pre(env: &mut SnowballEnv, context: &mut Context) -> bool {
             break 'lab0;
         }
     }
-    return true
+    return true;
 }
 
 fn r_Normalize_post(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -653,7 +641,7 @@ fn r_Normalize_post(env: &mut SnowballEnv, context: &mut Context) -> bool {
                                 return false;
                             }
                         }
-                        _ => ()
+                        _ => (),
                     }
                     break 'lab2;
                 }
@@ -668,7 +656,7 @@ fn r_Normalize_post(env: &mut SnowballEnv, context: &mut Context) -> bool {
         break 'lab1;
     }
     env.cursor = v_2;
-    return true
+    return true;
 }
 
 fn r_Checks1(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -682,7 +670,7 @@ fn r_Checks1(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
     match among_var {
         1 => {
-            if context.i_word_len <= 4{
+            if context.i_word_len <= 4 {
                 return false;
             }
             context.b_is_noun = true;
@@ -690,16 +678,16 @@ fn r_Checks1(env: &mut SnowballEnv, context: &mut Context) -> bool {
             context.b_is_defined = true;
         }
         2 => {
-            if context.i_word_len <= 3{
+            if context.i_word_len <= 3 {
                 return false;
             }
             context.b_is_noun = true;
             context.b_is_verb = false;
             context.b_is_defined = true;
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Prefix_Step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -713,7 +701,7 @@ fn r_Prefix_Step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
     match among_var {
         1 => {
-            if context.i_word_len <= 3{
+            if context.i_word_len <= 3 {
                 return false;
             }
             if !env.slice_from("\u{0623}") {
@@ -721,7 +709,7 @@ fn r_Prefix_Step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         2 => {
-            if context.i_word_len <= 3{
+            if context.i_word_len <= 3 {
                 return false;
             }
             if !env.slice_from("\u{0622}") {
@@ -729,7 +717,7 @@ fn r_Prefix_Step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         3 => {
-            if context.i_word_len <= 3{
+            if context.i_word_len <= 3 {
                 return false;
             }
             if !env.slice_from("\u{0627}") {
@@ -737,16 +725,16 @@ fn r_Prefix_Step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         4 => {
-            if context.i_word_len <= 3{
+            if context.i_word_len <= 3 {
                 return false;
             }
             if !env.slice_from("\u{0625}") {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Prefix_Step2(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -772,13 +760,13 @@ fn r_Prefix_Step2(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.ket = env.cursor;
-    if context.i_word_len <= 3{
+    if context.i_word_len <= 3 {
         return false;
     }
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_Prefix_Step3a_Noun(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -792,7 +780,7 @@ fn r_Prefix_Step3a_Noun(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
     match among_var {
         1 => {
-            if context.i_word_len <= 5{
+            if context.i_word_len <= 5 {
                 return false;
             }
             if !env.slice_del() {
@@ -800,16 +788,16 @@ fn r_Prefix_Step3a_Noun(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         2 => {
-            if context.i_word_len <= 4{
+            if context.i_word_len <= 4 {
                 return false;
             }
             if !env.slice_del() {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Prefix_Step3b_Noun(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -831,7 +819,7 @@ fn r_Prefix_Step3b_Noun(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
     match among_var {
         1 => {
-            if context.i_word_len <= 3{
+            if context.i_word_len <= 3 {
                 return false;
             }
             if !env.slice_del() {
@@ -839,7 +827,7 @@ fn r_Prefix_Step3b_Noun(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         2 => {
-            if context.i_word_len <= 3{
+            if context.i_word_len <= 3 {
                 return false;
             }
             if !env.slice_from("\u{0628}") {
@@ -847,16 +835,16 @@ fn r_Prefix_Step3b_Noun(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         3 => {
-            if context.i_word_len <= 3{
+            if context.i_word_len <= 3 {
                 return false;
             }
             if !env.slice_from("\u{0643}") {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Prefix_Step3_Verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -870,7 +858,7 @@ fn r_Prefix_Step3_Verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.ket = env.cursor;
     match among_var {
         1 => {
-            if context.i_word_len <= 4{
+            if context.i_word_len <= 4 {
                 return false;
             }
             if !env.slice_from("\u{064A}") {
@@ -878,7 +866,7 @@ fn r_Prefix_Step3_Verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         2 => {
-            if context.i_word_len <= 4{
+            if context.i_word_len <= 4 {
                 return false;
             }
             if !env.slice_from("\u{062A}") {
@@ -886,7 +874,7 @@ fn r_Prefix_Step3_Verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         3 => {
-            if context.i_word_len <= 4{
+            if context.i_word_len <= 4 {
                 return false;
             }
             if !env.slice_from("\u{0646}") {
@@ -894,16 +882,16 @@ fn r_Prefix_Step3_Verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         4 => {
-            if context.i_word_len <= 4{
+            if context.i_word_len <= 4 {
                 return false;
             }
             if !env.slice_from("\u{0623}") {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Prefix_Step4_Verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -913,7 +901,7 @@ fn r_Prefix_Step4_Verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.ket = env.cursor;
-    if context.i_word_len <= 4{
+    if context.i_word_len <= 4 {
         return false;
     }
     context.b_is_verb = true;
@@ -921,7 +909,7 @@ fn r_Prefix_Step4_Verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{0627}\u{0633}\u{062A}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_Suffix_Noun_Step1a(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -935,7 +923,7 @@ fn r_Suffix_Noun_Step1a(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if context.i_word_len < 4{
+            if context.i_word_len < 4 {
                 return false;
             }
             if !env.slice_del() {
@@ -943,7 +931,7 @@ fn r_Suffix_Noun_Step1a(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         2 => {
-            if context.i_word_len < 5{
+            if context.i_word_len < 5 {
                 return false;
             }
             if !env.slice_del() {
@@ -951,16 +939,16 @@ fn r_Suffix_Noun_Step1a(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         3 => {
-            if context.i_word_len < 6{
+            if context.i_word_len < 6 {
                 return false;
             }
             if !env.slice_del() {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Suffix_Noun_Step1b(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -970,13 +958,13 @@ fn r_Suffix_Noun_Step1b(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if context.i_word_len <= 5{
+    if context.i_word_len <= 5 {
         return false;
     }
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_Suffix_Noun_Step2a(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -986,13 +974,13 @@ fn r_Suffix_Noun_Step2a(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if context.i_word_len <= 4{
+    if context.i_word_len <= 4 {
         return false;
     }
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_Suffix_Noun_Step2b(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1002,13 +990,13 @@ fn r_Suffix_Noun_Step2b(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if context.i_word_len < 5{
+    if context.i_word_len < 5 {
         return false;
     }
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_Suffix_Noun_Step2c1(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1018,13 +1006,13 @@ fn r_Suffix_Noun_Step2c1(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if context.i_word_len < 4{
+    if context.i_word_len < 4 {
         return false;
     }
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_Suffix_Noun_Step2c2(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1034,13 +1022,13 @@ fn r_Suffix_Noun_Step2c2(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if context.i_word_len < 4{
+    if context.i_word_len < 4 {
         return false;
     }
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_Suffix_Noun_Step3(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1050,13 +1038,13 @@ fn r_Suffix_Noun_Step3(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if context.i_word_len < 3{
+    if context.i_word_len < 3 {
         return false;
     }
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_Suffix_Verb_Step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1070,7 +1058,7 @@ fn r_Suffix_Verb_Step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if context.i_word_len < 4{
+            if context.i_word_len < 4 {
                 return false;
             }
             if !env.slice_del() {
@@ -1078,7 +1066,7 @@ fn r_Suffix_Verb_Step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         2 => {
-            if context.i_word_len < 5{
+            if context.i_word_len < 5 {
                 return false;
             }
             if !env.slice_del() {
@@ -1086,16 +1074,16 @@ fn r_Suffix_Verb_Step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         3 => {
-            if context.i_word_len < 6{
+            if context.i_word_len < 6 {
                 return false;
             }
             if !env.slice_del() {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Suffix_Verb_Step2a(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1109,7 +1097,7 @@ fn r_Suffix_Verb_Step2a(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if context.i_word_len < 4{
+            if context.i_word_len < 4 {
                 return false;
             }
             if !env.slice_del() {
@@ -1117,7 +1105,7 @@ fn r_Suffix_Verb_Step2a(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         2 => {
-            if context.i_word_len < 5{
+            if context.i_word_len < 5 {
                 return false;
             }
             if !env.slice_del() {
@@ -1125,7 +1113,7 @@ fn r_Suffix_Verb_Step2a(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         3 => {
-            if context.i_word_len <= 5{
+            if context.i_word_len <= 5 {
                 return false;
             }
             if !env.slice_del() {
@@ -1133,16 +1121,16 @@ fn r_Suffix_Verb_Step2a(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         4 => {
-            if context.i_word_len < 6{
+            if context.i_word_len < 6 {
                 return false;
             }
             if !env.slice_del() {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Suffix_Verb_Step2b(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1152,13 +1140,13 @@ fn r_Suffix_Verb_Step2b(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.bra = env.cursor;
-    if context.i_word_len < 5{
+    if context.i_word_len < 5 {
         return false;
     }
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_Suffix_Verb_Step2c(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1172,7 +1160,7 @@ fn r_Suffix_Verb_Step2c(env: &mut SnowballEnv, context: &mut Context) -> bool {
     env.bra = env.cursor;
     match among_var {
         1 => {
-            if context.i_word_len < 4{
+            if context.i_word_len < 4 {
                 return false;
             }
             if !env.slice_del() {
@@ -1180,16 +1168,16 @@ fn r_Suffix_Verb_Step2c(env: &mut SnowballEnv, context: &mut Context) -> bool {
             }
         }
         2 => {
-            if context.i_word_len < 6{
+            if context.i_word_len < 6 {
                 return false;
             }
             if !env.slice_del() {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Suffix_All_alef_maqsura(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1202,7 +1190,7 @@ fn r_Suffix_All_alef_maqsura(env: &mut SnowballEnv, context: &mut Context) -> bo
     if !env.slice_from("\u{064A}") {
         return false;
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
@@ -1235,7 +1223,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
                     let v_5 = env.limit - env.cursor;
                     'lab4: loop {
                         let mut v_6 = 1;
-                        'replab5: loop{
+                        'replab5: loop {
                             let v_7 = env.limit - env.cursor;
                             'lab6: for _ in 0..1 {
                                 if !r_Suffix_Verb_Step1(env, context) {
@@ -1468,5 +1456,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     }
     env.cursor = v_15;
     r_Normalize_post(env, context);
-    return true
+    return true;
 }

@@ -5,8 +5,8 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
 
 static A_0: &'static [Among<Context>; 23] = &[
     Among("\u{0562}\u{0561}\u{0580}", -1, 1, None),
@@ -59,10 +59,20 @@ static A_1: &'static [Among<Context>; 71] = &[
     Among("\u{0561}\u{0576}\u{0584}", -1, 1, None),
     Among("\u{0581}\u{0561}\u{0576}\u{0584}", 21, 1, None),
     Among("\u{0561}\u{0581}\u{0561}\u{0576}\u{0584}", 22, 1, None),
-    Among("\u{0561}\u{0581}\u{0580}\u{056B}\u{0576}\u{0584}", -1, 1, None),
+    Among(
+        "\u{0561}\u{0581}\u{0580}\u{056B}\u{0576}\u{0584}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{0561}\u{0581}\u{056B}\u{0576}\u{0584}", -1, 1, None),
     Among("\u{0565}\u{0581}\u{056B}\u{0576}\u{0584}", -1, 1, None),
-    Among("\u{057E}\u{0565}\u{0581}\u{056B}\u{0576}\u{0584}", 26, 1, None),
+    Among(
+        "\u{057E}\u{0565}\u{0581}\u{056B}\u{0576}\u{0584}",
+        26,
+        1,
+        None,
+    ),
     Among("\u{0561}", -1, 1, None),
     Among("\u{0561}\u{0581}\u{0561}", 28, 1, None),
     Among("\u{0565}\u{0581}\u{0561}", 28, 1, None),
@@ -139,7 +149,12 @@ static A_2: &'static [Among<Context>; 40] = &[
     Among("\u{0561}\u{0576}\u{0561}\u{056F}", 25, 1, None),
     Among("\u{056B}\u{056F}", -1, 1, None),
     Among("\u{0575}\u{0578}\u{0582}\u{0576}", -1, 1, None),
-    Among("\u{0578}\u{0582}\u{0569}\u{0575}\u{0578}\u{0582}\u{0576}", 29, 1, None),
+    Among(
+        "\u{0578}\u{0582}\u{0569}\u{0575}\u{0578}\u{0582}\u{0576}",
+        29,
+        1,
+        None,
+    ),
     Among("\u{0561}\u{0576}", -1, 1, None),
     Among("\u{0561}\u{0580}\u{0561}\u{0576}", 31, 1, None),
     Among("\u{057A}\u{0561}\u{0576}", 31, 1, None),
@@ -172,14 +187,24 @@ static A_3: &'static [Among<Context>; 57] = &[
     Among("\u{0576}\u{0565}\u{0580}\u{0564}", 16, 1, None),
     Among("\u{0578}\u{0582}\u{0564}", 15, 1, None),
     Among("\u{0561}\u{0576}\u{0564}", 15, 1, None),
-    Among("\u{0578}\u{0582}\u{0569}\u{0575}\u{0561}\u{0576}\u{0564}", 19, 1, None),
+    Among(
+        "\u{0578}\u{0582}\u{0569}\u{0575}\u{0561}\u{0576}\u{0564}",
+        19,
+        1,
+        None,
+    ),
     Among("\u{057E}\u{0561}\u{0576}\u{0564}", 19, 1, None),
     Among("\u{0578}\u{057B}\u{0564}", 15, 1, None),
     Among("\u{0568}", -1, 1, None),
     Among("\u{0565}\u{0580}\u{0568}", 23, 1, None),
     Among("\u{0576}\u{0565}\u{0580}\u{0568}", 24, 1, None),
     Among("\u{0561}\u{0576}\u{0568}", 23, 1, None),
-    Among("\u{0578}\u{0582}\u{0569}\u{0575}\u{0561}\u{0576}\u{0568}", 26, 1, None),
+    Among(
+        "\u{0578}\u{0582}\u{0569}\u{0575}\u{0561}\u{0576}\u{0568}",
+        26,
+        1,
+        None,
+    ),
     Among("\u{057E}\u{0561}\u{0576}\u{0568}", 26, 1, None),
     Among("\u{0578}\u{057B}\u{0568}", 23, 1, None),
     Among("\u{056B}", -1, 1, None),
@@ -187,21 +212,41 @@ static A_3: &'static [Among<Context>; 57] = &[
     Among("\u{0576}\u{0565}\u{0580}\u{056B}", 31, 1, None),
     Among("\u{057E}\u{056B}", 30, 1, None),
     Among("\u{0565}\u{0580}\u{0578}\u{0582}\u{0574}", -1, 1, None),
-    Among("\u{0576}\u{0565}\u{0580}\u{0578}\u{0582}\u{0574}", 34, 1, None),
+    Among(
+        "\u{0576}\u{0565}\u{0580}\u{0578}\u{0582}\u{0574}",
+        34,
+        1,
+        None,
+    ),
     Among("\u{0561}\u{0576}\u{0578}\u{0582}\u{0574}", -1, 1, None),
     Among("\u{0576}", -1, 1, None),
     Among("\u{0565}\u{0580}\u{0576}", 37, 1, None),
     Among("\u{0576}\u{0565}\u{0580}\u{0576}", 38, 1, None),
     Among("\u{0578}\u{0582}\u{0576}", 37, 1, None),
     Among("\u{0561}\u{0576}", 37, 1, None),
-    Among("\u{0578}\u{0582}\u{0569}\u{0575}\u{0561}\u{0576}", 41, 1, None),
+    Among(
+        "\u{0578}\u{0582}\u{0569}\u{0575}\u{0561}\u{0576}",
+        41,
+        1,
+        None,
+    ),
     Among("\u{057E}\u{0561}\u{0576}", 41, 1, None),
     Among("\u{056B}\u{0576}", 37, 1, None),
     Among("\u{0565}\u{0580}\u{056B}\u{0576}", 44, 1, None),
     Among("\u{0576}\u{0565}\u{0580}\u{056B}\u{0576}", 45, 1, None),
-    Among("\u{0578}\u{0582}\u{0569}\u{0575}\u{0561}\u{0576}\u{0576}", 37, 1, None),
+    Among(
+        "\u{0578}\u{0582}\u{0569}\u{0575}\u{0561}\u{0576}\u{0576}",
+        37,
+        1,
+        None,
+    ),
     Among("\u{0578}\u{057B}", -1, 1, None),
-    Among("\u{0578}\u{0582}\u{0569}\u{0575}\u{0561}\u{0576}\u{057D}", -1, 1, None),
+    Among(
+        "\u{0578}\u{0582}\u{0569}\u{0575}\u{0561}\u{0576}\u{057D}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{057E}\u{0561}\u{0576}\u{057D}", -1, 1, None),
     Among("\u{0578}\u{057B}\u{057D}", -1, 1, None),
     Among("\u{0578}\u{057E}", -1, 1, None),
@@ -277,11 +322,11 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
         break 'lab0;
     }
     env.cursor = v_1;
-    return true
+    return true;
 }
 
 fn r_R2(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p2 <= env.cursor
+    return context.i_p2 <= env.cursor;
 }
 
 fn r_adjective(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -293,7 +338,7 @@ fn r_adjective(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -305,7 +350,7 @@ fn r_verb(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_noun(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -317,7 +362,7 @@ fn r_noun(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_ending(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -332,14 +377,11 @@ fn r_ending(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
-    let mut context = &mut Context {
-        i_p2: 0,
-        i_pV: 0,
-    };
+    let mut context = &mut Context { i_p2: 0, i_pV: 0 };
     r_mark_regions(env, context);
     env.limit_backward = env.cursor;
     env.cursor = env.limit;
@@ -362,5 +404,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     env.cursor = env.limit - v_7;
     env.limit_backward = v_3;
     env.cursor = env.limit_backward;
-    return true
+    return true;
 }

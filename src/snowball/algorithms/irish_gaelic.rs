@@ -5,8 +5,8 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
 
 static A_0: &'static [Among<Context>; 24] = &[
     Among("b'", -1, 1, None),
@@ -97,7 +97,9 @@ static A_3: &'static [Among<Context>; 12] = &[
     Among("tar", -1, 2, None),
 ];
 
-static G_v: &'static [u8; 20] = &[17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 4, 2];
+static G_v: &'static [u8; 20] = &[
+    17, 65, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 4, 2,
+];
 
 #[derive(Clone)]
 struct Context {
@@ -166,7 +168,7 @@ fn r_mark_regions(env: &mut SnowballEnv, context: &mut Context) -> bool {
         break 'lab0;
     }
     env.cursor = v_1;
-    return true
+    return true;
 }
 
 fn r_initial_morph(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -228,21 +230,21 @@ fn r_initial_morph(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_RV(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_pV <= env.cursor
+    return context.i_pV <= env.cursor;
 }
 
 fn r_R1(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p1 <= env.cursor
+    return context.i_p1 <= env.cursor;
 }
 
 fn r_R2(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p2 <= env.cursor
+    return context.i_p2 <= env.cursor;
 }
 
 fn r_noun_sfx(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -270,9 +272,9 @@ fn r_noun_sfx(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_deriv(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -317,9 +319,9 @@ fn r_deriv(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_verb_sfx(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -347,9 +349,9 @@ fn r_verb_sfx(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
@@ -374,5 +376,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     r_verb_sfx(env, context);
     env.cursor = env.limit - v_5;
     env.cursor = env.limit_backward;
-    return true
+    return true;
 }

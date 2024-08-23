@@ -5,8 +5,8 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
 
 static A_0: &'static [Among<Context>; 4] = &[
     Among("s", -1, 3, None),
@@ -113,15 +113,15 @@ fn r_shortv(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.out_grouping_b(G_v, 97, 121) {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_R1(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p1 <= env.cursor
+    return context.i_p1 <= env.cursor;
 }
 
 fn r_R2(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_p2 <= env.cursor
+    return context.i_p2 <= env.cursor;
 }
 
 fn r_Step_1a(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -148,9 +148,9 @@ fn r_Step_1a(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Step_1b(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -223,12 +223,12 @@ fn r_Step_1b(env: &mut SnowballEnv, context: &mut Context) -> bool {
                     env.insert(bra, ket, "e");
                     env.cursor = c;
                 }
-                _ => ()
+                _ => (),
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Step_1c(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -263,7 +263,7 @@ fn r_Step_1c(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("i") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_Step_2(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -343,9 +343,9 @@ fn r_Step_2(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Step_3(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -375,9 +375,9 @@ fn r_Step_3(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Step_4(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -416,9 +416,9 @@ fn r_Step_4(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_Step_5a(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -452,7 +452,7 @@ fn r_Step_5a(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_Step_5b(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -470,7 +470,7 @@ fn r_Step_5b(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
@@ -496,7 +496,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     env.cursor = v_1;
     let v_2 = env.cursor;
     'lab1: loop {
-        'replab2: loop{
+        'replab2: loop {
             let v_3 = env.cursor;
             'lab3: for _ in 0..1 {
                 'golab4: loop {
@@ -620,7 +620,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
         if !context.b_Y_found {
             break 'lab15;
         }
-        'replab16: loop{
+        'replab16: loop {
             let v_19 = env.cursor;
             'lab17: for _ in 0..1 {
                 'golab18: loop {
@@ -651,5 +651,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
         break 'lab15;
     }
     env.cursor = v_18;
-    return true
+    return true;
 }

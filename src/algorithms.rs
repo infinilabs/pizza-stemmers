@@ -1,5 +1,10 @@
+#![no_std]
+#[cfg(test)]
+extern crate std; // use the standard library for tests
 
-use std::borrow::Cow;
+extern crate alloc;
+extern crate core;
+use alloc::borrow::Cow;
 
 use super::snowball;
 
@@ -22,7 +27,10 @@ pub fn polish_yarovoy_unaccented<'a>(input: &'a str) -> Cow<'a, str> {
 
 // Snowball algorithms
 
-fn stem_with_snowball<'a>(stem: fn(&mut snowball::env::SnowballEnv) -> bool, input: &'a str) -> Cow<'a, str> {
+fn stem_with_snowball<'a>(
+    stem: fn(&mut snowball::env::SnowballEnv) -> bool,
+    input: &'a str,
+) -> Cow<'a, str> {
     let mut env = snowball::env::SnowballEnv::create(input);
     stem(&mut env);
     env.get_current()
@@ -192,4 +200,3 @@ pub fn turkish_cilden<'a>(input: &'a str) -> Cow<'a, str> {
 pub fn yiddish_urieli<'a>(input: &'a str) -> Cow<'a, str> {
     stem_with_snowball(snowball::algorithms::yiddish_urieli, input)
 }
-

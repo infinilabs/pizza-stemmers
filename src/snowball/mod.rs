@@ -1,4 +1,4 @@
 mod among;
 
-pub mod env;
 pub mod algorithms;
+pub mod env;

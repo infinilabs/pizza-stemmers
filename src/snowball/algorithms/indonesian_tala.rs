@@ -5,8 +5,8 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
 
 static A_0: &'static [Among<Context>; 3] = &[
     Among("kah", -1, 1, None),
@@ -68,7 +68,7 @@ fn r_remove_particle(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     context.i_measure -= 1;
-    return true
+    return true;
 }
 
 fn r_remove_possessive_pronoun(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -81,25 +81,25 @@ fn r_remove_possessive_pronoun(env: &mut SnowballEnv, context: &mut Context) -> 
         return false;
     }
     context.i_measure -= 1;
-    return true
+    return true;
 }
 
 fn r_SUFFIX_KAN_OK(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    if context.i_prefix == 3{
+    if context.i_prefix == 3 {
         return false;
     }
-    if context.i_prefix == 2{
+    if context.i_prefix == 2 {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_SUFFIX_AN_OK(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return context.i_prefix != 1
+    return context.i_prefix != 1;
 }
 
 fn r_SUFFIX_I_OK(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    if context.i_prefix > 2{
+    if context.i_prefix > 2 {
         return false;
     }
     let v_1 = env.limit - env.cursor;
@@ -110,7 +110,7 @@ fn r_SUFFIX_I_OK(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     env.cursor = env.limit - v_1;
-    return true
+    return true;
 }
 
 fn r_remove_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -123,14 +123,14 @@ fn r_remove_suffix(env: &mut SnowballEnv, context: &mut Context) -> bool {
         return false;
     }
     context.i_measure -= 1;
-    return true
+    return true;
 }
 
 fn r_VOWEL(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.in_grouping(G_vowel, 97, 117) {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_KER(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -140,7 +140,7 @@ fn r_KER(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.eq_s(&"er") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_remove_first_order_prefix(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -226,9 +226,9 @@ fn r_remove_first_order_prefix(env: &mut SnowballEnv, context: &mut Context) -> 
                 break 'lab2;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_remove_second_order_prefix(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -267,9 +267,9 @@ fn r_remove_second_order_prefix(env: &mut SnowballEnv, context: &mut Context) ->
             context.i_prefix = 4;
             context.i_measure -= 1;
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
@@ -280,7 +280,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     context.i_measure = 0;
     let v_1 = env.cursor;
     'lab0: loop {
-        'replab1: loop{
+        'replab1: loop {
             let v_2 = env.cursor;
             'lab2: for _ in 0..1 {
                 'golab3: loop {
@@ -304,7 +304,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
         break 'lab0;
     }
     env.cursor = v_1;
-    if context.i_measure <= 2{
+    if context.i_measure <= 2 {
         return false;
     }
     context.i_prefix = 0;
@@ -313,14 +313,14 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     let v_4 = env.limit - env.cursor;
     r_remove_particle(env, context);
     env.cursor = env.limit - v_4;
-    if context.i_measure <= 2{
+    if context.i_measure <= 2 {
         return false;
     }
     let v_5 = env.limit - env.cursor;
     r_remove_possessive_pronoun(env, context);
     env.cursor = env.limit - v_5;
     env.cursor = env.limit_backward;
-    if context.i_measure <= 2{
+    if context.i_measure <= 2 {
         return false;
     }
     'lab5: loop {
@@ -333,7 +333,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
             let v_8 = env.cursor;
             'lab7: loop {
                 let v_9 = env.cursor;
-                if context.i_measure <= 2{
+                if context.i_measure <= 2 {
                     break 'lab7;
                 }
                 env.limit_backward = env.cursor;
@@ -343,7 +343,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
                 }
                 env.cursor = env.limit_backward;
                 env.cursor = v_9;
-                if context.i_measure <= 2{
+                if context.i_measure <= 2 {
                     break 'lab7;
                 }
                 if !r_remove_second_order_prefix(env, context) {
@@ -361,7 +361,7 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
         env.cursor = v_10;
         let v_11 = env.cursor;
         'lab8: loop {
-            if context.i_measure <= 2{
+            if context.i_measure <= 2 {
                 break 'lab8;
             }
             env.limit_backward = env.cursor;
@@ -375,5 +375,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
         env.cursor = v_11;
         break 'lab5;
     }
-    return true
+    return true;
 }

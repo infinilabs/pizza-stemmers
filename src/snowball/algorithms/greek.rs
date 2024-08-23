@@ -5,8 +5,8 @@
 #![allow(unused_mut)]
 #![allow(unused_parens)]
 #![allow(unused_variables)]
-use super::super::env::SnowballEnv;
 use super::super::among::Among;
+use super::super::env::SnowballEnv;
 
 static A_0: &'static [Among<Context>; 46] = &[
     Among("", -1, 25, None),
@@ -58,46 +58,201 @@ static A_0: &'static [Among<Context>; 46] = &[
 ];
 
 static A_1: &'static [Among<Context>; 40] = &[
-    Among("\u{03BA}\u{03B1}\u{03B8}\u{03B5}\u{03C3}\u{03C4}\u{03C9}\u{03C3}", -1, 10, None),
+    Among(
+        "\u{03BA}\u{03B1}\u{03B8}\u{03B5}\u{03C3}\u{03C4}\u{03C9}\u{03C3}",
+        -1,
+        10,
+        None,
+    ),
     Among("\u{03C6}\u{03C9}\u{03C3}", -1, 9, None),
     Among("\u{03C0}\u{03B5}\u{03C1}\u{03B1}\u{03C3}", -1, 7, None),
     Among("\u{03C4}\u{03B5}\u{03C1}\u{03B1}\u{03C3}", -1, 8, None),
     Among("\u{03BA}\u{03C1}\u{03B5}\u{03B1}\u{03C3}", -1, 6, None),
-    Among("\u{03BA}\u{03B1}\u{03B8}\u{03B5}\u{03C3}\u{03C4}\u{03C9}\u{03C4}\u{03BF}\u{03C3}", -1, 10, None),
+    Among(
+        "\u{03BA}\u{03B1}\u{03B8}\u{03B5}\u{03C3}\u{03C4}\u{03C9}\u{03C4}\u{03BF}\u{03C3}",
+        -1,
+        10,
+        None,
+    ),
     Among("\u{03C6}\u{03C9}\u{03C4}\u{03BF}\u{03C3}", -1, 9, None),
-    Among("\u{03C0}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03BF}\u{03C3}", -1, 7, None),
-    Among("\u{03C4}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03BF}\u{03C3}", -1, 8, None),
-    Among("\u{03BA}\u{03C1}\u{03B5}\u{03B1}\u{03C4}\u{03BF}\u{03C3}", -1, 6, None),
-    Among("\u{03B3}\u{03B5}\u{03B3}\u{03BF}\u{03BD}\u{03BF}\u{03C4}\u{03BF}\u{03C3}", -1, 11, None),
-    Among("\u{03B3}\u{03B5}\u{03B3}\u{03BF}\u{03BD}\u{03BF}\u{03C3}", -1, 11, None),
-    Among("\u{03C6}\u{03B1}\u{03B3}\u{03B9}\u{03BF}\u{03C5}", -1, 1, None),
-    Among("\u{03C3}\u{03BA}\u{03B1}\u{03B3}\u{03B9}\u{03BF}\u{03C5}", -1, 2, None),
-    Among("\u{03C3}\u{03BF}\u{03B3}\u{03B9}\u{03BF}\u{03C5}", -1, 4, None),
-    Among("\u{03C4}\u{03B1}\u{03C4}\u{03BF}\u{03B3}\u{03B9}\u{03BF}\u{03C5}", -1, 5, None),
-    Among("\u{03BF}\u{03BB}\u{03BF}\u{03B3}\u{03B9}\u{03BF}\u{03C5}", -1, 3, None),
-    Among("\u{03BA}\u{03B1}\u{03B8}\u{03B5}\u{03C3}\u{03C4}\u{03C9}\u{03C4}\u{03B1}", -1, 10, None),
+    Among(
+        "\u{03C0}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03BF}\u{03C3}",
+        -1,
+        7,
+        None,
+    ),
+    Among(
+        "\u{03C4}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03BF}\u{03C3}",
+        -1,
+        8,
+        None,
+    ),
+    Among(
+        "\u{03BA}\u{03C1}\u{03B5}\u{03B1}\u{03C4}\u{03BF}\u{03C3}",
+        -1,
+        6,
+        None,
+    ),
+    Among(
+        "\u{03B3}\u{03B5}\u{03B3}\u{03BF}\u{03BD}\u{03BF}\u{03C4}\u{03BF}\u{03C3}",
+        -1,
+        11,
+        None,
+    ),
+    Among(
+        "\u{03B3}\u{03B5}\u{03B3}\u{03BF}\u{03BD}\u{03BF}\u{03C3}",
+        -1,
+        11,
+        None,
+    ),
+    Among(
+        "\u{03C6}\u{03B1}\u{03B3}\u{03B9}\u{03BF}\u{03C5}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03C3}\u{03BA}\u{03B1}\u{03B3}\u{03B9}\u{03BF}\u{03C5}",
+        -1,
+        2,
+        None,
+    ),
+    Among(
+        "\u{03C3}\u{03BF}\u{03B3}\u{03B9}\u{03BF}\u{03C5}",
+        -1,
+        4,
+        None,
+    ),
+    Among(
+        "\u{03C4}\u{03B1}\u{03C4}\u{03BF}\u{03B3}\u{03B9}\u{03BF}\u{03C5}",
+        -1,
+        5,
+        None,
+    ),
+    Among(
+        "\u{03BF}\u{03BB}\u{03BF}\u{03B3}\u{03B9}\u{03BF}\u{03C5}",
+        -1,
+        3,
+        None,
+    ),
+    Among(
+        "\u{03BA}\u{03B1}\u{03B8}\u{03B5}\u{03C3}\u{03C4}\u{03C9}\u{03C4}\u{03B1}",
+        -1,
+        10,
+        None,
+    ),
     Among("\u{03C6}\u{03C9}\u{03C4}\u{03B1}", -1, 9, None),
-    Among("\u{03C0}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03B1}", -1, 7, None),
-    Among("\u{03C4}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03B1}", -1, 8, None),
-    Among("\u{03BA}\u{03C1}\u{03B5}\u{03B1}\u{03C4}\u{03B1}", -1, 6, None),
-    Among("\u{03B3}\u{03B5}\u{03B3}\u{03BF}\u{03BD}\u{03BF}\u{03C4}\u{03B1}", -1, 11, None),
+    Among(
+        "\u{03C0}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03B1}",
+        -1,
+        7,
+        None,
+    ),
+    Among(
+        "\u{03C4}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03B1}",
+        -1,
+        8,
+        None,
+    ),
+    Among(
+        "\u{03BA}\u{03C1}\u{03B5}\u{03B1}\u{03C4}\u{03B1}",
+        -1,
+        6,
+        None,
+    ),
+    Among(
+        "\u{03B3}\u{03B5}\u{03B3}\u{03BF}\u{03BD}\u{03BF}\u{03C4}\u{03B1}",
+        -1,
+        11,
+        None,
+    ),
     Among("\u{03C6}\u{03B1}\u{03B3}\u{03B9}\u{03B1}", -1, 1, None),
-    Among("\u{03C3}\u{03BA}\u{03B1}\u{03B3}\u{03B9}\u{03B1}", -1, 2, None),
+    Among(
+        "\u{03C3}\u{03BA}\u{03B1}\u{03B3}\u{03B9}\u{03B1}",
+        -1,
+        2,
+        None,
+    ),
     Among("\u{03C3}\u{03BF}\u{03B3}\u{03B9}\u{03B1}", -1, 4, None),
-    Among("\u{03C4}\u{03B1}\u{03C4}\u{03BF}\u{03B3}\u{03B9}\u{03B1}", -1, 5, None),
-    Among("\u{03BF}\u{03BB}\u{03BF}\u{03B3}\u{03B9}\u{03B1}", -1, 3, None),
-    Among("\u{03C0}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03B7}", -1, 7, None),
-    Among("\u{03BA}\u{03B1}\u{03B8}\u{03B5}\u{03C3}\u{03C4}\u{03C9}\u{03C4}\u{03C9}\u{03BD}", -1, 10, None),
+    Among(
+        "\u{03C4}\u{03B1}\u{03C4}\u{03BF}\u{03B3}\u{03B9}\u{03B1}",
+        -1,
+        5,
+        None,
+    ),
+    Among(
+        "\u{03BF}\u{03BB}\u{03BF}\u{03B3}\u{03B9}\u{03B1}",
+        -1,
+        3,
+        None,
+    ),
+    Among(
+        "\u{03C0}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03B7}",
+        -1,
+        7,
+        None,
+    ),
+    Among(
+        "\u{03BA}\u{03B1}\u{03B8}\u{03B5}\u{03C3}\u{03C4}\u{03C9}\u{03C4}\u{03C9}\u{03BD}",
+        -1,
+        10,
+        None,
+    ),
     Among("\u{03C6}\u{03C9}\u{03C4}\u{03C9}\u{03BD}", -1, 9, None),
-    Among("\u{03C0}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03C9}\u{03BD}", -1, 7, None),
-    Among("\u{03C4}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03C9}\u{03BD}", -1, 8, None),
-    Among("\u{03BA}\u{03C1}\u{03B5}\u{03B1}\u{03C4}\u{03C9}\u{03BD}", -1, 6, None),
-    Among("\u{03B3}\u{03B5}\u{03B3}\u{03BF}\u{03BD}\u{03BF}\u{03C4}\u{03C9}\u{03BD}", -1, 11, None),
-    Among("\u{03C6}\u{03B1}\u{03B3}\u{03B9}\u{03C9}\u{03BD}", -1, 1, None),
-    Among("\u{03C3}\u{03BA}\u{03B1}\u{03B3}\u{03B9}\u{03C9}\u{03BD}", -1, 2, None),
-    Among("\u{03C3}\u{03BF}\u{03B3}\u{03B9}\u{03C9}\u{03BD}", -1, 4, None),
-    Among("\u{03C4}\u{03B1}\u{03C4}\u{03BF}\u{03B3}\u{03B9}\u{03C9}\u{03BD}", -1, 5, None),
-    Among("\u{03BF}\u{03BB}\u{03BF}\u{03B3}\u{03B9}\u{03C9}\u{03BD}", -1, 3, None),
+    Among(
+        "\u{03C0}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03C9}\u{03BD}",
+        -1,
+        7,
+        None,
+    ),
+    Among(
+        "\u{03C4}\u{03B5}\u{03C1}\u{03B1}\u{03C4}\u{03C9}\u{03BD}",
+        -1,
+        8,
+        None,
+    ),
+    Among(
+        "\u{03BA}\u{03C1}\u{03B5}\u{03B1}\u{03C4}\u{03C9}\u{03BD}",
+        -1,
+        6,
+        None,
+    ),
+    Among(
+        "\u{03B3}\u{03B5}\u{03B3}\u{03BF}\u{03BD}\u{03BF}\u{03C4}\u{03C9}\u{03BD}",
+        -1,
+        11,
+        None,
+    ),
+    Among(
+        "\u{03C6}\u{03B1}\u{03B3}\u{03B9}\u{03C9}\u{03BD}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03C3}\u{03BA}\u{03B1}\u{03B3}\u{03B9}\u{03C9}\u{03BD}",
+        -1,
+        2,
+        None,
+    ),
+    Among(
+        "\u{03C3}\u{03BF}\u{03B3}\u{03B9}\u{03C9}\u{03BD}",
+        -1,
+        4,
+        None,
+    ),
+    Among(
+        "\u{03C4}\u{03B1}\u{03C4}\u{03BF}\u{03B3}\u{03B9}\u{03C9}\u{03BD}",
+        -1,
+        5,
+        None,
+    ),
+    Among(
+        "\u{03BF}\u{03BB}\u{03BF}\u{03B3}\u{03B9}\u{03C9}\u{03BD}",
+        -1,
+        3,
+        None,
+    ),
 ];
 
 static A_2: &'static [Among<Context>; 31] = &[
@@ -107,31 +262,76 @@ static A_2: &'static [Among<Context>; 31] = &[
     Among("\u{03C0}\u{03C1}", 2, 2, None),
     Among("\u{03BC}\u{03C0}\u{03C1}", 3, 2, None),
     Among("\u{03B1}\u{03C1}\u{03C1}", 2, 2, None),
-    Among("\u{03B3}\u{03BB}\u{03C5}\u{03BA}\u{03C5}\u{03C1}", 2, 2, None),
+    Among(
+        "\u{03B3}\u{03BB}\u{03C5}\u{03BA}\u{03C5}\u{03C1}",
+        2,
+        2,
+        None,
+    ),
     Among("\u{03C0}\u{03BF}\u{03BB}\u{03C5}\u{03C1}", 2, 2, None),
     Among("\u{03B1}\u{03BC}\u{03C0}\u{03B1}\u{03C1}", 2, 2, None),
     Among("\u{03BC}\u{03B1}\u{03C1}", 2, 2, None),
     Among("\u{03B3}\u{03BA}\u{03C1}", 2, 2, None),
-    Among("\u{03C0}\u{03B9}\u{03C0}\u{03B5}\u{03C1}\u{03BF}\u{03C1}", 2, 2, None),
-    Among("\u{03B2}\u{03BF}\u{03BB}\u{03B2}\u{03BF}\u{03C1}", 2, 2, None),
-    Among("\u{03B3}\u{03BB}\u{03C5}\u{03BA}\u{03BF}\u{03C1}", 2, 2, None),
+    Among(
+        "\u{03C0}\u{03B9}\u{03C0}\u{03B5}\u{03C1}\u{03BF}\u{03C1}",
+        2,
+        2,
+        None,
+    ),
+    Among(
+        "\u{03B2}\u{03BF}\u{03BB}\u{03B2}\u{03BF}\u{03C1}",
+        2,
+        2,
+        None,
+    ),
+    Among(
+        "\u{03B3}\u{03BB}\u{03C5}\u{03BA}\u{03BF}\u{03C1}",
+        2,
+        2,
+        None,
+    ),
     Among("\u{03BB}\u{03BF}\u{03C5}", -1, 2, None),
     Among("\u{03C0}\u{03B1}", -1, 1, None),
-    Among("\u{03BE}\u{03B1}\u{03BD}\u{03B1}\u{03C0}\u{03B1}", 15, 1, None),
+    Among(
+        "\u{03BE}\u{03B1}\u{03BD}\u{03B1}\u{03C0}\u{03B1}",
+        15,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03C0}\u{03B1}", 15, 1, None),
-    Among("\u{03C0}\u{03B5}\u{03C1}\u{03B9}\u{03C0}\u{03B1}", 15, 1, None),
-    Among("\u{03B1}\u{03BD}\u{03B1}\u{03BC}\u{03C0}\u{03B1}", 15, 1, None),
+    Among(
+        "\u{03C0}\u{03B5}\u{03C1}\u{03B9}\u{03C0}\u{03B1}",
+        15,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B1}\u{03BD}\u{03B1}\u{03BC}\u{03C0}\u{03B1}",
+        15,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03BC}\u{03C0}\u{03B1}", 15, 1, None),
     Among("\u{03B2}", -1, 2, None),
     Among("\u{03B4}\u{03B1}\u{03BD}\u{03B5}", -1, 1, None),
-    Among("\u{03B2}\u{03B1}\u{03B8}\u{03C5}\u{03C1}\u{03B9}", -1, 2, None),
+    Among(
+        "\u{03B2}\u{03B1}\u{03B8}\u{03C5}\u{03C1}\u{03B9}",
+        -1,
+        2,
+        None,
+    ),
     Among("\u{03B2}\u{03B1}\u{03C1}\u{03BA}", -1, 2, None),
     Among("\u{03BC}\u{03B1}\u{03C1}\u{03BA}", -1, 2, None),
     Among("\u{03BB}", -1, 2, None),
     Among("\u{03BC}", -1, 2, None),
     Among("\u{03BA}\u{03BF}\u{03C1}\u{03BD}", -1, 2, None),
     Among("\u{03B1}\u{03B8}\u{03C1}\u{03BF}", -1, 1, None),
-    Among("\u{03C3}\u{03C5}\u{03BD}\u{03B1}\u{03B8}\u{03C1}\u{03BF}", 29, 1, None),
+    Among(
+        "\u{03C3}\u{03C5}\u{03BD}\u{03B1}\u{03B8}\u{03C1}\u{03BF}",
+        29,
+        1,
+        None,
+    ),
 ];
 
 static A_3: &'static [Among<Context>; 14] = &[
@@ -142,9 +342,19 @@ static A_3: &'static [Among<Context>; 14] = &[
     Among("\u{03B9}\u{03B6}\u{03B1}\u{03C4}\u{03B5}", -1, 1, None),
     Among("\u{03B9}\u{03B6}\u{03B5}\u{03C4}\u{03B5}", -1, 1, None),
     Among("\u{03B9}\u{03B6}\u{03B5}", -1, 1, None),
-    Among("\u{03B9}\u{03B6}\u{03BF}\u{03C5}\u{03BC}\u{03B5}", -1, 1, None),
+    Among(
+        "\u{03B9}\u{03B6}\u{03BF}\u{03C5}\u{03BC}\u{03B5}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B9}\u{03B6}\u{03B1}\u{03BC}\u{03B5}", -1, 1, None),
-    Among("\u{03B9}\u{03B6}\u{03BF}\u{03C5}\u{03BD}\u{03B5}", -1, 1, None),
+    Among(
+        "\u{03B9}\u{03B6}\u{03BF}\u{03C5}\u{03BD}\u{03B5}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B9}\u{03B6}\u{03B1}\u{03BD}\u{03B5}", -1, 1, None),
     Among("\u{03B9}\u{03B6}\u{03B5}\u{03B9}", -1, 1, None),
     Among("\u{03B9}\u{03B6}\u{03BF}\u{03C5}\u{03BD}", -1, 1, None),
@@ -163,47 +373,137 @@ static A_4: &'static [Among<Context>; 8] = &[
 ];
 
 static A_5: &'static [Among<Context>; 7] = &[
-    Among("\u{03C9}\u{03B8}\u{03B7}\u{03BA}\u{03B5}\u{03C3}", -1, 1, None),
+    Among(
+        "\u{03C9}\u{03B8}\u{03B7}\u{03BA}\u{03B5}\u{03C3}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C9}\u{03B8}\u{03B7}\u{03BA}\u{03B1}", -1, 1, None),
-    Among("\u{03C9}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03C4}\u{03B5}", -1, 1, None),
+    Among(
+        "\u{03C9}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03C4}\u{03B5}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C9}\u{03B8}\u{03B7}\u{03BA}\u{03B5}", -1, 1, None),
-    Among("\u{03C9}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03BC}\u{03B5}", -1, 1, None),
-    Among("\u{03C9}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03BD}\u{03B5}", -1, 1, None),
-    Among("\u{03C9}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03BD}", -1, 1, None),
+    Among(
+        "\u{03C9}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03BC}\u{03B5}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03C9}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03BD}\u{03B5}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03C9}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03BD}",
+        -1,
+        1,
+        None,
+    ),
 ];
 
 static A_6: &'static [Among<Context>; 32] = &[
     Among("\u{03C0}", -1, 2, None),
     Among("\u{03BB}\u{03B1}\u{03C1}", -1, 2, None),
-    Among("\u{03B4}\u{03B7}\u{03BC}\u{03BF}\u{03BA}\u{03C1}\u{03B1}\u{03C4}", -1, 2, None),
+    Among(
+        "\u{03B4}\u{03B7}\u{03BC}\u{03BF}\u{03BA}\u{03C1}\u{03B1}\u{03C4}",
+        -1,
+        2,
+        None,
+    ),
     Among("\u{03B1}\u{03C6}", -1, 2, None),
-    Among("\u{03B3}\u{03B9}\u{03B3}\u{03B1}\u{03BD}\u{03C4}\u{03BF}\u{03B1}\u{03C6}", 3, 2, None),
-    Among("\u{03BE}\u{03B1}\u{03BD}\u{03B1}\u{03C0}\u{03B1}", -1, 1, None),
+    Among(
+        "\u{03B3}\u{03B9}\u{03B3}\u{03B1}\u{03BD}\u{03C4}\u{03BF}\u{03B1}\u{03C6}",
+        3,
+        2,
+        None,
+    ),
+    Among(
+        "\u{03BE}\u{03B1}\u{03BD}\u{03B1}\u{03C0}\u{03B1}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03C0}\u{03B1}", -1, 1, None),
-    Among("\u{03C0}\u{03B5}\u{03C1}\u{03B9}\u{03C0}\u{03B1}", -1, 1, None),
-    Among("\u{03B1}\u{03BD}\u{03B1}\u{03BC}\u{03C0}\u{03B1}", -1, 1, None),
+    Among(
+        "\u{03C0}\u{03B5}\u{03C1}\u{03B9}\u{03C0}\u{03B1}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B1}\u{03BD}\u{03B1}\u{03BC}\u{03C0}\u{03B1}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03BC}\u{03C0}\u{03B1}", -1, 1, None),
-    Among("\u{03C7}\u{03B1}\u{03C1}\u{03C4}\u{03BF}\u{03C0}\u{03B1}", -1, 1, None),
-    Among("\u{03B5}\u{03BE}\u{03B1}\u{03C1}\u{03C7}\u{03B1}", -1, 1, None),
+    Among(
+        "\u{03C7}\u{03B1}\u{03C1}\u{03C4}\u{03BF}\u{03C0}\u{03B1}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B5}\u{03BE}\u{03B1}\u{03C1}\u{03C7}\u{03B1}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C0}\u{03B5}", -1, 1, None),
     Among("\u{03B5}\u{03C0}\u{03B5}", 12, 1, None),
-    Among("\u{03BC}\u{03B5}\u{03C4}\u{03B5}\u{03C0}\u{03B5}", 13, 1, None),
+    Among(
+        "\u{03BC}\u{03B5}\u{03C4}\u{03B5}\u{03C0}\u{03B5}",
+        13,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03C3}\u{03B5}", -1, 1, None),
     Among("\u{03B3}\u{03B5}", -1, 2, None),
     Among("\u{03B3}\u{03BA}\u{03B5}", -1, 2, None),
     Among("\u{03BA}\u{03BB}\u{03B5}", -1, 1, None),
-    Among("\u{03B5}\u{03C3}\u{03C9}\u{03BA}\u{03BB}\u{03B5}", 18, 1, None),
+    Among(
+        "\u{03B5}\u{03C3}\u{03C9}\u{03BA}\u{03BB}\u{03B5}",
+        18,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03BA}\u{03BB}\u{03B5}", 18, 1, None),
-    Among("\u{03B1}\u{03C0}\u{03B5}\u{03BA}\u{03BB}\u{03B5}", 20, 1, None),
-    Among("\u{03B1}\u{03C0}\u{03BF}\u{03BA}\u{03BB}\u{03B5}", 18, 1, None),
+    Among(
+        "\u{03B1}\u{03C0}\u{03B5}\u{03BA}\u{03BB}\u{03B5}",
+        20,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B1}\u{03C0}\u{03BF}\u{03BA}\u{03BB}\u{03B5}",
+        18,
+        1,
+        None,
+    ),
     Among("\u{03B4}\u{03B1}\u{03BD}\u{03B5}", -1, 1, None),
     Among("\u{03B3}\u{03BA}", -1, 2, None),
     Among("\u{03BC}", -1, 2, None),
-    Among("\u{03C0}\u{03BF}\u{03C5}\u{03BA}\u{03B1}\u{03BC}", 25, 2, None),
+    Among(
+        "\u{03C0}\u{03BF}\u{03C5}\u{03BA}\u{03B1}\u{03BC}",
+        25,
+        2,
+        None,
+    ),
     Among("\u{03BA}\u{03BF}\u{03BC}", 25, 2, None),
     Among("\u{03B1}\u{03BD}", -1, 2, None),
     Among("\u{03B1}\u{03B8}\u{03C1}\u{03BF}", -1, 1, None),
-    Among("\u{03C3}\u{03C5}\u{03BD}\u{03B1}\u{03B8}\u{03C1}\u{03BF}", 29, 1, None),
+    Among(
+        "\u{03C3}\u{03C5}\u{03BD}\u{03B1}\u{03B8}\u{03C1}\u{03BF}",
+        29,
+        1,
+        None,
+    ),
     Among("\u{03BF}\u{03BB}\u{03BF}", -1, 2, None),
 ];
 
@@ -218,33 +518,93 @@ static A_7: &'static [Among<Context>; 7] = &[
 ];
 
 static A_8: &'static [Among<Context>; 19] = &[
-    Among("\u{03BE}\u{03B1}\u{03BD}\u{03B1}\u{03C0}\u{03B1}", -1, 1, None),
+    Among(
+        "\u{03BE}\u{03B1}\u{03BD}\u{03B1}\u{03C0}\u{03B1}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03C0}\u{03B1}", -1, 1, None),
-    Among("\u{03C0}\u{03B5}\u{03C1}\u{03B9}\u{03C0}\u{03B1}", -1, 1, None),
-    Among("\u{03B1}\u{03BD}\u{03B1}\u{03BC}\u{03C0}\u{03B1}", -1, 1, None),
+    Among(
+        "\u{03C0}\u{03B5}\u{03C1}\u{03B9}\u{03C0}\u{03B1}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B1}\u{03BD}\u{03B1}\u{03BC}\u{03C0}\u{03B1}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03BC}\u{03C0}\u{03B1}", -1, 1, None),
-    Among("\u{03C7}\u{03B1}\u{03C1}\u{03C4}\u{03BF}\u{03C0}\u{03B1}", -1, 1, None),
-    Among("\u{03B5}\u{03BE}\u{03B1}\u{03C1}\u{03C7}\u{03B1}", -1, 1, None),
+    Among(
+        "\u{03C7}\u{03B1}\u{03C1}\u{03C4}\u{03BF}\u{03C0}\u{03B1}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B5}\u{03BE}\u{03B1}\u{03C1}\u{03C7}\u{03B1}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C0}\u{03B5}", -1, 1, None),
     Among("\u{03B5}\u{03C0}\u{03B5}", 7, 1, None),
-    Among("\u{03BC}\u{03B5}\u{03C4}\u{03B5}\u{03C0}\u{03B5}", 8, 1, None),
+    Among(
+        "\u{03BC}\u{03B5}\u{03C4}\u{03B5}\u{03C0}\u{03B5}",
+        8,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03C3}\u{03B5}", -1, 1, None),
     Among("\u{03BA}\u{03BB}\u{03B5}", -1, 1, None),
-    Among("\u{03B5}\u{03C3}\u{03C9}\u{03BA}\u{03BB}\u{03B5}", 11, 1, None),
+    Among(
+        "\u{03B5}\u{03C3}\u{03C9}\u{03BA}\u{03BB}\u{03B5}",
+        11,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03BA}\u{03BB}\u{03B5}", 11, 1, None),
-    Among("\u{03B1}\u{03C0}\u{03B5}\u{03BA}\u{03BB}\u{03B5}", 13, 1, None),
-    Among("\u{03B1}\u{03C0}\u{03BF}\u{03BA}\u{03BB}\u{03B5}", 11, 1, None),
+    Among(
+        "\u{03B1}\u{03C0}\u{03B5}\u{03BA}\u{03BB}\u{03B5}",
+        13,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B1}\u{03C0}\u{03BF}\u{03BA}\u{03BB}\u{03B5}",
+        11,
+        1,
+        None,
+    ),
     Among("\u{03B4}\u{03B1}\u{03BD}\u{03B5}", -1, 1, None),
     Among("\u{03B1}\u{03B8}\u{03C1}\u{03BF}", -1, 1, None),
-    Among("\u{03C3}\u{03C5}\u{03BD}\u{03B1}\u{03B8}\u{03C1}\u{03BF}", 17, 1, None),
+    Among(
+        "\u{03C3}\u{03C5}\u{03BD}\u{03B1}\u{03B8}\u{03C1}\u{03BF}",
+        17,
+        1,
+        None,
+    ),
 ];
 
 static A_9: &'static [Among<Context>; 7] = &[
     Among("\u{03B9}\u{03C3}\u{03B5}\u{03B9}\u{03C3}", -1, 1, None),
     Among("\u{03B9}\u{03C3}\u{03C9}", -1, 1, None),
     Among("\u{03B9}\u{03C3}\u{03B5}\u{03C4}\u{03B5}", -1, 1, None),
-    Among("\u{03B9}\u{03C3}\u{03BF}\u{03C5}\u{03BC}\u{03B5}", -1, 1, None),
-    Among("\u{03B9}\u{03C3}\u{03BF}\u{03C5}\u{03BD}\u{03B5}", -1, 1, None),
+    Among(
+        "\u{03B9}\u{03C3}\u{03BF}\u{03C5}\u{03BC}\u{03B5}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03C3}\u{03BF}\u{03C5}\u{03BD}\u{03B5}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B9}\u{03C3}\u{03B5}\u{03B9}", -1, 1, None),
     Among("\u{03B9}\u{03C3}\u{03BF}\u{03C5}\u{03BD}", -1, 1, None),
 ];
@@ -277,7 +637,12 @@ static A_10: &'static [Among<Context>; 40] = &[
     Among("\u{03B1}\u{03C3}\u{03B5}", 23, 1, None),
     Among("\u{03C0}\u{03BB}\u{03B5}", -1, 1, None),
     Among("\u{03BA}\u{03BB}\u{03B5}", -1, 1, None),
-    Among("\u{03B5}\u{03C3}\u{03C9}\u{03BA}\u{03BB}\u{03B5}", 26, 1, None),
+    Among(
+        "\u{03B5}\u{03C3}\u{03C9}\u{03BA}\u{03BB}\u{03B5}",
+        26,
+        1,
+        None,
+    ),
     Among("\u{03B4}\u{03B1}\u{03BD}\u{03B5}", -1, 1, None),
     Among("\u{03B5}\u{03C7}\u{03B8}", -1, 2, None),
     Among("\u{03BA}\u{03B1}\u{03B8}", -1, 2, None),
@@ -289,11 +654,21 @@ static A_10: &'static [Among<Context>; 40] = &[
     Among("\u{03BC}", -1, 2, None),
     Among("\u{03B3}\u{03B5}\u{03BC}", 36, 2, None),
     Among("\u{03B1}\u{03C7}\u{03BD}", -1, 2, None),
-    Among("\u{03C3}\u{03C5}\u{03BD}\u{03B1}\u{03B8}\u{03C1}\u{03BF}", -1, 1, None),
+    Among(
+        "\u{03C3}\u{03C5}\u{03BD}\u{03B1}\u{03B8}\u{03C1}\u{03BF}",
+        -1,
+        1,
+        None,
+    ),
 ];
 
 static A_11: &'static [Among<Context>; 11] = &[
-    Among("\u{03B9}\u{03C3}\u{03C4}\u{03BF}\u{03C5}\u{03C3}", -1, 1, None),
+    Among(
+        "\u{03B9}\u{03C3}\u{03C4}\u{03BF}\u{03C5}\u{03C3}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B9}\u{03C3}\u{03C4}\u{03B5}\u{03C3}", -1, 1, None),
     Among("\u{03B9}\u{03C3}\u{03C4}\u{03B7}\u{03C3}", -1, 1, None),
     Among("\u{03B9}\u{03C3}\u{03C4}\u{03BF}\u{03C3}", -1, 1, None),
@@ -308,29 +683,94 @@ static A_11: &'static [Among<Context>; 11] = &[
 
 static A_12: &'static [Among<Context>; 7] = &[
     Among("\u{03C3}\u{03B5}", -1, 1, None),
-    Among("\u{03BC}\u{03B5}\u{03C4}\u{03B1}\u{03C3}\u{03B5}", 0, 1, None),
-    Among("\u{03BC}\u{03B9}\u{03BA}\u{03C1}\u{03BF}\u{03C3}\u{03B5}", 0, 1, None),
+    Among(
+        "\u{03BC}\u{03B5}\u{03C4}\u{03B1}\u{03C3}\u{03B5}",
+        0,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BC}\u{03B9}\u{03BA}\u{03C1}\u{03BF}\u{03C3}\u{03B5}",
+        0,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03B3}\u{03BA}\u{03BB}\u{03B5}", -1, 1, None),
-    Among("\u{03B1}\u{03C0}\u{03BF}\u{03BA}\u{03BB}\u{03B5}", -1, 1, None),
+    Among(
+        "\u{03B1}\u{03C0}\u{03BF}\u{03BA}\u{03BB}\u{03B5}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B4}\u{03B1}\u{03BD}\u{03B5}", -1, 2, None),
-    Among("\u{03B1}\u{03BD}\u{03C4}\u{03B9}\u{03B4}\u{03B1}\u{03BD}\u{03B5}", 5, 2, None),
+    Among(
+        "\u{03B1}\u{03BD}\u{03C4}\u{03B9}\u{03B4}\u{03B1}\u{03BD}\u{03B5}",
+        5,
+        2,
+        None,
+    ),
 ];
 
 static A_13: &'static [Among<Context>; 10] = &[
     Among("\u{03C4}\u{03BF}\u{03C0}\u{03B9}\u{03BA}", -1, 7, None),
-    Among("\u{03C3}\u{03BA}\u{03B5}\u{03C0}\u{03C4}\u{03B9}\u{03BA}", -1, 6, None),
-    Among("\u{03B3}\u{03BD}\u{03C9}\u{03C3}\u{03C4}\u{03B9}\u{03BA}", -1, 3, None),
-    Among("\u{03B1}\u{03B3}\u{03BD}\u{03C9}\u{03C3}\u{03C4}\u{03B9}\u{03BA}", 2, 1, None),
-    Among("\u{03B5}\u{03BA}\u{03BB}\u{03B5}\u{03BA}\u{03C4}\u{03B9}\u{03BA}", -1, 5, None),
-    Among("\u{03B1}\u{03C4}\u{03BF}\u{03BC}\u{03B9}\u{03BA}", -1, 2, None),
+    Among(
+        "\u{03C3}\u{03BA}\u{03B5}\u{03C0}\u{03C4}\u{03B9}\u{03BA}",
+        -1,
+        6,
+        None,
+    ),
+    Among(
+        "\u{03B3}\u{03BD}\u{03C9}\u{03C3}\u{03C4}\u{03B9}\u{03BA}",
+        -1,
+        3,
+        None,
+    ),
+    Among(
+        "\u{03B1}\u{03B3}\u{03BD}\u{03C9}\u{03C3}\u{03C4}\u{03B9}\u{03BA}",
+        2,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B5}\u{03BA}\u{03BB}\u{03B5}\u{03BA}\u{03C4}\u{03B9}\u{03BA}",
+        -1,
+        5,
+        None,
+    ),
+    Among(
+        "\u{03B1}\u{03C4}\u{03BF}\u{03BC}\u{03B9}\u{03BA}",
+        -1,
+        2,
+        None,
+    ),
     Among("\u{03B5}\u{03B8}\u{03BD}\u{03B9}\u{03BA}", -1, 4, None),
-    Among("\u{03B8}\u{03B5}\u{03B1}\u{03C4}\u{03C1}\u{03B9}\u{03BD}", -1, 10, None),
-    Among("\u{03B1}\u{03BB}\u{03B5}\u{03BE}\u{03B1}\u{03BD}\u{03B4}\u{03C1}\u{03B9}\u{03BD}", -1, 8, None),
-    Among("\u{03B2}\u{03C5}\u{03B6}\u{03B1}\u{03BD}\u{03C4}\u{03B9}\u{03BD}", -1, 9, None),
+    Among(
+        "\u{03B8}\u{03B5}\u{03B1}\u{03C4}\u{03C1}\u{03B9}\u{03BD}",
+        -1,
+        10,
+        None,
+    ),
+    Among(
+        "\u{03B1}\u{03BB}\u{03B5}\u{03BE}\u{03B1}\u{03BD}\u{03B4}\u{03C1}\u{03B9}\u{03BD}",
+        -1,
+        8,
+        None,
+    ),
+    Among(
+        "\u{03B2}\u{03C5}\u{03B6}\u{03B1}\u{03BD}\u{03C4}\u{03B9}\u{03BD}",
+        -1,
+        9,
+        None,
+    ),
 ];
 
 static A_14: &'static [Among<Context>; 6] = &[
-    Among("\u{03B9}\u{03C3}\u{03BC}\u{03BF}\u{03C5}\u{03C3}", -1, 1, None),
+    Among(
+        "\u{03B9}\u{03C3}\u{03BC}\u{03BF}\u{03C5}\u{03C3}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B9}\u{03C3}\u{03BC}\u{03BF}\u{03C3}", -1, 1, None),
     Among("\u{03B9}\u{03C3}\u{03BC}\u{03BF}\u{03C5}", -1, 1, None),
     Among("\u{03B9}\u{03C3}\u{03BC}\u{03BF}\u{03B9}", -1, 1, None),
@@ -344,15 +784,35 @@ static A_15: &'static [Among<Context>; 2] = &[
 ];
 
 static A_16: &'static [Among<Context>; 4] = &[
-    Among("\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B9}\u{03B1}", -1, 1, None),
-    Among("\u{03BF}\u{03C5}\u{03B4}\u{03B1}\u{03BA}\u{03B9}\u{03B1}", -1, 1, None),
+    Among(
+        "\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B9}\u{03B1}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BF}\u{03C5}\u{03B4}\u{03B1}\u{03BA}\u{03B9}\u{03B1}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B9}", -1, 1, None),
-    Among("\u{03BF}\u{03C5}\u{03B4}\u{03B1}\u{03BA}\u{03B9}", -1, 1, None),
+    Among(
+        "\u{03BF}\u{03C5}\u{03B4}\u{03B1}\u{03BA}\u{03B9}",
+        -1,
+        1,
+        None,
+    ),
 ];
 
 static A_17: &'static [Among<Context>; 46] = &[
     Among("\u{03C0}", -1, 2, None),
-    Among("\u{03BA}\u{03B1}\u{03C4}\u{03C1}\u{03B1}\u{03C0}", 0, 1, None),
+    Among(
+        "\u{03BA}\u{03B1}\u{03C4}\u{03C1}\u{03B1}\u{03C0}",
+        0,
+        1,
+        None,
+    ),
     Among("\u{03C1}", -1, 1, None),
     Among("\u{03B2}\u{03C1}", 2, 1, None),
     Among("\u{03BB}\u{03B1}\u{03B2}\u{03C1}", 3, 1, None),
@@ -362,7 +822,12 @@ static A_17: &'static [Among<Context>; 46] = &[
     Among("\u{03B1}\u{03BD}\u{03B8}\u{03C1}", 2, 1, None),
     Among("\u{03BA}\u{03BF}\u{03C1}", 2, 1, None),
     Among("\u{03C3}", -1, 1, None),
-    Among("\u{03BD}\u{03B1}\u{03B3}\u{03BA}\u{03B1}\u{03C3}", 10, 1, None),
+    Among(
+        "\u{03BD}\u{03B1}\u{03B3}\u{03BA}\u{03B1}\u{03C3}",
+        10,
+        1,
+        None,
+    ),
     Among("\u{03C4}\u{03BF}\u{03C3}", 10, 2, None),
     Among("\u{03BC}\u{03BF}\u{03C5}\u{03C3}\u{03C4}", -1, 1, None),
     Among("\u{03C1}\u{03C5}", -1, 1, None),
@@ -374,7 +839,12 @@ static A_17: &'static [Among<Context>; 46] = &[
     Among("\u{03B2}", -1, 2, None),
     Among("\u{03B2}\u{03B1}\u{03BC}\u{03B2}", 20, 1, None),
     Among("\u{03C3}\u{03BB}\u{03BF}\u{03B2}", 20, 1, None),
-    Among("\u{03C4}\u{03C3}\u{03B5}\u{03C7}\u{03BF}\u{03C3}\u{03BB}\u{03BF}\u{03B2}", 22, 1, None),
+    Among(
+        "\u{03C4}\u{03C3}\u{03B5}\u{03C7}\u{03BF}\u{03C3}\u{03BB}\u{03BF}\u{03B2}",
+        22,
+        1,
+        None,
+    ),
     Among("\u{03BA}\u{03B1}\u{03C1}\u{03B4}", -1, 2, None),
     Among("\u{03B6}", -1, 2, None),
     Among("\u{03C4}\u{03B6}", 25, 1, None),
@@ -388,14 +858,29 @@ static A_17: &'static [Among<Context>; 46] = &[
     Among("\u{03B2}\u{03B1}\u{03BB}", -1, 2, None),
     Among("\u{03BC}\u{03B1}\u{03BB}", -1, 1, None),
     Among("\u{03B3}\u{03BB}", -1, 2, None),
-    Among("\u{03C4}\u{03C1}\u{03B9}\u{03C0}\u{03BF}\u{03BB}", -1, 2, None),
+    Among(
+        "\u{03C4}\u{03C1}\u{03B9}\u{03C0}\u{03BF}\u{03BB}",
+        -1,
+        2,
+        None,
+    ),
     Among("\u{03C6}\u{03B1}\u{03C1}\u{03BC}", -1, 1, None),
     Among("\u{03BA}\u{03B1}\u{03B9}\u{03BC}", -1, 1, None),
     Among("\u{03BA}\u{03BB}\u{03B9}\u{03BC}", -1, 1, None),
-    Among("\u{03BC}\u{03B1}\u{03BA}\u{03C1}\u{03C5}\u{03BD}", -1, 2, None),
+    Among(
+        "\u{03BC}\u{03B1}\u{03BA}\u{03C1}\u{03C5}\u{03BD}",
+        -1,
+        2,
+        None,
+    ),
     Among("\u{03C3}\u{03C0}\u{03B1}\u{03BD}", -1, 1, None),
     Among("\u{03B3}\u{03B9}\u{03B1}\u{03BD}", -1, 2, None),
-    Among("\u{03B7}\u{03B3}\u{03BF}\u{03C5}\u{03BC}\u{03B5}\u{03BD}", -1, 2, None),
+    Among(
+        "\u{03B7}\u{03B3}\u{03BF}\u{03C5}\u{03BC}\u{03B5}\u{03BD}",
+        -1,
+        2,
+        None,
+    ),
     Among("\u{03BA}\u{03BF}\u{03BD}", -1, 1, None),
 ];
 
@@ -404,7 +889,12 @@ static A_18: &'static [Among<Context>; 8] = &[
     Among("\u{03B9}\u{03C4}\u{03C3}\u{03B5}\u{03C3}", -1, 1, None),
     Among("\u{03B9}\u{03C4}\u{03C3}\u{03B1}", -1, 1, None),
     Among("\u{03B1}\u{03BA}\u{03B9}\u{03B1}", -1, 1, None),
-    Among("\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B9}\u{03B1}", 3, 1, None),
+    Among(
+        "\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B9}\u{03B1}",
+        3,
+        1,
+        None,
+    ),
     Among("\u{03B1}\u{03BA}\u{03B9}", -1, 1, None),
     Among("\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B9}", 5, 1, None),
     Among("\u{03B9}\u{03C4}\u{03C3}\u{03C9}\u{03BD}", -1, 1, None),
@@ -493,7 +983,12 @@ static A_29: &'static [Among<Context>; 15] = &[
     Among("\u{03C6}\u{03B5}", -1, 1, None),
     Among("\u{03B1}\u{03C1}\u{03BA}", -1, 1, None),
     Among("\u{03C3}\u{03BA}", -1, 1, None),
-    Among("\u{03BA}\u{03B1}\u{03BB}\u{03B9}\u{03B1}\u{03BA}", -1, 1, None),
+    Among(
+        "\u{03BA}\u{03B1}\u{03BB}\u{03B9}\u{03B1}\u{03BA}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03BB}\u{03BF}\u{03C5}\u{03BB}", -1, 1, None),
     Among("\u{03C6}\u{03BB}", -1, 1, None),
     Among("\u{03C0}\u{03B5}\u{03C4}\u{03B1}\u{03BB}", -1, 1, None),
@@ -534,16 +1029,31 @@ static A_33: &'static [Among<Context>; 4] = &[
 static A_34: &'static [Among<Context>; 36] = &[
     Among("\u{03BA}\u{03B1}\u{03BB}\u{03C0}", -1, 1, None),
     Among("\u{03B3}\u{03B5}\u{03C1}", -1, 1, None),
-    Among("\u{03C0}\u{03BB}\u{03B9}\u{03B1}\u{03C4}\u{03C3}", -1, 1, None),
+    Among(
+        "\u{03C0}\u{03BB}\u{03B9}\u{03B1}\u{03C4}\u{03C3}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C0}\u{03B5}\u{03C4}\u{03C3}", -1, 1, None),
     Among("\u{03C0}\u{03B9}\u{03C4}\u{03C3}", -1, 1, None),
     Among("\u{03C6}\u{03C5}\u{03C3}", -1, 1, None),
     Among("\u{03C7}\u{03B1}\u{03C3}", -1, 1, None),
     Among("\u{03BC}\u{03C0}\u{03BF}\u{03C3}", -1, 1, None),
     Among("\u{03C3}\u{03B5}\u{03C1}\u{03C4}", -1, 1, None),
-    Among("\u{03BC}\u{03C0}\u{03B1}\u{03B3}\u{03B9}\u{03B1}\u{03C4}", -1, 1, None),
+    Among(
+        "\u{03BC}\u{03C0}\u{03B1}\u{03B3}\u{03B9}\u{03B1}\u{03C4}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03BD}\u{03B9}\u{03C4}", -1, 1, None),
-    Among("\u{03C0}\u{03B9}\u{03BA}\u{03B1}\u{03BD}\u{03C4}", -1, 1, None),
+    Among(
+        "\u{03C0}\u{03B9}\u{03BA}\u{03B1}\u{03BD}\u{03C4}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03BE}\u{03C9}\u{03B4}", -1, 1, None),
     Among("\u{03B1}\u{03B4}", -1, 1, None),
     Among("\u{03BA}\u{03B1}\u{03C4}\u{03B1}\u{03B4}", 13, 1, None),
@@ -551,31 +1061,66 @@ static A_34: &'static [Among<Context>; 36] = &[
     Among("\u{03B1}\u{03BD}\u{03C4}\u{03B9}\u{03B4}", -1, 1, None),
     Among("\u{03B5}\u{03BD}\u{03B4}", -1, 1, None),
     Among("\u{03C5}\u{03C0}\u{03BF}\u{03B4}", -1, 1, None),
-    Among("\u{03C0}\u{03C1}\u{03C9}\u{03C4}\u{03BF}\u{03B4}", -1, 1, None),
+    Among(
+        "\u{03C0}\u{03C1}\u{03C9}\u{03C4}\u{03BF}\u{03B4}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C6}\u{03C5}\u{03BB}\u{03BF}\u{03B4}", -1, 1, None),
     Among("\u{03B7}\u{03B8}", -1, 1, None),
     Among("\u{03B1}\u{03BD}\u{03B7}\u{03B8}", 21, 1, None),
     Among("\u{03BE}\u{03B9}\u{03BA}", -1, 1, None),
     Among("\u{03BC}\u{03BF}\u{03C5}\u{03BB}", -1, 1, None),
     Among("\u{03B1}\u{03BB}", -1, 1, None),
-    Among("\u{03B1}\u{03BC}\u{03BC}\u{03BF}\u{03C7}\u{03B1}\u{03BB}", 25, 1, None),
-    Among("\u{03C3}\u{03C5}\u{03BD}\u{03BF}\u{03BC}\u{03B7}\u{03BB}", -1, 1, None),
+    Among(
+        "\u{03B1}\u{03BC}\u{03BC}\u{03BF}\u{03C7}\u{03B1}\u{03BB}",
+        25,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03C3}\u{03C5}\u{03BD}\u{03BF}\u{03BC}\u{03B7}\u{03BB}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03BC}\u{03C0}\u{03BF}\u{03BB}", -1, 1, None),
     Among("\u{03B2}\u{03C1}\u{03C9}\u{03BC}", -1, 1, None),
     Among("\u{03C4}\u{03C3}\u{03B1}\u{03BC}", -1, 1, None),
     Among("\u{03BC}\u{03C0}\u{03B1}\u{03BD}", -1, 1, None),
     Among("\u{03B1}\u{03BC}\u{03B1}\u{03BD}", -1, 1, None),
-    Among("\u{03BA}\u{03B1}\u{03BB}\u{03BB}\u{03B9}\u{03BD}", -1, 1, None),
-    Among("\u{03C0}\u{03BF}\u{03C3}\u{03C4}\u{03B5}\u{03BB}\u{03BD}", -1, 1, None),
+    Among(
+        "\u{03BA}\u{03B1}\u{03BB}\u{03BB}\u{03B9}\u{03BD}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03C0}\u{03BF}\u{03C3}\u{03C4}\u{03B5}\u{03BB}\u{03BD}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C6}\u{03B9}\u{03BB}\u{03BF}\u{03BD}", -1, 1, None),
 ];
 
 static A_35: &'static [Among<Context>; 5] = &[
-    Among("\u{03BF}\u{03C5}\u{03C3}\u{03B1}\u{03BC}\u{03B5}", -1, 1, None),
+    Among(
+        "\u{03BF}\u{03C5}\u{03C3}\u{03B1}\u{03BC}\u{03B5}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B7}\u{03C3}\u{03B1}\u{03BC}\u{03B5}", -1, 1, None),
     Among("\u{03B1}\u{03B3}\u{03B1}\u{03BC}\u{03B5}", -1, 1, None),
     Among("\u{03B7}\u{03BA}\u{03B1}\u{03BC}\u{03B5}", -1, 1, None),
-    Among("\u{03B7}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03BC}\u{03B5}", 3, 1, None),
+    Among(
+        "\u{03B7}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03BC}\u{03B5}",
+        3,
+        1,
+        None,
+    ),
 ];
 
 static A_36: &'static [Among<Context>; 12] = &[
@@ -599,72 +1144,207 @@ static A_37: &'static [Among<Context>; 2] = &[
 ];
 
 static A_38: &'static [Among<Context>; 11] = &[
-    Among("\u{03BF}\u{03C5}\u{03C3}\u{03B1}\u{03BD}\u{03B5}", -1, 1, None),
+    Among(
+        "\u{03BF}\u{03C5}\u{03C3}\u{03B1}\u{03BD}\u{03B5}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B7}\u{03C3}\u{03B1}\u{03BD}\u{03B5}", -1, 1, None),
-    Among("\u{03BF}\u{03C5}\u{03BD}\u{03C4}\u{03B1}\u{03BD}\u{03B5}", -1, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03C5}\u{03BD}\u{03C4}\u{03B1}\u{03BD}\u{03B5}", 2, 1, None),
-    Among("\u{03BF}\u{03BD}\u{03C4}\u{03B1}\u{03BD}\u{03B5}", -1, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03BD}\u{03C4}\u{03B1}\u{03BD}\u{03B5}", 4, 1, None),
+    Among(
+        "\u{03BF}\u{03C5}\u{03BD}\u{03C4}\u{03B1}\u{03BD}\u{03B5}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03BF}\u{03C5}\u{03BD}\u{03C4}\u{03B1}\u{03BD}\u{03B5}",
+        2,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BF}\u{03BD}\u{03C4}\u{03B1}\u{03BD}\u{03B5}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03BF}\u{03BD}\u{03C4}\u{03B1}\u{03BD}\u{03B5}",
+        4,
+        1,
+        None,
+    ),
     Among("\u{03BF}\u{03C4}\u{03B1}\u{03BD}\u{03B5}", -1, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03C4}\u{03B1}\u{03BD}\u{03B5}", 6, 1, None),
+    Among(
+        "\u{03B9}\u{03BF}\u{03C4}\u{03B1}\u{03BD}\u{03B5}",
+        6,
+        1,
+        None,
+    ),
     Among("\u{03B1}\u{03B3}\u{03B1}\u{03BD}\u{03B5}", -1, 1, None),
     Among("\u{03B7}\u{03BA}\u{03B1}\u{03BD}\u{03B5}", -1, 1, None),
-    Among("\u{03B7}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03BD}\u{03B5}", 9, 1, None),
+    Among(
+        "\u{03B7}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03BD}\u{03B5}",
+        9,
+        1,
+        None,
+    ),
 ];
 
 static A_39: &'static [Among<Context>; 95] = &[
     Among("\u{03C0}", -1, 1, None),
     Among("\u{03C3}\u{03C0}", 0, 1, None),
-    Among("\u{03C0}\u{03BF}\u{03BB}\u{03C5}\u{03B4}\u{03B1}\u{03C0}", 0, 1, None),
+    Among(
+        "\u{03C0}\u{03BF}\u{03BB}\u{03C5}\u{03B4}\u{03B1}\u{03C0}",
+        0,
+        1,
+        None,
+    ),
     Among("\u{03B1}\u{03B4}\u{03B1}\u{03C0}", 0, 1, None),
-    Among("\u{03C7}\u{03B1}\u{03BC}\u{03B7}\u{03BB}\u{03BF}\u{03B4}\u{03B1}\u{03C0}", 0, 1, None),
+    Among(
+        "\u{03C7}\u{03B1}\u{03BC}\u{03B7}\u{03BB}\u{03BF}\u{03B4}\u{03B1}\u{03C0}",
+        0,
+        1,
+        None,
+    ),
     Among("\u{03C4}\u{03C3}\u{03BF}\u{03C0}", 0, 1, None),
     Among("\u{03BA}\u{03BF}\u{03C0}", 0, 1, None),
-    Among("\u{03C5}\u{03C0}\u{03BF}\u{03BA}\u{03BF}\u{03C0}", 6, 1, None),
-    Among("\u{03C0}\u{03B5}\u{03C1}\u{03B9}\u{03C4}\u{03C1}", -1, 1, None),
+    Among(
+        "\u{03C5}\u{03C0}\u{03BF}\u{03BA}\u{03BF}\u{03C0}",
+        6,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03C0}\u{03B5}\u{03C1}\u{03B9}\u{03C4}\u{03C1}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03BF}\u{03C5}\u{03C1}", -1, 1, None),
     Among("\u{03B5}\u{03C1}", -1, 1, None),
     Among("\u{03B2}\u{03B5}\u{03C4}\u{03B5}\u{03C1}", 10, 1, None),
     Among("\u{03B3}\u{03B5}\u{03C1}", 10, 1, None),
-    Among("\u{03BB}\u{03BF}\u{03C5}\u{03B8}\u{03B7}\u{03C1}", -1, 1, None),
-    Among("\u{03BA}\u{03BF}\u{03C1}\u{03BC}\u{03BF}\u{03C1}", -1, 1, None),
+    Among(
+        "\u{03BB}\u{03BF}\u{03C5}\u{03B8}\u{03B7}\u{03C1}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BA}\u{03BF}\u{03C1}\u{03BC}\u{03BF}\u{03C1}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C3}", -1, 1, None),
-    Among("\u{03C3}\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B1}\u{03C4}\u{03C3}", 15, 1, None),
+    Among(
+        "\u{03C3}\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B1}\u{03C4}\u{03C3}",
+        15,
+        1,
+        None,
+    ),
     Among("\u{03B8}\u{03C5}\u{03C3}", 15, 1, None),
     Among("\u{03B2}\u{03B1}\u{03C3}", 15, 1, None),
     Among("\u{03C0}\u{03BF}\u{03BB}\u{03B9}\u{03C3}", 15, 1, None),
     Among("\u{03BA}\u{03B1}\u{03C3}\u{03C4}", -1, 1, None),
     Among("\u{03B4}\u{03B9}\u{03B1}\u{03C4}", -1, 1, None),
     Among("\u{03C0}\u{03BB}\u{03B1}\u{03C4}", -1, 1, None),
-    Among("\u{03C4}\u{03C3}\u{03B1}\u{03C1}\u{03BB}\u{03B1}\u{03C4}", -1, 1, None),
+    Among(
+        "\u{03C4}\u{03C3}\u{03B1}\u{03C1}\u{03BB}\u{03B1}\u{03C4}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C4}\u{03B5}\u{03C4}", -1, 1, None),
-    Among("\u{03C0}\u{03BF}\u{03C5}\u{03C1}\u{03B9}\u{03C4}", -1, 1, None),
+    Among(
+        "\u{03C0}\u{03BF}\u{03C5}\u{03C1}\u{03B9}\u{03C4}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C3}\u{03BF}\u{03C5}\u{03BB}\u{03C4}", -1, 1, None),
     Among("\u{03B6}\u{03C9}\u{03BD}\u{03C4}", -1, 1, None),
     Among("\u{03BC}\u{03B1}\u{03B9}\u{03BD}\u{03C4}", -1, 1, None),
     Among("\u{03C6}", -1, 1, None),
-    Among("\u{03C0}\u{03B5}\u{03BD}\u{03C4}\u{03B1}\u{03C1}\u{03C6}", 29, 1, None),
-    Among("\u{03BA}\u{03BF}\u{03B9}\u{03BB}\u{03B1}\u{03C1}\u{03C6}", 29, 1, None),
+    Among(
+        "\u{03C0}\u{03B5}\u{03BD}\u{03C4}\u{03B1}\u{03C1}\u{03C6}",
+        29,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BA}\u{03BF}\u{03B9}\u{03BB}\u{03B1}\u{03C1}\u{03C6}",
+        29,
+        1,
+        None,
+    ),
     Among("\u{03BF}\u{03C1}\u{03C6}", 29, 1, None),
     Among("\u{03B4}\u{03B9}\u{03B1}\u{03C6}", 29, 1, None),
     Among("\u{03C3}\u{03C4}\u{03B5}\u{03C6}", 29, 1, None),
-    Among("\u{03C6}\u{03C9}\u{03C4}\u{03BF}\u{03C3}\u{03C4}\u{03B5}\u{03C6}", 34, 1, None),
+    Among(
+        "\u{03C6}\u{03C9}\u{03C4}\u{03BF}\u{03C3}\u{03C4}\u{03B5}\u{03C6}",
+        34,
+        1,
+        None,
+    ),
     Among("\u{03C0}\u{03B5}\u{03C1}\u{03B7}\u{03C6}", 29, 1, None),
-    Among("\u{03C5}\u{03C0}\u{03B5}\u{03C1}\u{03B7}\u{03C6}", 36, 1, None),
+    Among(
+        "\u{03C5}\u{03C0}\u{03B5}\u{03C1}\u{03B7}\u{03C6}",
+        36,
+        1,
+        None,
+    ),
     Among("\u{03C7}", -1, 1, None),
-    Among("\u{03C0}\u{03BF}\u{03BB}\u{03C5}\u{03BC}\u{03B7}\u{03C7}", 38, 1, None),
+    Among(
+        "\u{03C0}\u{03BF}\u{03BB}\u{03C5}\u{03BC}\u{03B7}\u{03C7}",
+        38,
+        1,
+        None,
+    ),
     Among("\u{03B1}\u{03BC}\u{03B7}\u{03C7}", 38, 1, None),
-    Among("\u{03B2}\u{03B9}\u{03BF}\u{03BC}\u{03B7}\u{03C7}", 38, 1, None),
-    Among("\u{03BC}\u{03B9}\u{03BA}\u{03C1}\u{03BF}\u{03B2}\u{03B9}\u{03BF}\u{03BC}\u{03B7}\u{03C7}", 41, 1, None),
-    Among("\u{03BC}\u{03B5}\u{03B3}\u{03BB}\u{03BF}\u{03B2}\u{03B9}\u{03BF}\u{03BC}\u{03B7}\u{03C7}", 41, 1, None),
-    Among("\u{03BA}\u{03B1}\u{03C0}\u{03BD}\u{03BF}\u{03B2}\u{03B9}\u{03BF}\u{03BC}\u{03B7}\u{03C7}", 41, 1, None),
+    Among(
+        "\u{03B2}\u{03B9}\u{03BF}\u{03BC}\u{03B7}\u{03C7}",
+        38,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BC}\u{03B9}\u{03BA}\u{03C1}\u{03BF}\u{03B2}\u{03B9}\u{03BF}\u{03BC}\u{03B7}\u{03C7}",
+        41,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BC}\u{03B5}\u{03B3}\u{03BB}\u{03BF}\u{03B2}\u{03B9}\u{03BF}\u{03BC}\u{03B7}\u{03C7}",
+        41,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BA}\u{03B1}\u{03C0}\u{03BD}\u{03BF}\u{03B2}\u{03B9}\u{03BF}\u{03BC}\u{03B7}\u{03C7}",
+        41,
+        1,
+        None,
+    ),
     Among("\u{03BB}\u{03B9}\u{03C7}", 38, 1, None),
     Among("\u{03C4}\u{03B1}\u{03B2}", -1, 1, None),
     Among("\u{03BD}\u{03C4}\u{03B1}\u{03B2}", 46, 1, None),
-    Among("\u{03C8}\u{03B7}\u{03BB}\u{03BF}\u{03C4}\u{03B1}\u{03B2}", 46, 1, None),
+    Among(
+        "\u{03C8}\u{03B7}\u{03BB}\u{03BF}\u{03C4}\u{03B1}\u{03B2}",
+        46,
+        1,
+        None,
+    ),
     Among("\u{03BB}\u{03B9}\u{03B2}", -1, 1, None),
     Among("\u{03BA}\u{03BB}\u{03B9}\u{03B2}", 49, 1, None),
-    Among("\u{03BE}\u{03B7}\u{03C1}\u{03BF}\u{03BA}\u{03BB}\u{03B9}\u{03B2}", 50, 1, None),
+    Among(
+        "\u{03BE}\u{03B7}\u{03C1}\u{03BF}\u{03BA}\u{03BB}\u{03B9}\u{03B2}",
+        50,
+        1,
+        None,
+    ),
     Among("\u{03B3}", -1, 1, None),
     Among("\u{03B1}\u{03BD}\u{03BF}\u{03C1}\u{03B3}", 52, 1, None),
     Among("\u{03B5}\u{03BD}\u{03BF}\u{03C1}\u{03B3}", 52, 1, None),
@@ -672,18 +1352,38 @@ static A_39: &'static [Among<Context>; 95] = &[
     Among("\u{03C4}\u{03C1}\u{03B1}\u{03B3}", 55, 1, None),
     Among("\u{03C4}\u{03C3}\u{03B1}\u{03B3}", 55, 1, None),
     Among("\u{03C4}\u{03C3}\u{03B9}\u{03B3}\u{03B3}", 52, 1, None),
-    Among("\u{03B1}\u{03C4}\u{03C3}\u{03B9}\u{03B3}\u{03B3}", 58, 1, None),
+    Among(
+        "\u{03B1}\u{03C4}\u{03C3}\u{03B9}\u{03B3}\u{03B3}",
+        58,
+        1,
+        None,
+    ),
     Among("\u{03B1}\u{03B8}\u{03B9}\u{03B3}\u{03B3}", 52, 1, None),
     Among("\u{03C3}\u{03C4}\u{03B5}\u{03B3}", 52, 1, None),
     Among("\u{03B1}\u{03C0}\u{03B7}\u{03B3}", 52, 1, None),
     Among("\u{03C3}\u{03B9}\u{03B3}", 52, 1, None),
-    Among("\u{03BA}\u{03B1}\u{03BB}\u{03C0}\u{03BF}\u{03C5}\u{03B6}", -1, 1, None),
+    Among(
+        "\u{03BA}\u{03B1}\u{03BB}\u{03C0}\u{03BF}\u{03C5}\u{03B6}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B8}", -1, 1, None),
-    Among("\u{03BC}\u{03C9}\u{03B1}\u{03BC}\u{03B5}\u{03B8}", 65, 1, None),
+    Among(
+        "\u{03BC}\u{03C9}\u{03B1}\u{03BC}\u{03B5}\u{03B8}",
+        65,
+        1,
+        None,
+    ),
     Among("\u{03C0}\u{03B9}\u{03B8}", 65, 1, None),
     Among("\u{03B1}\u{03C0}\u{03B9}\u{03B8}", 67, 1, None),
     Among("\u{03B2}\u{03B1}\u{03C3}\u{03BA}", -1, 1, None),
-    Among("\u{03B2}\u{03C1}\u{03B1}\u{03C7}\u{03C5}\u{03BA}", -1, 1, None),
+    Among(
+        "\u{03B2}\u{03C1}\u{03B1}\u{03C7}\u{03C5}\u{03BA}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B4}\u{03B5}\u{03BA}", -1, 1, None),
     Among("\u{03C0}\u{03B5}\u{03BB}\u{03B5}\u{03BA}", -1, 1, None),
     Among("\u{03B9}\u{03BA}", -1, 1, None),
@@ -691,28 +1391,81 @@ static A_39: &'static [Among<Context>; 95] = &[
     Among("\u{03B2}\u{03BF}\u{03C5}\u{03BB}\u{03BA}", -1, 1, None),
     Among("\u{03C0}\u{03BB}", -1, 1, None),
     Among("\u{03B4}\u{03B9}\u{03C0}\u{03BB}", 76, 1, None),
-    Among("\u{03C8}\u{03C5}\u{03C7}\u{03BF}\u{03C0}\u{03BB}", 76, 1, None),
+    Among(
+        "\u{03C8}\u{03C5}\u{03C7}\u{03BF}\u{03C0}\u{03BB}",
+        76,
+        1,
+        None,
+    ),
     Among("\u{03BB}\u{03B1}\u{03BF}\u{03C0}\u{03BB}", 76, 1, None),
     Among("\u{03BF}\u{03C5}\u{03BB}", -1, 1, None),
     Among("\u{03B3}\u{03B1}\u{03BB}", -1, 1, None),
-    Among("\u{03B2}\u{03B1}\u{03B8}\u{03C5}\u{03B3}\u{03B1}\u{03BB}", 81, 1, None),
-    Among("\u{03BA}\u{03B1}\u{03C4}\u{03B1}\u{03B3}\u{03B1}\u{03BB}", 81, 1, None),
-    Among("\u{03BF}\u{03BB}\u{03BF}\u{03B3}\u{03B1}\u{03BB}", 81, 1, None),
-    Among("\u{03BA}\u{03B1}\u{03C3}\u{03C4}\u{03B5}\u{03BB}", -1, 1, None),
+    Among(
+        "\u{03B2}\u{03B1}\u{03B8}\u{03C5}\u{03B3}\u{03B1}\u{03BB}",
+        81,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BA}\u{03B1}\u{03C4}\u{03B1}\u{03B3}\u{03B1}\u{03BB}",
+        81,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BF}\u{03BB}\u{03BF}\u{03B3}\u{03B1}\u{03BB}",
+        81,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BA}\u{03B1}\u{03C3}\u{03C4}\u{03B5}\u{03BB}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03BC}\u{03B5}\u{03BB}", -1, 1, None),
-    Among("\u{03C0}\u{03BF}\u{03C1}\u{03C4}\u{03BF}\u{03BB}", -1, 1, None),
+    Among(
+        "\u{03C0}\u{03BF}\u{03C1}\u{03C4}\u{03BF}\u{03BB}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03BC}", -1, 1, None),
-    Among("\u{03B4}\u{03C1}\u{03B1}\u{03B4}\u{03BF}\u{03C5}\u{03BC}", 88, 1, None),
+    Among(
+        "\u{03B4}\u{03C1}\u{03B1}\u{03B4}\u{03BF}\u{03C5}\u{03BC}",
+        88,
+        1,
+        None,
+    ),
     Among("\u{03B2}\u{03C1}\u{03B1}\u{03C7}\u{03BC}", 88, 1, None),
-    Among("\u{03BF}\u{03BB}\u{03B9}\u{03B3}\u{03BF}\u{03B4}\u{03B1}\u{03BC}", 88, 1, None),
-    Among("\u{03BC}\u{03BF}\u{03C5}\u{03C3}\u{03BF}\u{03C5}\u{03BB}\u{03BC}", 88, 1, None),
+    Among(
+        "\u{03BF}\u{03BB}\u{03B9}\u{03B3}\u{03BF}\u{03B4}\u{03B1}\u{03BC}",
+        88,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BC}\u{03BF}\u{03C5}\u{03C3}\u{03BF}\u{03C5}\u{03BB}\u{03BC}",
+        88,
+        1,
+        None,
+    ),
     Among("\u{03BD}", -1, 1, None),
-    Among("\u{03B1}\u{03BC}\u{03B5}\u{03C1}\u{03B9}\u{03BA}\u{03B1}\u{03BD}", 93, 1, None),
+    Among(
+        "\u{03B1}\u{03BC}\u{03B5}\u{03C1}\u{03B9}\u{03BA}\u{03B1}\u{03BD}",
+        93,
+        1,
+        None,
+    ),
 ];
 
-static A_40: &'static [Among<Context>; 1] = &[
-    Among("\u{03B7}\u{03C3}\u{03B5}\u{03C4}\u{03B5}", -1, 1, None),
-];
+static A_40: &'static [Among<Context>; 1] = &[Among(
+    "\u{03B7}\u{03C3}\u{03B5}\u{03C4}\u{03B5}",
+    -1,
+    1,
+    None,
+)];
 
 static A_41: &'static [Among<Context>; 31] = &[
     Among("\u{03C0}\u{03C5}\u{03C1}", -1, 1, None),
@@ -768,7 +1521,12 @@ static A_42: &'static [Among<Context>; 25] = &[
     Among("\u{03C3}\u{03BA}", -1, 1, None),
     Among("\u{03C4}\u{03BF}\u{03BA}", -1, 1, None),
     Among("\u{03B1}\u{03C0}\u{03BB}", -1, 1, None),
-    Among("\u{03C0}\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B1}\u{03BB}", -1, 1, None),
+    Among(
+        "\u{03C0}\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B1}\u{03BB}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C3}\u{03BA}\u{03B5}\u{03BB}", -1, 1, None),
     Among("\u{03B5}\u{03BC}", -1, 1, None),
     Among("\u{03B1}\u{03BD}", -1, 1, None),
@@ -782,17 +1540,37 @@ static A_43: &'static [Among<Context>; 2] = &[
 ];
 
 static A_44: &'static [Among<Context>; 2] = &[
-    Among("\u{03BF}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B5}", -1, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B5}", 0, 1, None),
+    Among(
+        "\u{03BF}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B5}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03BF}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B5}",
+        0,
+        1,
+        None,
+    ),
 ];
 
 static A_45: &'static [Among<Context>; 6] = &[
     Among("\u{03C0}", -1, 1, None),
     Among("\u{03B1}\u{03C0}", 0, 1, None),
-    Among("\u{03B1}\u{03BA}\u{03B1}\u{03C4}\u{03B1}\u{03C0}", 1, 1, None),
+    Among(
+        "\u{03B1}\u{03BA}\u{03B1}\u{03C4}\u{03B1}\u{03C0}",
+        1,
+        1,
+        None,
+    ),
     Among("\u{03C3}\u{03C5}\u{03BC}\u{03C0}", 0, 1, None),
     Among("\u{03B1}\u{03C3}\u{03C5}\u{03BC}\u{03C0}", 3, 1, None),
-    Among("\u{03B1}\u{03BC}\u{03B5}\u{03C4}\u{03B1}\u{03BC}\u{03C6}", -1, 1, None),
+    Among(
+        "\u{03B1}\u{03BC}\u{03B5}\u{03C4}\u{03B1}\u{03BC}\u{03C6}",
+        -1,
+        1,
+        None,
+    ),
 ];
 
 static A_46: &'static [Among<Context>; 9] = &[
@@ -800,7 +1578,12 @@ static A_46: &'static [Among<Context>; 9] = &[
     Among("\u{03BD}\u{03B9}\u{03C3}", -1, 1, None),
     Among("\u{03B6}", -1, 1, None),
     Among("\u{03B1}\u{03BB}", -1, 1, None),
-    Among("\u{03C0}\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B1}\u{03BB}", 3, 1, None),
+    Among(
+        "\u{03C0}\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B1}\u{03BB}",
+        3,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03BA}\u{03C4}\u{03B5}\u{03BB}", -1, 1, None),
     Among("\u{03BC}", -1, 1, None),
     Among("\u{03BE}", -1, 1, None),
@@ -808,7 +1591,12 @@ static A_46: &'static [Among<Context>; 9] = &[
 ];
 
 static A_47: &'static [Among<Context>; 3] = &[
-    Among("\u{03B7}\u{03B8}\u{03B7}\u{03BA}\u{03B5}\u{03C3}", -1, 1, None),
+    Among(
+        "\u{03B7}\u{03B8}\u{03B7}\u{03BA}\u{03B5}\u{03C3}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B7}\u{03B8}\u{03B7}\u{03BA}\u{03B1}", -1, 1, None),
     Among("\u{03B7}\u{03B8}\u{03B7}\u{03BA}\u{03B5}", -1, 1, None),
 ];
@@ -825,7 +1613,12 @@ static A_48: &'static [Among<Context>; 6] = &[
 static A_49: &'static [Among<Context>; 5] = &[
     Among("\u{03B8}", -1, 1, None),
     Among("\u{03C0}\u{03C1}\u{03BF}\u{03C3}\u{03B8}", 0, 1, None),
-    Among("\u{03C0}\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B1}\u{03C4}\u{03B1}\u{03B8}", 0, 1, None),
+    Among(
+        "\u{03C0}\u{03B1}\u{03C1}\u{03B1}\u{03BA}\u{03B1}\u{03C4}\u{03B1}\u{03B8}",
+        0,
+        1,
+        None,
+    ),
     Among("\u{03B4}\u{03B9}\u{03B1}\u{03B8}", 0, 1, None),
     Among("\u{03C3}\u{03C5}\u{03BD}\u{03B8}", 0, 1, None),
 ];
@@ -841,12 +1634,22 @@ static A_51: &'static [Among<Context>; 12] = &[
     Among("\u{03C0}\u{03BF}\u{03B4}\u{03B1}\u{03C1}", -1, 1, None),
     Among("\u{03C0}\u{03C1}\u{03C9}\u{03C4}", -1, 1, None),
     Among("\u{03BA}\u{03C5}\u{03BC}\u{03B1}\u{03C4}", -1, 1, None),
-    Among("\u{03C0}\u{03B1}\u{03BD}\u{03C4}\u{03B1}\u{03C7}", -1, 1, None),
+    Among(
+        "\u{03C0}\u{03B1}\u{03BD}\u{03C4}\u{03B1}\u{03C7}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03BB}\u{03B1}\u{03C7}", -1, 1, None),
     Among("\u{03C6}\u{03B1}\u{03B3}", -1, 1, None),
     Among("\u{03BB}\u{03B7}\u{03B3}", -1, 1, None),
     Among("\u{03C6}\u{03C1}\u{03C5}\u{03B4}", -1, 1, None),
-    Among("\u{03BC}\u{03B1}\u{03BD}\u{03C4}\u{03B9}\u{03BB}", -1, 1, None),
+    Among(
+        "\u{03BC}\u{03B1}\u{03BD}\u{03C4}\u{03B9}\u{03BB}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03BC}\u{03B1}\u{03BB}\u{03BB}", -1, 1, None),
     Among("\u{03BF}\u{03BC}", -1, 1, None),
 ];
@@ -855,28 +1658,63 @@ static A_52: &'static [Among<Context>; 25] = &[
     Among("\u{03B5}\u{03BA}\u{03BB}\u{03B9}\u{03C0}", -1, 1, None),
     Among("\u{03C1}", -1, 1, None),
     Among("\u{03B1}\u{03BD}\u{03B1}\u{03C1}\u{03C1}", 1, 1, None),
-    Among("\u{03B5}\u{03BD}\u{03B4}\u{03B9}\u{03B1}\u{03C6}\u{03B5}\u{03C1}", 1, 1, None),
+    Among(
+        "\u{03B5}\u{03BD}\u{03B4}\u{03B9}\u{03B1}\u{03C6}\u{03B5}\u{03C1}",
+        1,
+        1,
+        None,
+    ),
     Among("\u{03C0}\u{03B1}\u{03C4}", -1, 1, None),
-    Among("\u{03BA}\u{03B1}\u{03B8}\u{03B1}\u{03C1}\u{03B5}\u{03C5}", -1, 1, None),
-    Among("\u{03B4}\u{03B5}\u{03C5}\u{03C4}\u{03B5}\u{03C1}\u{03B5}\u{03C5}", -1, 1, None),
+    Among(
+        "\u{03BA}\u{03B1}\u{03B8}\u{03B1}\u{03C1}\u{03B5}\u{03C5}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B4}\u{03B5}\u{03C5}\u{03C4}\u{03B5}\u{03C1}\u{03B5}\u{03C5}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03BB}\u{03B5}\u{03C7}", -1, 1, None),
     Among("\u{03C4}\u{03C3}\u{03B1}", -1, 1, None),
     Among("\u{03C7}\u{03B1}\u{03B4}", -1, 1, None),
     Among("\u{03BC}\u{03B5}\u{03B4}", -1, 1, None),
-    Among("\u{03BB}\u{03B1}\u{03BC}\u{03C0}\u{03B9}\u{03B4}", -1, 1, None),
+    Among(
+        "\u{03BB}\u{03B1}\u{03BC}\u{03C0}\u{03B9}\u{03B4}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B4}\u{03B5}", -1, 1, None),
     Among("\u{03C0}\u{03BB}\u{03B5}", -1, 1, None),
     Among("\u{03BC}\u{03B5}\u{03C3}\u{03B1}\u{03B6}", -1, 1, None),
-    Among("\u{03B4}\u{03B5}\u{03C3}\u{03C0}\u{03BF}\u{03B6}", -1, 1, None),
+    Among(
+        "\u{03B4}\u{03B5}\u{03C3}\u{03C0}\u{03BF}\u{03B6}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B1}\u{03B9}\u{03B8}", -1, 1, None),
-    Among("\u{03C6}\u{03B1}\u{03C1}\u{03BC}\u{03B1}\u{03BA}", -1, 1, None),
+    Among(
+        "\u{03C6}\u{03B1}\u{03C1}\u{03BC}\u{03B1}\u{03BA}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03B1}\u{03B3}\u{03BA}", -1, 1, None),
     Among("\u{03B1}\u{03BD}\u{03B7}\u{03BA}", -1, 1, None),
     Among("\u{03BB}", -1, 1, None),
     Among("\u{03BC}", -1, 1, None),
     Among("\u{03B1}\u{03BC}", 21, 1, None),
     Among("\u{03B2}\u{03C1}\u{03BF}\u{03BC}", 21, 1, None),
-    Among("\u{03C5}\u{03C0}\u{03BF}\u{03C4}\u{03B5}\u{03B9}\u{03BD}", -1, 1, None),
+    Among(
+        "\u{03C5}\u{03C0}\u{03BF}\u{03C4}\u{03B5}\u{03B9}\u{03BD}",
+        -1,
+        1,
+        None,
+    ),
 ];
 
 static A_53: &'static [Among<Context>; 3] = &[
@@ -894,7 +1732,12 @@ static A_54: &'static [Among<Context>; 12] = &[
     Among("\u{03BF}\u{03C6}", -1, 1, None),
     Among("\u{03C8}\u{03BF}\u{03C6}", 5, -1, None),
     Among("\u{03BB}\u{03BF}\u{03C7}", -1, 1, None),
-    Among("\u{03BD}\u{03B1}\u{03C5}\u{03BB}\u{03BF}\u{03C7}", 7, -1, None),
+    Among(
+        "\u{03BD}\u{03B1}\u{03C5}\u{03BB}\u{03BF}\u{03C7}",
+        7,
+        -1,
+        None,
+    ),
     Among("\u{03C0}\u{03B5}\u{03BB}", -1, 1, None),
     Among("\u{03BB}\u{03BB}", -1, 1, None),
     Among("\u{03C3}\u{03BC}\u{03B7}\u{03BD}", -1, 1, None),
@@ -907,11 +1750,31 @@ static A_55: &'static [Among<Context>; 44] = &[
     Among("\u{03B1}\u{03C1}\u{03C4}\u{03B9}\u{03C0}", 0, 1, None),
     Among("\u{03B1}\u{03B5}\u{03B9}\u{03C0}", 0, 1, None),
     Among("\u{03C3}\u{03C5}\u{03BC}\u{03C0}", 0, 1, None),
-    Among("\u{03C0}\u{03C1}\u{03BF}\u{03C3}\u{03C9}\u{03C0}\u{03BF}\u{03C0}", 0, 1, None),
-    Among("\u{03C3}\u{03B9}\u{03B4}\u{03B7}\u{03C1}\u{03BF}\u{03C0}", 0, 1, None),
-    Among("\u{03B4}\u{03C1}\u{03BF}\u{03C3}\u{03BF}\u{03C0}", 0, 1, None),
+    Among(
+        "\u{03C0}\u{03C1}\u{03BF}\u{03C3}\u{03C9}\u{03C0}\u{03BF}\u{03C0}",
+        0,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03C3}\u{03B9}\u{03B4}\u{03B7}\u{03C1}\u{03BF}\u{03C0}",
+        0,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B4}\u{03C1}\u{03BF}\u{03C3}\u{03BF}\u{03C0}",
+        0,
+        1,
+        None,
+    ),
     Among("\u{03BD}\u{03B5}\u{03BF}\u{03C0}", 0, 1, None),
-    Among("\u{03BA}\u{03C1}\u{03BF}\u{03BA}\u{03B1}\u{03BB}\u{03BF}\u{03C0}", 0, 1, None),
+    Among(
+        "\u{03BA}\u{03C1}\u{03BF}\u{03BA}\u{03B1}\u{03BB}\u{03BF}\u{03C0}",
+        0,
+        1,
+        None,
+    ),
     Among("\u{03BF}\u{03BB}\u{03BF}\u{03C0}", 0, 1, None),
     Among("\u{03C1}", -1, 1, None),
     Among("\u{03C4}\u{03C1}", 12, 1, None),
@@ -924,7 +1787,12 @@ static A_55: &'static [Among<Context>; 44] = &[
     Among("\u{03B1}\u{03BD}\u{03C5}\u{03C3}\u{03C4}", 19, 1, None),
     Among("\u{03B1}\u{03B2}\u{03B1}\u{03C3}\u{03C4}", 19, 1, None),
     Among("\u{03C0}\u{03C1}\u{03BF}\u{03C3}\u{03C4}", 19, 1, None),
-    Among("\u{03B1}\u{03B9}\u{03BC}\u{03BF}\u{03C3}\u{03C4}", 19, 1, None),
+    Among(
+        "\u{03B1}\u{03B9}\u{03BC}\u{03BF}\u{03C3}\u{03C4}",
+        19,
+        1,
+        None,
+    ),
     Among("\u{03B4}\u{03B9}\u{03B1}\u{03C4}", 19, 1, None),
     Among("\u{03B5}\u{03C0}\u{03B9}\u{03C4}", 19, 1, None),
     Among("\u{03C3}\u{03C5}\u{03BD}\u{03C4}", 19, 1, None),
@@ -938,13 +1806,23 @@ static A_55: &'static [Among<Context>; 44] = &[
     Among("\u{03BE}\u{03B5}\u{03C6}", -1, 1, None),
     Among("\u{03B1}\u{03B4}\u{03B7}\u{03C6}", -1, 1, None),
     Among("\u{03C0}\u{03B1}\u{03BC}\u{03C6}", -1, 1, None),
-    Among("\u{03B1}\u{03BC}\u{03B1}\u{03BB}\u{03BB}\u{03B9}", -1, 1, None),
+    Among(
+        "\u{03B1}\u{03BC}\u{03B1}\u{03BB}\u{03BB}\u{03B9}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03BB}", -1, 1, None),
     Among("\u{03B1}\u{03BC}\u{03B1}\u{03BB}", 38, 1, None),
     Among("\u{03BC}", -1, 1, None),
     Among("\u{03BF}\u{03C5}\u{03BB}\u{03B1}\u{03BC}", 40, 1, None),
     Among("\u{03B5}\u{03BD}", -1, 1, None),
-    Among("\u{03B4}\u{03B5}\u{03C1}\u{03B2}\u{03B5}\u{03BD}", 42, 1, None),
+    Among(
+        "\u{03B4}\u{03B5}\u{03C1}\u{03B2}\u{03B5}\u{03BD}",
+        42,
+        1,
+        None,
+    ),
 ];
 
 static A_56: &'static [Among<Context>; 3] = &[
@@ -962,23 +1840,52 @@ static A_57: &'static [Among<Context>; 3] = &[
 static A_58: &'static [Among<Context>; 6] = &[
     Among("\u{03BD}", -1, 1, None),
     Among("\u{03B5}\u{03C0}\u{03C4}\u{03B1}\u{03BD}", 0, 1, None),
-    Among("\u{03B4}\u{03C9}\u{03B4}\u{03B5}\u{03BA}\u{03B1}\u{03BD}", 0, 1, None),
-    Among("\u{03C7}\u{03B5}\u{03C1}\u{03C3}\u{03BF}\u{03BD}", 0, 1, None),
-    Among("\u{03BC}\u{03B5}\u{03B3}\u{03B1}\u{03BB}\u{03BF}\u{03BD}", 0, 1, None),
-    Among("\u{03B5}\u{03C1}\u{03B7}\u{03BC}\u{03BF}\u{03BD}", 0, 1, None),
+    Among(
+        "\u{03B4}\u{03C9}\u{03B4}\u{03B5}\u{03BA}\u{03B1}\u{03BD}",
+        0,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03C7}\u{03B5}\u{03C1}\u{03C3}\u{03BF}\u{03BD}",
+        0,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BC}\u{03B5}\u{03B3}\u{03B1}\u{03BB}\u{03BF}\u{03BD}",
+        0,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B5}\u{03C1}\u{03B7}\u{03BC}\u{03BF}\u{03BD}",
+        0,
+        1,
+        None,
+    ),
 ];
 
-static A_59: &'static [Among<Context>; 1] = &[
-    Among("\u{03B7}\u{03C3}\u{03C4}\u{03B5}", -1, 1, None),
-];
+static A_59: &'static [Among<Context>; 1] =
+    &[Among("\u{03B7}\u{03C3}\u{03C4}\u{03B5}", -1, 1, None)];
 
 static A_60: &'static [Among<Context>; 10] = &[
     Among("\u{03C7}\u{03C1}", -1, 1, None),
     Among("\u{03B4}\u{03C5}\u{03C3}\u{03C7}\u{03C1}", 0, 1, None),
     Among("\u{03B5}\u{03C5}\u{03C7}\u{03C1}", 0, 1, None),
     Among("\u{03B1}\u{03C7}\u{03C1}", 0, 1, None),
-    Among("\u{03BA}\u{03BF}\u{03B9}\u{03BD}\u{03BF}\u{03C7}\u{03C1}", 0, 1, None),
-    Among("\u{03C0}\u{03B1}\u{03BB}\u{03B9}\u{03BC}\u{03C8}", -1, 1, None),
+    Among(
+        "\u{03BA}\u{03BF}\u{03B9}\u{03BD}\u{03BF}\u{03C7}\u{03C1}",
+        0,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03C0}\u{03B1}\u{03BB}\u{03B9}\u{03BC}\u{03C8}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C3}\u{03B2}", -1, 1, None),
     Among("\u{03B1}\u{03C3}\u{03B2}", 6, 1, None),
     Among("\u{03B1}\u{03C0}\u{03BB}", -1, 1, None),
@@ -987,14 +1894,34 @@ static A_60: &'static [Among<Context>; 10] = &[
 
 static A_61: &'static [Among<Context>; 3] = &[
     Among("\u{03BF}\u{03C5}\u{03BD}\u{03B5}", -1, 1, None),
-    Among("\u{03B7}\u{03C3}\u{03BF}\u{03C5}\u{03BD}\u{03B5}", 0, 1, None),
-    Among("\u{03B7}\u{03B8}\u{03BF}\u{03C5}\u{03BD}\u{03B5}", 0, 1, None),
+    Among(
+        "\u{03B7}\u{03C3}\u{03BF}\u{03C5}\u{03BD}\u{03B5}",
+        0,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B7}\u{03B8}\u{03BF}\u{03C5}\u{03BD}\u{03B5}",
+        0,
+        1,
+        None,
+    ),
 ];
 
 static A_62: &'static [Among<Context>; 6] = &[
     Among("\u{03C1}", -1, 1, None),
-    Among("\u{03C3}\u{03C4}\u{03C1}\u{03B1}\u{03B2}\u{03BF}\u{03BC}\u{03BF}\u{03C5}\u{03C4}\u{03C3}", -1, 1, None),
-    Among("\u{03BA}\u{03B1}\u{03BA}\u{03BF}\u{03BC}\u{03BF}\u{03C5}\u{03C4}\u{03C3}", -1, 1, None),
+    Among(
+        "\u{03C3}\u{03C4}\u{03C1}\u{03B1}\u{03B2}\u{03BF}\u{03BC}\u{03BF}\u{03C5}\u{03C4}\u{03C3}",
+        -1,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BA}\u{03B1}\u{03BA}\u{03BF}\u{03BC}\u{03BF}\u{03C5}\u{03C4}\u{03C3}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C3}\u{03C0}\u{03B9}", -1, 1, None),
     Among("\u{03BD}", -1, 1, None),
     Among("\u{03B5}\u{03BE}\u{03C9}\u{03BD}", 4, 1, None),
@@ -1002,18 +1929,43 @@ static A_62: &'static [Among<Context>; 6] = &[
 
 static A_63: &'static [Among<Context>; 3] = &[
     Among("\u{03BF}\u{03C5}\u{03BC}\u{03B5}", -1, 1, None),
-    Among("\u{03B7}\u{03C3}\u{03BF}\u{03C5}\u{03BC}\u{03B5}", 0, 1, None),
-    Among("\u{03B7}\u{03B8}\u{03BF}\u{03C5}\u{03BC}\u{03B5}", 0, 1, None),
+    Among(
+        "\u{03B7}\u{03C3}\u{03BF}\u{03C5}\u{03BC}\u{03B5}",
+        0,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B7}\u{03B8}\u{03BF}\u{03C5}\u{03BC}\u{03B5}",
+        0,
+        1,
+        None,
+    ),
 ];
 
 static A_64: &'static [Among<Context>; 7] = &[
     Among("\u{03B1}\u{03C3}\u{03BF}\u{03C5}\u{03C3}", -1, 1, None),
-    Among("\u{03C0}\u{03B1}\u{03C1}\u{03B1}\u{03C3}\u{03BF}\u{03C5}\u{03C3}", 0, 1, None),
-    Among("\u{03B1}\u{03BB}\u{03BB}\u{03BF}\u{03C3}\u{03BF}\u{03C5}\u{03C3}", -1, 1, None),
+    Among(
+        "\u{03C0}\u{03B1}\u{03C1}\u{03B1}\u{03C3}\u{03BF}\u{03C5}\u{03C3}",
+        0,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B1}\u{03BB}\u{03BB}\u{03BF}\u{03C3}\u{03BF}\u{03C5}\u{03C3}",
+        -1,
+        1,
+        None,
+    ),
     Among("\u{03C6}", -1, 1, None),
     Among("\u{03C7}", -1, 1, None),
     Among("\u{03B1}\u{03B6}", -1, 1, None),
-    Among("\u{03C9}\u{03C1}\u{03B9}\u{03BF}\u{03C0}\u{03BB}", -1, 1, None),
+    Among(
+        "\u{03C9}\u{03C1}\u{03B9}\u{03BF}\u{03C0}\u{03BB}",
+        -1,
+        1,
+        None,
+    ),
 ];
 
 static A_65: &'static [Among<Context>; 3] = &[
@@ -1041,24 +1993,89 @@ static A_66: &'static [Among<Context>; 84] = &[
     Among("\u{03B7}\u{03B8}\u{03C9}", 12, 1, None),
     Among("\u{03B1}", -1, 1, None),
     Among("\u{03B9}\u{03BF}\u{03C5}\u{03BC}\u{03B1}", 16, 1, None),
-    Among("\u{03BF}\u{03C3}\u{03BF}\u{03C5}\u{03BD}\u{03B1}", 16, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03C3}\u{03BF}\u{03C5}\u{03BD}\u{03B1}", 18, 1, None),
-    Among("\u{03BF}\u{03BC}\u{03BF}\u{03C5}\u{03BD}\u{03B1}", 16, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03BC}\u{03BF}\u{03C5}\u{03BD}\u{03B1}", 20, 1, None),
+    Among(
+        "\u{03BF}\u{03C3}\u{03BF}\u{03C5}\u{03BD}\u{03B1}",
+        16,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03BF}\u{03C3}\u{03BF}\u{03C5}\u{03BD}\u{03B1}",
+        18,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BF}\u{03BC}\u{03BF}\u{03C5}\u{03BD}\u{03B1}",
+        16,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03BF}\u{03BC}\u{03BF}\u{03C5}\u{03BD}\u{03B1}",
+        20,
+        1,
+        None,
+    ),
     Among("\u{03B5}", -1, 1, None),
-    Among("\u{03B9}\u{03B5}\u{03C3}\u{03B1}\u{03C3}\u{03C4}\u{03B5}", 22, 1, None),
-    Among("\u{03BF}\u{03C3}\u{03B1}\u{03C3}\u{03C4}\u{03B5}", 22, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03C3}\u{03B1}\u{03C3}\u{03C4}\u{03B5}", 24, 1, None),
-    Among("\u{03BF}\u{03C5}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B5}", 22, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03C5}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B5}", 26, 1, None),
-    Among("\u{03B9}\u{03B5}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B5}", 22, 1, None),
-    Among("\u{03BF}\u{03C5}\u{03C3}\u{03B1}\u{03C4}\u{03B5}", 22, 1, None),
+    Among(
+        "\u{03B9}\u{03B5}\u{03C3}\u{03B1}\u{03C3}\u{03C4}\u{03B5}",
+        22,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BF}\u{03C3}\u{03B1}\u{03C3}\u{03C4}\u{03B5}",
+        22,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03BF}\u{03C3}\u{03B1}\u{03C3}\u{03C4}\u{03B5}",
+        24,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BF}\u{03C5}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B5}",
+        22,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03BF}\u{03C5}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B5}",
+        26,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03B5}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B5}",
+        22,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BF}\u{03C5}\u{03C3}\u{03B1}\u{03C4}\u{03B5}",
+        22,
+        1,
+        None,
+    ),
     Among("\u{03B7}\u{03C3}\u{03B1}\u{03C4}\u{03B5}", 22, 1, None),
     Among("\u{03B1}\u{03B3}\u{03B1}\u{03C4}\u{03B5}", 22, 1, None),
     Among("\u{03B7}\u{03BA}\u{03B1}\u{03C4}\u{03B5}", 22, 1, None),
-    Among("\u{03B7}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03C4}\u{03B5}", 32, 1, None),
+    Among(
+        "\u{03B7}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03C4}\u{03B5}",
+        32,
+        1,
+        None,
+    ),
     Among("\u{03B5}\u{03B9}\u{03C4}\u{03B5}", 22, 1, None),
-    Among("\u{03B7}\u{03B8}\u{03B5}\u{03B9}\u{03C4}\u{03B5}", 34, 1, None),
+    Among(
+        "\u{03B7}\u{03B8}\u{03B5}\u{03B9}\u{03C4}\u{03B5}",
+        34,
+        1,
+        None,
+    ),
     Among("\u{03B7}", -1, 1, None),
     Among("\u{03B9}", -1, 1, None),
     Among("\u{03B1}\u{03C3}\u{03B1}\u{03B9}", 37, 1, None),
@@ -1067,8 +2084,18 @@ static A_66: &'static [Among<Context>; 84] = &[
     Among("\u{03B1}\u{03C4}\u{03B1}\u{03B9}", 37, 1, None),
     Among("\u{03B5}\u{03C4}\u{03B1}\u{03B9}", 37, 1, None),
     Among("\u{03B9}\u{03B5}\u{03C4}\u{03B1}\u{03B9}", 42, 1, None),
-    Among("\u{03BF}\u{03C5}\u{03BD}\u{03C4}\u{03B1}\u{03B9}", 37, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03C5}\u{03BD}\u{03C4}\u{03B1}\u{03B9}", 44, 1, None),
+    Among(
+        "\u{03BF}\u{03C5}\u{03BD}\u{03C4}\u{03B1}\u{03B9}",
+        37,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03BF}\u{03C5}\u{03BD}\u{03C4}\u{03B1}\u{03B9}",
+        44,
+        1,
+        None,
+    ),
     Among("\u{03BF}\u{03BD}\u{03C4}\u{03B1}\u{03B9}", 37, 1, None),
     Among("\u{03BF}\u{03C5}\u{03BC}\u{03B1}\u{03B9}", 37, 1, None),
     Among("\u{03B1}\u{03BC}\u{03B1}\u{03B9}", 37, 1, None),
@@ -1082,30 +2109,90 @@ static A_66: &'static [Among<Context>; 84] = &[
     Among("\u{03BF}\u{03C5}\u{03BD}", -1, 1, None),
     Among("\u{03B7}\u{03C3}\u{03BF}\u{03C5}\u{03BD}", 56, 1, None),
     Among("\u{03BF}\u{03C3}\u{03BF}\u{03C5}\u{03BD}", 56, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03C3}\u{03BF}\u{03C5}\u{03BD}", 58, 1, None),
+    Among(
+        "\u{03B9}\u{03BF}\u{03C3}\u{03BF}\u{03C5}\u{03BD}",
+        58,
+        1,
+        None,
+    ),
     Among("\u{03B7}\u{03B8}\u{03BF}\u{03C5}\u{03BD}", 56, 1, None),
     Among("\u{03BF}\u{03BC}\u{03BF}\u{03C5}\u{03BD}", 56, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03BC}\u{03BF}\u{03C5}\u{03BD}", 61, 1, None),
+    Among(
+        "\u{03B9}\u{03BF}\u{03BC}\u{03BF}\u{03C5}\u{03BD}",
+        61,
+        1,
+        None,
+    ),
     Among("\u{03C9}\u{03BD}", -1, 1, None),
     Among("\u{03B7}\u{03B4}\u{03C9}\u{03BD}", 63, 1, None),
     Among("\u{03B1}\u{03BD}", -1, 1, None),
     Among("\u{03BF}\u{03C5}\u{03C3}\u{03B1}\u{03BD}", 65, 1, None),
-    Among("\u{03BF}\u{03BD}\u{03C4}\u{03BF}\u{03C5}\u{03C3}\u{03B1}\u{03BD}", 66, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03BD}\u{03C4}\u{03BF}\u{03C5}\u{03C3}\u{03B1}\u{03BD}", 67, 1, None),
+    Among(
+        "\u{03BF}\u{03BD}\u{03C4}\u{03BF}\u{03C5}\u{03C3}\u{03B1}\u{03BD}",
+        66,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03BF}\u{03BD}\u{03C4}\u{03BF}\u{03C5}\u{03C3}\u{03B1}\u{03BD}",
+        67,
+        1,
+        None,
+    ),
     Among("\u{03B7}\u{03C3}\u{03B1}\u{03BD}", 65, 1, None),
-    Among("\u{03BF}\u{03C3}\u{03B1}\u{03C3}\u{03C4}\u{03B1}\u{03BD}", 65, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03C3}\u{03B1}\u{03C3}\u{03C4}\u{03B1}\u{03BD}", 70, 1, None),
-    Among("\u{03BF}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B1}\u{03BD}", 65, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B1}\u{03BD}", 72, 1, None),
-    Among("\u{03BF}\u{03C5}\u{03BD}\u{03C4}\u{03B1}\u{03BD}", 65, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03C5}\u{03BD}\u{03C4}\u{03B1}\u{03BD}", 74, 1, None),
+    Among(
+        "\u{03BF}\u{03C3}\u{03B1}\u{03C3}\u{03C4}\u{03B1}\u{03BD}",
+        65,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03BF}\u{03C3}\u{03B1}\u{03C3}\u{03C4}\u{03B1}\u{03BD}",
+        70,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BF}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B1}\u{03BD}",
+        65,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03BF}\u{03BC}\u{03B1}\u{03C3}\u{03C4}\u{03B1}\u{03BD}",
+        72,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03BF}\u{03C5}\u{03BD}\u{03C4}\u{03B1}\u{03BD}",
+        65,
+        1,
+        None,
+    ),
+    Among(
+        "\u{03B9}\u{03BF}\u{03C5}\u{03BD}\u{03C4}\u{03B1}\u{03BD}",
+        74,
+        1,
+        None,
+    ),
     Among("\u{03BF}\u{03BD}\u{03C4}\u{03B1}\u{03BD}", 65, 1, None),
-    Among("\u{03B9}\u{03BF}\u{03BD}\u{03C4}\u{03B1}\u{03BD}", 76, 1, None),
+    Among(
+        "\u{03B9}\u{03BF}\u{03BD}\u{03C4}\u{03B1}\u{03BD}",
+        76,
+        1,
+        None,
+    ),
     Among("\u{03BF}\u{03C4}\u{03B1}\u{03BD}", 65, 1, None),
     Among("\u{03B9}\u{03BF}\u{03C4}\u{03B1}\u{03BD}", 78, 1, None),
     Among("\u{03B1}\u{03B3}\u{03B1}\u{03BD}", 65, 1, None),
     Among("\u{03B7}\u{03BA}\u{03B1}\u{03BD}", 65, 1, None),
-    Among("\u{03B7}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03BD}", 81, 1, None),
+    Among(
+        "\u{03B7}\u{03B8}\u{03B7}\u{03BA}\u{03B1}\u{03BD}",
+        81,
+        1,
+        None,
+    ),
     Among("\u{03BF}", -1, 1, None),
 ];
 
@@ -1130,12 +2217,12 @@ struct Context {
 }
 
 fn r_has_min_length(env: &mut SnowballEnv, context: &mut Context) -> bool {
-    return (env.current.chars().count() as i32) >= 3
+    return (env.current.chars().count() as i32) >= 3;
 }
 
 fn r_tolower(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let mut among_var;
-    'replab0: loop{
+    'replab0: loop {
         let v_1 = env.limit - env.cursor;
         'lab1: for _ in 0..1 {
             env.ket = env.cursor;
@@ -1268,14 +2355,14 @@ fn r_tolower(env: &mut SnowballEnv, context: &mut Context) -> bool {
                     }
                     env.previous_char();
                 }
-                _ => ()
+                _ => (),
             }
             continue 'replab0;
         }
         env.cursor = env.limit - v_1;
         break 'replab0;
     }
-    return true
+    return true;
 }
 
 fn r_step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1342,10 +2429,10 @@ fn r_step1(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
     context.b_test1 = false;
-    return true
+    return true;
 }
 
 fn r_steps1(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1379,9 +2466,9 @@ fn r_steps1(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_steps2(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1405,7 +2492,7 @@ fn r_steps2(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03C9}\u{03BD}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_steps3(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1454,11 +2541,11 @@ fn r_steps3(env: &mut SnowballEnv, context: &mut Context) -> bool {
                     return false;
                 }
             }
-            _ => ()
+            _ => (),
         }
         break 'lab0;
     }
-    return true
+    return true;
 }
 
 fn r_steps4(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1482,7 +2569,7 @@ fn r_steps4(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03B9}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_steps5(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1516,9 +2603,9 @@ fn r_steps5(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 return false;
             }
         }
-        _ => ()
+        _ => (),
     }
-    return true
+    return true;
 }
 
 fn r_steps6(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1555,7 +2642,7 @@ fn r_steps6(env: &mut SnowballEnv, context: &mut Context) -> bool {
                         return false;
                     }
                 }
-                _ => ()
+                _ => (),
             }
             break 'lab0;
         }
@@ -1603,7 +2690,9 @@ fn r_steps6(env: &mut SnowballEnv, context: &mut Context) -> bool {
                 }
             }
             8 => {
-                if !env.slice_from("\u{03B1}\u{03BB}\u{03B5}\u{03BE}\u{03B1}\u{03BD}\u{03B4}\u{03C1}") {
+                if !env
+                    .slice_from("\u{03B1}\u{03BB}\u{03B5}\u{03BE}\u{03B1}\u{03BD}\u{03B4}\u{03C1}")
+                {
                     return false;
                 }
             }
@@ -1617,11 +2706,11 @@ fn r_steps6(env: &mut SnowballEnv, context: &mut Context) -> bool {
                     return false;
                 }
             }
-            _ => ()
+            _ => (),
         }
         break 'lab0;
     }
-    return true
+    return true;
 }
 
 fn r_steps7(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1645,7 +2734,7 @@ fn r_steps7(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03B1}\u{03C1}\u{03B1}\u{03BA}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_steps8(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1682,7 +2771,7 @@ fn r_steps8(env: &mut SnowballEnv, context: &mut Context) -> bool {
                         return false;
                     }
                 }
-                _ => ()
+                _ => (),
             }
             break 'lab0;
         }
@@ -1697,7 +2786,7 @@ fn r_steps8(env: &mut SnowballEnv, context: &mut Context) -> bool {
         }
         break 'lab0;
     }
-    return true
+    return true;
 }
 
 fn r_steps9(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1737,7 +2826,7 @@ fn r_steps9(env: &mut SnowballEnv, context: &mut Context) -> bool {
         }
         break 'lab0;
     }
-    return true
+    return true;
 }
 
 fn r_steps10(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1761,7 +2850,7 @@ fn r_steps10(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03B9}\u{03C3}\u{03BA}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step2a(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1785,7 +2874,7 @@ fn r_step2a(env: &mut SnowballEnv, context: &mut Context) -> bool {
     let (bra, ket) = (env.cursor, env.cursor);
     env.insert(bra, ket, "\u{03B1}\u{03B4}");
     env.cursor = c;
-    return true
+    return true;
 }
 
 fn r_step2b(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1805,7 +2894,7 @@ fn r_step2b(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03B5}\u{03B4}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step2c(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1825,7 +2914,7 @@ fn r_step2c(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03BF}\u{03C5}\u{03B4}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step2d(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1849,7 +2938,7 @@ fn r_step2d(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03B5}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step3(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1870,7 +2959,7 @@ fn r_step3(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03B9}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step4(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1910,7 +2999,7 @@ fn r_step4(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03B9}\u{03BA}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step5a(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -1962,7 +3051,7 @@ fn r_step5a(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03B1}\u{03BC}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step5b(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2027,7 +3116,7 @@ fn r_step5b(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03B1}\u{03BD}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step5c(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2093,7 +3182,7 @@ fn r_step5c(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03B5}\u{03C4}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step5d(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2133,7 +3222,7 @@ fn r_step5d(env: &mut SnowballEnv, context: &mut Context) -> bool {
         }
         break 'lab0;
     }
-    return true
+    return true;
 }
 
 fn r_step5e(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2157,7 +3246,7 @@ fn r_step5e(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03BF}\u{03BC}\u{03B1}\u{03C3}\u{03C4}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step5f(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2206,7 +3295,7 @@ fn r_step5f(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03B9}\u{03B5}\u{03C3}\u{03C4}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step5g(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2260,7 +3349,7 @@ fn r_step5g(env: &mut SnowballEnv, context: &mut Context) -> bool {
         }
         break 'lab1;
     }
-    return true
+    return true;
 }
 
 fn r_step5h(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2300,7 +3389,7 @@ fn r_step5h(env: &mut SnowballEnv, context: &mut Context) -> bool {
         }
         break 'lab0;
     }
-    return true
+    return true;
 }
 
 fn r_step5i(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2343,7 +3432,7 @@ fn r_step5i(env: &mut SnowballEnv, context: &mut Context) -> bool {
                             return false;
                         }
                     }
-                    _ => ()
+                    _ => (),
                 }
                 break 'lab2;
             }
@@ -2363,7 +3452,7 @@ fn r_step5i(env: &mut SnowballEnv, context: &mut Context) -> bool {
         }
         break 'lab0;
     }
-    return true
+    return true;
 }
 
 fn r_step5j(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2387,7 +3476,7 @@ fn r_step5j(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03B7}\u{03C3}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step5k(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2411,7 +3500,7 @@ fn r_step5k(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03B7}\u{03C3}\u{03C4}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step5l(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2435,7 +3524,7 @@ fn r_step5l(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03BF}\u{03C5}\u{03BD}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step5m(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2459,7 +3548,7 @@ fn r_step5m(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_from("\u{03BF}\u{03C5}\u{03BC}") {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step6(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2487,7 +3576,7 @@ fn r_step6(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 fn r_step7(env: &mut SnowballEnv, context: &mut Context) -> bool {
@@ -2499,13 +3588,11 @@ fn r_step7(env: &mut SnowballEnv, context: &mut Context) -> bool {
     if !env.slice_del() {
         return false;
     }
-    return true
+    return true;
 }
 
 pub fn stem(env: &mut SnowballEnv) -> bool {
-    let mut context = &mut Context {
-        b_test1: false,
-    };
+    let mut context = &mut Context { b_test1: false };
     env.limit_backward = env.cursor;
     env.cursor = env.limit;
     let v_1 = env.limit - env.cursor;
@@ -2612,5 +3699,5 @@ pub fn stem(env: &mut SnowballEnv) -> bool {
     r_step7(env, context);
     env.cursor = env.limit - v_33;
     env.cursor = env.limit_backward;
-    return true
+    return true;
 }
